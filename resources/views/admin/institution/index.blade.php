@@ -4,12 +4,12 @@
 
 
     <div class="row">
-        <div class="panel">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="text-center">Instituciones</h3>
             </div>
             <div class="panel-body">
-                <div class="col-sm-8 col-sm-offset-2">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <table class="table">
                         <thead>
                             <th>Nombre</th>
@@ -17,7 +17,7 @@
                         </thead>
                         <tbody>
                             @foreach($institutions as $institution)
-                            <tr>
+                            <tr class="row-hover">
                                 <td>{{ $institution->nombre }}</td>
                                 <td>{{ $institution->siglas }}</td>
                             </tr>
