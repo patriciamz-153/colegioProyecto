@@ -1,13 +1,15 @@
 <?php
+
 namespace FisiLog\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
-
    protected $table = 'schools';
+
    protected $fillable = ['name', 'code', 'facultad_id'];
+
    public $timestamps = false;
 
    public function facultad()
@@ -24,5 +26,4 @@ class School extends Model
    {
       return $this->hasMany(Student::class,'id');
    }
-
 }
