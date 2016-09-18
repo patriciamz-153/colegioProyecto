@@ -15,11 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Admin'], function() {
-    //Institutions
-    Route::group(['prefix' => 'institutions', 'as' => 'institutions.'], function() {
-        Route::get('/', ['as' => 'index', 'uses' => 'InstitutionController@index']);
-    });
+Auth::routes();
 
-});
-
+Route::get('/home', 'HomeController@index');
