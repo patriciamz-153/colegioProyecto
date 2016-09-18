@@ -1,16 +1,16 @@
 <?php
 
-namespace FisiLog\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class UserType extends Model
 {
-    protected $table = 'user_types';
+    protected $table = 'tipo_usuario';
 
     public $timestamps = false;
 
-    protected $fillable = ['name'];
+    protected $attributes = ['tipo_usuario_id', 'nombre'];
 
     public function users()
     {

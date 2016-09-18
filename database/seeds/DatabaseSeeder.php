@@ -11,6 +11,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Eloquent::unguard();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        $this->call(InstitutionSeeder::class);
+        $this->call(UserTypeSeeder::class);
+        $this->call(UserSeeder::class);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        Eloquent::reguard();
     }
 }
