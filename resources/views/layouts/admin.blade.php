@@ -65,9 +65,11 @@
             border-right-color: rgba(46, 98, 247, 0.63);;
         }
         .row-hover:hover {
-            border-width: 0px 2px 0px 2px;
-            border-style: none solid none solid;
-            border-color: white black white black;
+            cursor: pointer;
+            background: #555;
+            color: white;
+        }
+        .row-selected {
             cursor: pointer;
             background: #555;
             color: white;
@@ -140,10 +142,13 @@
         </ul>
         </div>
     </div>
+
+    <script src="{{ url('js/app.js') }}"></script>
+
     <div class="content">
         @yield('content')
     </div>
     <!-- Scripts -->
-    <script src="{{ url('js/app.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="row">
+    <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="text-center">Instituciones</h3>
@@ -17,7 +17,7 @@
                         </thead>
                         <tbody>
                             @foreach($institutions as $institution)
-                            <tr class="row-hover">
+                            <tr id="institution_{{ $institution->institucion_id }}" class="row-hover" v-on:click="select_row('{{ $institution->institucion_id }}')">
                                 <td>{{ $institution->nombre }}</td>
                                 <td>{{ $institution->siglas }}</td>
                             </tr>
@@ -28,5 +28,11 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <a href="" class="btn btn-success">Agregar</a>
+    </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('js/admin/institution/index.js') }}"></script>
+@endpush
