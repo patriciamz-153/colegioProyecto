@@ -13,9 +13,9 @@ class UserTypeSeeder extends Seeder
     {
         DB::table('tipo_usuario')->truncate();
         DB::table('tipo_usuario')->insert([
-            ['tipo_usuario_id' => 1, 'nombre' => 'Admin'],
-            ['tipo_usuario_id' => 2, 'nombre' => 'Estudiante'],
-            ['tipo_usuario_id' => 3, 'nombre' => 'Profesor'],
+            ['id' => 1, 'nombre' => 'Admin'],
+            ['id' => 2, 'nombre' => 'Estudiante'],
+            ['id' => 3, 'nombre' => 'Profesor'],
         ]);
     }
 }

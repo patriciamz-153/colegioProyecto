@@ -4,26 +4,29 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
-    protected $primaryKey = 'usuario_id';
+    use SoftDeletes;
 
     protected $table = 'usuario';
 
-    protected $attributes = [
-        'usuario_id',
+    protected $fillable = [
+        'id',
         'nombres',
         'apellidos',
         'email',
         'password',
         'tipo_usuario_id',
-        'estado_id',
     ];
 
     protected $hidden = ['password', 'remember_token'];
+
+    protected $dates = ['deleted_at'];
+
+    public $timestamps = false;
 
     public function student()
     {
