@@ -2,6 +2,7 @@
 
 @section('content')
 
+    @include('admin.helpers.show_message')
 
     <div class="row" id="app">
         <div class="panel panel-info">
@@ -17,7 +18,7 @@
                         </thead>
                         <tbody>
                             @foreach($institutions as $institution)
-                            <tr id="institution_{{ $institution->institucion_id }}" class="row-hover" v-on:click="select_row('{{ $institution->institucion_id }}')">
+                            <tr id="institution_{{ $institution->id }}" class="row-hover" v-on:click="select_row('{{ $institution->id }}')">
                                 <td>{{ $institution->nombre }}</td>
                                 <td>{{ $institution->siglas }}</td>
                             </tr>
@@ -29,7 +30,7 @@
         </div>
     </div>
     <div class="row">
-        <a href="" class="btn btn-success">Agregar</a>
+        <a href="{{ route('institutions.create') }}" class="btn btn-success">Agregar</a>
     </div>
 @endsection
 
