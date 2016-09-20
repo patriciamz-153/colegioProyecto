@@ -351,4 +351,3 @@ ALTER TABLE facultad_x_sede ADD CONSTRAINT facultad_x_sede_sede_fk FOREIGN KEY (
 
 ALTER TABLE facultad_x_sede ADD CONSTRAINT facultad_x_sede_facultad_fk FOREIGN KEY (facultad_id)
 	REFERENCES grupo (id);
-

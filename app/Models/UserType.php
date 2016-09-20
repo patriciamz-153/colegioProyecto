@@ -10,7 +10,7 @@ class UserType extends Model
 
     public $timestamps = false;
 
-    protected $attributes = ['tipo_usuario_id', 'nombre'];
+    protected $fillable = ['id', 'nombre'];
 
     public function users()
     {

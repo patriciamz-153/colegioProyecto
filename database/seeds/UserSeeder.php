@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Models\User;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -12,8 +14,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('usuario')->truncate();
-        DB::table('usuario')->insert([
-            'usuario_id' => 1,
+        User::create([
+            'id' => 1,
             'nombres' => 'admin',
             'apellidos' => 'admin',
             'email' => 'admin@admin.com',
