@@ -6,8 +6,17 @@
 
     <div class="row" id="app">
         <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="text-center">Instituciones</h3>
+            <div class="panel-heading text-center">
+                <h3  style="display: inline-block;">Instituciones</h3>
+                <button type="button" class="btn btn-success btn-header" title="Agregar">
+                  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-info btn-header" v-show="institution_selected" title="Editar">
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-danger btn-header" v-show="institution_selected" title="Eliminar">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
