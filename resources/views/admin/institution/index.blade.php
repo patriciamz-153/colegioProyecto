@@ -8,15 +8,15 @@
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h3  style="display: inline-block;">Instituciones</h3>
-                <button type="button" class="btn btn-success btn-header" title="Agregar">
+                <a type="button" class="btn btn-success btn-header" title="Agregar" href="{{ route('institutions.create') }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                </button>
-                <button type="button" class="btn btn-info btn-header" v-show="institution_selected" title="Editar">
+                </a>
+                <a type="button" class="btn btn-info btn-header" v-show="institution_selected" title="Editar">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </button>
-                <button type="button" class="btn btn-danger btn-header" v-show="institution_selected" title="Eliminar">
+                </a>
+                <a type="button" class="btn btn-danger btn-header" v-show="institution_selected" title="Eliminar">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                </button>
+                </a>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -37,9 +37,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <a href="{{ route('institutions.create') }}" class="btn btn-success">Agregar</a>
     </div>
 @endsection
 
