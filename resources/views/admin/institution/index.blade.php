@@ -7,14 +7,14 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3  style="display: inline-block;">Instituciones</h3>
+                <h3 style="display: inline-block;">Instituciones</h3>
                 <a type="button" class="btn btn-success btn-header" title="Agregar" href="{{ route('institutions.create') }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-info btn-header" v-show="institution_selected" title="Editar">
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="institution_selected" title="Editar">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-danger btn-header" v-show="institution_selected" title="Eliminar">
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="institution_selected" title="Eliminar">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
             </div>

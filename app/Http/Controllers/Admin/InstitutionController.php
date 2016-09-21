@@ -32,4 +32,14 @@ class InstitutionController extends Controller
 
         return redirect()->route('institutions.index')->with('message', 'Institucion creada satisfactoriamente.');
     }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update($id)
+    {
+
+    }
 }

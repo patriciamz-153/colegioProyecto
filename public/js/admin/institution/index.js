@@ -4,6 +4,8 @@ var vm = new Vue(
 
     data: {
         institution_selected: 0,
+        url_edit: '',
+        url_delete: '',
     },
 
     methods: {
@@ -26,4 +28,14 @@ var vm = new Vue(
             this.institution_selected = (this.institution_selected == id) ? 0 : id
         },
     },
+
+    watch: {
+        institution_selected: function(newValue){
+            var base_url = '/admin/instituciones/'
+            if (newValue > 0) {
+                this.url_edit = base_url + newValue + '/editar'
+                this.url_delete = base_url + newValue + '/eliminar'
+            }
+        }
+    }
 });
