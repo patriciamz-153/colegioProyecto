@@ -30,16 +30,37 @@ class InstitutionController extends Controller
     {
         Institution::create($request->all());
 
-        return redirect()->route('institutions.index')->with('message', 'Institucion creada satisfactoriamente.');
+        return redirect()
+             ->route('institutions.index')
+             ->with('message', 'Institucion creada satisfactoriamente.');
     }
 
-    public function edit($id)
+    public function edit($institution)
     {
+        $data = [
+            'institution' => $institution,
+        ];
 
+        return view('admin.institution.edit', $data);
     }
 
-    public function update($id)
+    public function update($institution, StoreRequest $request)
     {
+        $institution->nombre = $request->input('nombre');
+        $institution->siglas = $request->input('siglas');
+        $institution->save();
 
+        return redirect()
+             ->route('institutions.index')
+             ->with('message', 'Institucion actualizada satisfactoriamente.');
+    }
+
+    public function delete($institution)
+    {
+        $institution->delete();
+
+        return redirect()
+             ->route('institutions.index')
+             ->with('message', 'Institucion eliminada satisfactoriamente.');
     }
 }

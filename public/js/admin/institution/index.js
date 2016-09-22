@@ -27,6 +27,11 @@ var vm = new Vue(
 
             this.institution_selected = (this.institution_selected == id) ? 0 : id
         },
+        delete_institution: function()
+        {
+            event.preventDefault();
+            document.getElementById('delete-institution-form').submit();
+        }
     },
 
     watch: {
