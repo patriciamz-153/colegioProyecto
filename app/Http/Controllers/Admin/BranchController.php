@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class BranchController extends Controller
@@ -19,5 +16,14 @@ class BranchController extends Controller
         ];
 
         return view('admin.institution.branch.index', $data);
+    }
+
+    public function create($institution)
+    {
+        $data = [
+            'institution' => $institution,
+        ];
+
+        return view('admin.institution.branch.create', $data);
     }
 }

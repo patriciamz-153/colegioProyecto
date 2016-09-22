@@ -8,6 +8,9 @@
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h3>{{ $institution->siglas }} - Sedes</h3>
+                <a type="button" class="btn btn-success btn-header" title="Agregar Sede" href="{{ route('institutions.branches.create', ['institution' => $institution->id]) }}">
+                  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </a>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">

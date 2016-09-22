@@ -10,8 +10,9 @@ Route::group(['prefix' => 'instituciones', 'as' => 'institutions.'], function() 
         Route::post('/editar', ['as' => 'update', 'uses' => 'InstitutionController@update']);
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'InstitutionController@delete']);
 
-        Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
+        Route::group(['prefix' => 'sedes', 'as' => 'branches.'], function() {
             Route::get('/', ['as' => 'index', 'uses' => 'BranchController@index']);
+            Route::get('/nuevo', ['as' => 'create', 'uses' => 'BranchController@create']);
         });
     });
 });
