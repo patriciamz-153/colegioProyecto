@@ -7,15 +7,18 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3 style="display: inline-block;">Instituciones</h3>
+                <h3>Instituciones</h3>
                 <a type="button" class="btn btn-success btn-header" title="Agregar" href="{{ route('institutions.create') }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="institution_selected" title="Editar">
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="institution_selected" title="Editar" transition="btn-header" >
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="institution_selected" title="Eliminar" @click="delete_institution">
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="institution_selected" title="Eliminar" @click="delete_institution" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_branches" v-show="institution_selected" title="Sedes" transition="btn-header">
+                    <i class="fa fa-building" aria-hidden="true"></i>
                 </a>
                 <form id="delete-institution-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}

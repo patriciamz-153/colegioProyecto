@@ -3,7 +3,7 @@ var vm = new Vue(
     el: '#app',
 
     data: {
-        institution_selected: 0,
+        branch_selected: 0,
         url_edit: '',
         url_delete: '',
         url_branches: '',
@@ -12,13 +12,13 @@ var vm = new Vue(
     methods: {
         select_row: function(id)
         {
-            var last_tr = document.getElementById('institution_' + this.institution_selected)
-            var tr_selected = document.getElementById('institution_' + id)
+            var last_tr = document.getElementById('branch_' + this.branch_selected)
+            var tr_selected = document.getElementById('branch_' + id)
 
-            if (this.institution_selected == 0) {
+            if (this.branch_selected == 0) {
                 tr_selected.className += ' row-selected'
             } else {
-                if (this.institution_selected == id) {
+                if (this.branch_selected == id) {
                     tr_selected.className = 'row-hover'
                 } else {
                     last_tr.className = 'row-hover'
@@ -26,9 +26,9 @@ var vm = new Vue(
                 }
             }
 
-            this.institution_selected = (this.institution_selected == id) ? 0 : id
+            this.branch_selected = (this.branch_selected == id) ? 0 : id
         },
-        delete_institution: function()
+        delete_branch: function()
         {
             event.preventDefault();
             document.getElementById('delete-institution-form').submit();
@@ -36,12 +36,11 @@ var vm = new Vue(
     },
 
     watch: {
-        institution_selected: function(newValue){
-            var base_url = '/admin/instituciones/' + newValue
+        branch_selected: function(newValue){
+            var base_url = '/admin/instituciones/' +  + 'sedes/' + newValue
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
-                this.url_branches = base_url + '/sedes'
             }
         }
     }

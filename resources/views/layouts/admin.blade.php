@@ -12,7 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
+    <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet" >
     <link href="{{ url('css/admin/button.css') }}" rel="stylesheet">
+    <link href="{{ url('css/admin/heading.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
