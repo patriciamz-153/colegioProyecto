@@ -4,20 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Institution extends Model
+class District extends Model
 {
-    protected $table = 'institucion';
+    protected $table = 'distrito';
 
     protected $fillable = [
-        'id',
         'nombre',
-        'siglas',
     ];
 
     public $timestamps = false;
 
     public function branches()
     {
-        return $this->hasMany(Branch::class, 'institucion_id');
+        return $this->hasMany(Branch::class, 'distrito_id');
     }
 }
