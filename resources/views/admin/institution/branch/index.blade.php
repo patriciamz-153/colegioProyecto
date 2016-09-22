@@ -29,6 +29,12 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <a class="btn btn-info" href="{{ route('institutions.index') }}" title="Regresar a instituciones">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </a>
+    </div>
 @endsection
 
 @push('scripts')
