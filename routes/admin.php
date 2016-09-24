@@ -18,6 +18,7 @@ Route::group(['prefix' => 'instituciones', 'as' => 'institutions.'], function() 
         Route::group(['prefix' => 'facultades', 'as' => 'faculties.'], function() {
             Route::get('/', ['as' => 'index', 'uses' => 'FacultyController@index']);
             Route::get('/nuevo', ['as' => 'create', 'uses' => 'FacultyController@create']);
+            Route::post('/nuevo', ['as' => 'store', 'uses' => 'FacultyController@store']);
         });
     });
 });
