@@ -13,6 +13,7 @@ Route::group(['prefix' => 'instituciones', 'as' => 'institutions.'], function() 
         Route::group(['prefix' => 'sedes', 'as' => 'branches.'], function() {
             Route::get('/', ['as' => 'index', 'uses' => 'BranchController@index']);
             Route::get('/nuevo', ['as' => 'create', 'uses' => 'BranchController@create']);
+            Route::post('/nuevo', ['as' => 'store', 'uses' => 'BranchController@store']);
         });
 
         Route::group(['prefix' => 'facultades', 'as' => 'faculties.'], function() {
