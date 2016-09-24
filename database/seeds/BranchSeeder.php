@@ -14,9 +14,14 @@ class BranchSeeder extends Seeder
         DB::table('sede')->truncate();
         DB::table('distrito')->truncate();
         DB::table('provincia')->truncate();
+        DB::table('departamento')->truncate();
+
+        DB::table('departamento')->insert([
+            ['id' => 1, 'nombre' => 'Lima'],
+        ]);
 
         DB::table('provincia')->insert([
-            ['id' => 1, 'nombre' => 'Lima'],
+            ['id' => 1, 'nombre' => 'Lima', 'departamento_id' => 1],
         ]);
 
         DB::table('distrito')->insert([
