@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Departamento</label>
                     <div class="col-sm-6">
-                        <select class="form-control">
+                        <select class="form-control" v-model="department_selected">
                             <option value="">Seleccione el departamento</option>
                         @foreach($departaments as $departament)
                             <option value="{{ $departament->id }}">{{ $departament->nombre }}</option>
@@ -38,7 +38,29 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label text-left">Provincia</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" v-model="province_selected">
+                            <option value="">Seleccione la provincia</option>
+                            <option v-for="province in provinces" value="@{{ province.id }}">@{{ province.nombre }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label text-left">Distrito</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" v-model="district_selected" name="distrito_id">
+                            <option value="" selected>Seleccione el distrito</option>
+                            <option v-for="district in districts" value="@{{ district.id }}">@{{ district.nombre }}</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+
+
             <div class="panel-footer">
                 <button class="btn btn-primary">Agregar</button>
             </div>
@@ -48,3 +70,7 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('js/admin/institution/branch/create.js') }}"></script>
+@endpush
