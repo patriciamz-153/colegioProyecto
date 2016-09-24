@@ -12,6 +12,11 @@ class Province extends Model
         'nombre',
     ];
 
+    protected $visible = [
+        'id',
+        'nombre',
+    ];
+
     public $timestamps = false;
 
     public function districts()
@@ -19,8 +24,8 @@ class Province extends Model
         return $this->hasMany(District::class, 'provincia_id');
     }
 
-    public function departament()
+    public function department()
     {
-        return $this->belongsTo(Departament::class, 'departamento_id');
+        return $this->belongsTo(Department::class, 'departamento_id');
     }
 }

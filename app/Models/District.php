@@ -12,6 +12,11 @@ class District extends Model
         'nombre',
     ];
 
+    protected $visible = [
+        'id',
+        'nombre',
+    ];
+
     public $timestamps = false;
 
     public function branches()

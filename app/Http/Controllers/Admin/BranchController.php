@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Departament;
+use App\Models\Department;
 
 class BranchController extends Controller
 {
@@ -22,7 +22,7 @@ class BranchController extends Controller
 
     public function create($institution)
     {
-        $departaments = Departament::all();
+        $departaments = Department::all();
 
         $data = [
             'institution' => $institution,

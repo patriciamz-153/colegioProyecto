@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/department/{department}/provinces', ['as' => 'getProvinces', 'uses' => 'ProvinceController@getByDepartment']);
+Route::get('/province/{province}/districts', ['as' => 'getDistricts', 'uses' => 'DistrictController@getByProvince']);
