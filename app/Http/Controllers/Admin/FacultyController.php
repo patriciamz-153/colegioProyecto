@@ -63,7 +63,7 @@ class FacultyController extends Controller
              ->with('message', 'Facultad actualizada satisfactoriamente.');
     }
 
-    public function delete($faculty)
+    public function delete($institution, $faculty)
     {
         $faculty->delete();
 
