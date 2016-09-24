@@ -17,7 +17,7 @@ CREATE TABLE distrito (
 CREATE TABLE eap (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(90) NOT NULL,
-	codigo VARCHAR(10) UNIQUE NOT NULL,
+	codigo INT UNSIGNED NOT NULL,
 	facultad_id INT UNSIGNED NOT NULL,
 	PRIMARY KEY (id)
 );
@@ -37,7 +37,7 @@ CREATE TABLE usuario (
 CREATE TABLE facultad (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(90) NOT NULL,
-	codigo VARCHAR(10) UNIQUE NOT NULL,
+	codigo INT UNSIGNED NOT NULL,
 	institucion_id INT UNSIGNED NOT NULL,
 	PRIMARY KEY (id)
 );
@@ -93,6 +93,7 @@ CREATE TABLE tipo_clase (
 CREATE TABLE provincia (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(90) NOT NULL,
+	departamento_id INT UNSIGNED NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -127,7 +128,7 @@ CREATE TABLE clase (
 CREATE TABLE asignatura (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(90) NOT NULL,
-	codigo VARCHAR(10) UNIQUE NOT NULL,
+	codigo INT UNSIGNED NOT NULL,
 	cantidad_de_creditos INT UNSIGNED NOT NULL,
 	ciclo INT UNSIGNED NOT NULL,
 	plan_de_estudios_id INT UNSIGNED NOT NULL,
@@ -235,6 +236,12 @@ CREATE TABLE facultad_x_sede (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	sede_id INT UNSIGNED NOT NULL,
 	facultad_id INT UNSIGNED NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE departamento (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(90) NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -351,3 +358,7 @@ ALTER TABLE facultad_x_sede ADD CONSTRAINT facultad_x_sede_sede_fk FOREIGN KEY (
 
 ALTER TABLE facultad_x_sede ADD CONSTRAINT facultad_x_sede_facultad_fk FOREIGN KEY (facultad_id)
 	REFERENCES grupo (id);
+
+ALTER TABLE provincia ADD CONSTRAINT provincia_departamento_fk FOREIGN KEY (departamento_id)
+	REFERENCES departamento (id);
+
