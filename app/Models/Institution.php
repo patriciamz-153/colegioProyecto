@@ -20,4 +20,9 @@ class Institution extends Model
     {
         return $this->hasMany(Branch::class, 'institucion_id');
     }
+
+    public function faculties()
+    {
+        return $this->hasMany(Faculty::class, 'institucion_id');
+    }
 }

@@ -3,23 +3,23 @@ var vm = new Vue(
     el: '#app',
 
     data: {
+        branch_selected: 0,
         institution_selected: 0,
+        default_url: '',
         url_edit: '',
         url_delete: '',
-        url_branches: '',
-        url_faculties: '',
     },
 
     methods: {
         select_row: function(id)
         {
-            var last_tr = document.getElementById('institution_' + this.institution_selected)
-            var tr_selected = document.getElementById('institution_' + id)
+            var last_tr = document.getElementById('faculty_' + this.branch_selected)
+            var tr_selected = document.getElementById('faculty_' + id)
 
-            if (this.institution_selected == 0) {
+            if (this.branch_selected == 0) {
                 tr_selected.className += ' row-selected'
             } else {
-                if (this.institution_selected == id) {
+                if (this.branch_selected == id) {
                     tr_selected.className = 'row-hover'
                 } else {
                     last_tr.className = 'row-hover'
@@ -27,9 +27,9 @@ var vm = new Vue(
                 }
             }
 
-            this.institution_selected = (this.institution_selected == id) ? 0 : id
+            this.branch_selected = (this.branch_selected == id) ? 0 : id
         },
-        delete_institution: function()
+        delete_branch: function()
         {
             event.preventDefault();
             document.getElementById('delete-institution-form').submit();
@@ -37,14 +37,22 @@ var vm = new Vue(
     },
 
     watch: {
-        institution_selected: function(newValue){
-            var base_url = '/admin/instituciones/' + newValue
+        branch_selected: function(newValue)
+        {
+            var base_url = this.default_url + newValue
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
-                this.url_branches = base_url + '/sedes'
-                this.url_faculties = base_url + '/facultades'
             }
         }
+    },
+
+    ready: function()
+    {
+        this.default_url = '/admin/instituciones/' + this.institution_selected + '/facultades/'
+
+        var institution = document.getElementById('institution_id')
+        this.institution_selected = institution.value
+        institution.remove()
     }
 });

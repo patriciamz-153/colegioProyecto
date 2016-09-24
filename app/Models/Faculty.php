@@ -4,13 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Facultad extends Model
+class Faculty extends Model
 {
-    protected $table = 'facultades';
+    protected $table = 'facultad';
 
-    protected $fillable = ['name', 'code'];
+    protected $fillable = [
+        'nombre',
+        'codigo',
+        'institution_id',
+    ];
 
     public $timestamps = false;
+
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class);
+    }
 
     public function schools()
     {

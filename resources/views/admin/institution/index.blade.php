@@ -20,6 +20,9 @@
                 <a type="button" class="btn btn-info btn-header" v-bind:href="url_branches" v-show="institution_selected" title="Sedes" transition="btn-header">
                     <i class="fa fa-building" aria-hidden="true"></i>
                 </a>
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_faculties" v-show="institution_selected" title="Facultades" transition="btn-header">
+                    <i class="fa fa-university" aria-hidden="true"></i>
+                </a>
                 <form id="delete-institution-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>

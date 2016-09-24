@@ -4,9 +4,9 @@ var vm = new Vue(
 
     data: {
         branch_selected: 0,
+        institution_selected: 0,
         url_edit: '',
         url_delete: '',
-        url_branches: '',
     },
 
     methods: {
@@ -37,11 +37,20 @@ var vm = new Vue(
 
     watch: {
         branch_selected: function(newValue){
-            var base_url = '/admin/instituciones/' +  + 'sedes/' + newValue
+            var base_url = this.default_url + newValue
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
             }
         }
+    },
+
+    ready: function()
+    {
+        this.default_url = '/admin/instituciones/' + this.institution_selected + '/sedes/'
+
+        var institution = document.getElementById('institution_id')
+        this.institution_selected = institution.value
+        institution.remove()
     }
 });
