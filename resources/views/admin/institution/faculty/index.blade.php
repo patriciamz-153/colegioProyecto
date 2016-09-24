@@ -11,6 +11,15 @@
                 <a type="button" class="btn btn-success btn-header" title="Agregar Facultad" href="{{ route('institutions.faculties.create', ['institution' => $institution->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="faculty_selected" title="Editar" transition="btn-header" >
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="faculty_selected" title="Eliminar" @click="delete_faculty" transition="btn-header">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+                <form id="delete-faculty-form" v-bind:action="url_delete" method="POST" hidden>
+                    {{ csrf_field() }}
+                </form>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">

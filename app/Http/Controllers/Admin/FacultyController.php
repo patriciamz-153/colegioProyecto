@@ -42,4 +42,33 @@ class FacultyController extends Controller
              ->route('institutions.faculties.index', ['institution' => $institution->id])
              ->with('message', 'Facultad creada satisfactoriamente.');
     }
+
+    public function edit($institution, $faculty)
+    {
+        $data = [
+            'institution' => $institution,
+            'faculty' => $faculty,
+        ];
+
+        return view('admin.institution.faculty.edit', $data);
+    }
+
+    public function update($institution, $faculty, StoreRequest $request)
+    {
+        $faculty->fill($request->all());
+        $faculty->save();
+
+        return redirect()
+             ->route('institutions.faculties.index', ['institution' => $institution->id])
+             ->with('message', 'Facultad actualizada satisfactoriamente.');
+    }
+
+    public function delete($faculty)
+    {
+        $faculty->delete();
+
+        return redirect()
+             ->route('institutions.faculties.index', ['institution' => $institution->id])
+             ->with('message', 'Facultad eliminada satisfactoriamente.');
+    }
 }

@@ -19,6 +19,13 @@ Route::group(['prefix' => 'instituciones', 'as' => 'institutions.'], function() 
             Route::get('/', ['as' => 'index', 'uses' => 'FacultyController@index']);
             Route::get('/nuevo', ['as' => 'create', 'uses' => 'FacultyController@create']);
             Route::post('/nuevo', ['as' => 'store', 'uses' => 'FacultyController@store']);
+
+            Route::group(['prefix' => '{faculty}'], function() {
+                Route::get('/editar', ['as' => 'edit', 'uses' => 'FacultyController@edit']);
+                Route::post('/editar', ['as' => 'update', 'uses' => 'FacultyController@update']);
+                Route::post('/eliminar', ['as' => 'delete', 'uses' => 'FacultyController@delete']);
+            });
+
         });
     });
 });

@@ -42,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapAdminRoutes();
 
         Route::model('institution', \App\Models\Institution::class);
+        Route::model('faculty', \App\Models\Faculty::class);
     }
 
     /**
