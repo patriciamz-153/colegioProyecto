@@ -34,7 +34,7 @@ class Sede extends Model
 
     public function getDepartamentoIdAttribute()
     {
-        return $this->distrito->province->departamento_id;
+        return $this->distrito->provincia->departamento_id;
     }
 
     public function getProvinciaIdAttribute()

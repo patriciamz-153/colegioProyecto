@@ -3,26 +3,26 @@ var vm = new Vue(
     el: '#app',
 
     data : {
-        department_selected: 0,
-        province_selected: 0,
-        district_selected: 0,
-        provinces: [],
-        districts: [],
+        departamento_selected: 0,
+        provincia_selected: 0,
+        distrito_selected: 0,
+        provincias: [],
+        distritos: [],
     },
 
     methods : {
-        getProvinces: function()
+        getProvincias: function()
         {
-            this.$http.get('/department/' + this.department_selected + '/provinces').then((response) => {
-                this.$set('provinces', response.data)
+            this.$http.get('/departamento/' + this.departamento_selected + '/provincias').then((response) => {
+                this.$set('provincias', response.data)
             }, (response) => {
                 //Message error
             })
         },
-        getDistricts: function()
+        getDistritos: function()
         {
-            this.$http.get('/province/' + this.province_selected + '/districts').then((response) => {
-                this.$set('districts', response.data)
+            this.$http.get('/provincia/' + this.provincia_selected + '/distritos').then((response) => {
+                this.$set('distritos', response.data)
             }, (response) => {
 
             })
@@ -30,39 +30,39 @@ var vm = new Vue(
     },
 
     watch: {
-        department_selected: function(newValue)
+        departamento_selected: function(newValue)
         {
             if (newValue != 0) {
-                this.getProvinces(newValue)
+                this.getProvincias(newValue)
             }
             else {
-                this.$set('provinces', [])
-                this.$set('province_selected', 0)
+                this.$set('provincias', [])
+                this.$set('provincia_selected', 0)
             }
         },
-        province_selected: function(newValue)
+        provincia_selected: function(newValue)
         {
             if (newValue != 0) {
-                this.getDistricts(newValue)
+                this.getDistritos(newValue)
             }
             else {
-                this.$set('districts', [])
+                this.$set('distritos', [])
                 this.$set('district_selected', 0)
             }
-        }
+        },
     },
 
     ready: function()
     {
-        var department = document.getElementById('department')
-        var province = document.getElementById('province')
-        var district = document.getElementById('district')
-        this.department_selected = department.value
-        this.province_selected = province.value
-        this.district_selected = district.value
-        department.remove()
-        province.remove()
-        district.remove()
-    }
+        var departamento = document.getElementById('departamento')
+        var provincia = document.getElementById('provincia')
+        var distrito = document.getElementById('distrito')
+        this.departamento_selected = departamento.value
+        this.provincia_selected = provincia.value
+        this.distrito_selected = distrito.value
+        departamento.remove()
+        provincia.remove()
+        distrito.remove()
+    },
 
 });

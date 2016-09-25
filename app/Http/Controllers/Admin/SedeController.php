@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Departamento;
 use App\Models\Sede;
 
-use App\Http\Requests\Admin\Branch\StoreRequest;
+use App\Http\Requests\Admin\Sede\StoreRequest;
 
 class SedeController extends Controller
 {
@@ -25,57 +25,57 @@ class SedeController extends Controller
 
     public function create($institucion)
     {
-        $departments = Department::all();
+        $departamentos = Departamento::all();
 
         $data = [
             'institucion' => $institucion,
-            'departments' => $departments,
+            'departamentos' => $departamentos,
         ];
 
-        return view('admin.institucion.branch.create', $data);
+        return view('admin.institucion.sede.create', $data);
     }
 
     public function store($institucion, StoreRequest $request)
     {
-        $branch = new Branch;
-        $branch->fill($request->all());
-        $branch->institucion_id = $institucion->id;
-        $branch->save();
+        $sede = new sede;
+        $sede->fill($request->all());
+        $sede->institucion_id = $institucion->id;
+        $sede->save();
 
         return redirect()
-             ->route('institucions.branches.index', ['institucion' => $institucion->id])
+             ->route('instituciones.sedes.index', ['institucion' => $institucion->id])
              ->with('message', 'Sede creada satisfactoriamente.');
     }
 
-    public function edit($institucion, $branch)
+    public function edit($institucion, $sede)
     {
-        $departments = Department::all();
+        $departamentos = Departamento::all();
 
         $data = [
             'institucion' => $institucion,
-            'branch'      => $branch,
-            'departments' => $departments,
+            'sede'      => $sede,
+            'departamentos' => $departamentos,
         ];
 
-        return view('admin.institucion.branch.edit', $data);
+        return view('admin.institucion.sede.edit', $data);
     }
 
-    public function update($institucion, $branch, StoreRequest $request)
+    public function update($institucion, $sede, StoreRequest $request)
     {
-        $branch->fill($request->all());
-        $branch->save();
+        $sede->fill($request->all());
+        $sede->save();
 
         return redirect()
-             ->route('institucions.branches.index', ['institucion' => $institucion->id])
+             ->route('instituciones.sedes.index', ['institucion' => $institucion->id])
              ->with('message', 'Sede actualizada satisfactoriamente.');
     }
 
-    public function delete($institucion, $branch)
+    public function delete($institucion, $sede)
     {
-        $branch->delete();
+        $sede->delete();
 
         return redirect()
-             ->route('institucions.branches.index', ['institucion' => $institucion->id])
+             ->route('instituciones.sedes.index', ['institucion' => $institucion->id])
              ->with('message', 'Sede eliminada satisfactoriamente.');
     }
 }

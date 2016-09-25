@@ -14,8 +14,8 @@ class Departamento extends Model
 
     public $timestamps = false;
 
-    public function provinces()
+    public function provincias()
     {
-        return $this->hasMany(Province::class, 'departamento_id');
+        return $this->hasMany(Provincia::class, 'departamento_id');
     }
 }

@@ -19,5 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/department/{department}/provinces', ['as' => 'getProvinces', 'uses' => 'ProvinceController@getByDepartment']);
-Route::get('/province/{province}/districts', ['as' => 'getDistricts', 'uses' => 'DistrictController@getByProvince']);
+Route::get('/departamento/{departamento}/provincias', ['as' => 'getProvincias', 'uses' => 'ProvinciaController@getByDepartamento']);
+Route::get('/provincia/{provincia}/distritos', ['as' => 'getDistritos', 'uses' => 'DistritoController@getByProvincia']);

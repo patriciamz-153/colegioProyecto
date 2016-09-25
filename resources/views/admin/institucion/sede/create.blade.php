@@ -7,7 +7,7 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h3 class="text-center">{{ $institution->siglas }} - Registrar Sede</h3>
+                <h3 class="text-center">{{ $institucion->siglas }} - Registrar Sede</h3>
             </div>
             <form class="form form-horizontal" method="POST">
             {{ csrf_field() }}
@@ -30,10 +30,10 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Departamento</label>
                     <div class="col-sm-6">
-                        <select class="form-control" v-model="department_selected">
+                        <select class="form-control" v-model="departamento_selected">
                             <option value="">Seleccione el departamento</option>
-                        @foreach($departments as $department)
-                            <option value="{{ $department->id }}">{{ $department->nombre }}</option>
+                        @foreach($departamentos as $departamento)
+                            <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
                         @endforeach
                         </select>
                     </div>
@@ -42,9 +42,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Provincia</label>
                     <div class="col-sm-6">
-                        <select class="form-control" v-model="province_selected">
+                        <select class="form-control" v-model="provincia_selected">
                             <option value="">Seleccione la provincia</option>
-                            <option v-for="province in provinces" value="@{{ province.id }}">@{{ province.nombre }}</option>
+                            <option v-for="provincia in provincias" value="@{{ provincia.id }}">@{{ provincia.nombre }}</option>
                         </select>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Distrito</label>
                     <div class="col-sm-6">
-                        <select class="form-control" v-model="district_selected" name="distrito_id">
+                        <select class="form-control" v-model="distrito_selected" name="distrito_id">
                             <option value="" selected>Seleccione el distrito</option>
-                            <option v-for="district in districts" value="@{{ district.id }}">@{{ district.nombre }}</option>
+                            <option v-for="distrito in distritos" value="@{{ distrito.id }}">@{{ distrito.nombre }}</option>
                         </select>
                     </div>
                 </div>
@@ -72,5 +72,5 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institution/branch/create.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/institucion/sede/create.js') }}"></script>
 @endpush

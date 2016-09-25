@@ -19,13 +19,13 @@ class Provincia extends Model
 
     public $timestamps = false;
 
-    public function districts()
+    public function distritos()
     {
-        return $this->hasMany(District::class, 'provincia_id');
+        return $this->hasMany(Distrito::class, 'provincia_id');
     }
 
-    public function department()
+    public function departamento()
     {
-        return $this->belongsTo(Department::class, 'departamento_id');
+        return $this->belongsTo(Departamento::class, 'departamento_id');
     }
 }

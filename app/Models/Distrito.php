@@ -19,13 +19,13 @@ class Distrito extends Model
 
     public $timestamps = false;
 
-    public function branches()
+    public function sedes()
     {
-        return $this->hasMany(Branch::class, 'distrito_id');
+        return $this->hasMany(Sede::class, 'distrito_id');
     }
 
-    public function province()
+    public function provincia()
     {
-        return $this->belongsTo(Province::class, 'provincia_id');
+        return $this->belongsTo(Provincia::class, 'provincia_id');
     }
 }
