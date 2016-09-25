@@ -140,7 +140,7 @@
         <div class="navbar-collapse collapse">
         <ul class="nav in">
             <li>
-                <a class="sidebar-link" href="{{ route('institutions.index') }}">Instituciones</a>
+                <a class="sidebar-link" href="{{ route('instituciones.index') }}">Instituciones</a>
             </li>
         </ul>
         </div>
