@@ -41,11 +41,11 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
-        Route::model('institution', \App\Models\Institution::class);
-        Route::model('faculty', \App\Models\Faculty::class);
-        Route::model('branch', \App\Models\Branch::class);
-        Route::model('department', \App\Models\Department::class);
-        Route::model('province', \App\Models\Province::class);
+        Route::model('institucion', \App\Models\Institucion::class);
+        Route::model('facultad', \App\Models\Facultad::class);
+        Route::model('sede', \App\Models\Sede::class);
+        Route::model('departamento', \App\Models\Departamento::class);
+        Route::model('provincia', \App\Models\Provincia::class);
     }
 
     /**

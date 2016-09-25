@@ -8,22 +8,22 @@
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h3>Instituciones</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar" href="{{ route('institutions.create') }}">
+                <a type="button" class="btn btn-success btn-header" title="Agregar" href="{{ route('instituciones.create') }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="institution_selected" title="Editar" transition="btn-header" >
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="institucion_selected" title="Editar" transition="btn-header" >
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="institution_selected" title="Eliminar" @click="delete_institution" transition="btn-header">
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="institucion_selected" title="Eliminar" @click="delete_institucion" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-info btn-header" v-bind:href="url_branches" v-show="institution_selected" title="Sedes" transition="btn-header">
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_branches" v-show="institucion_selected" title="Sedes" transition="btn-header">
                     <i class="fa fa-building" aria-hidden="true"></i>
                 </a>
-                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_faculties" v-show="institution_selected" title="Facultades" transition="btn-header">
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_faculties" v-show="institucion_selected" title="Facultades" transition="btn-header">
                     <i class="fa fa-university" aria-hidden="true"></i>
                 </a>
-                <form id="delete-institution-form" v-bind:action="url_delete" method="POST" hidden>
+                <form id="delete-institucion-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>
             </div>
@@ -35,10 +35,10 @@
                             <th>Siglas</th>
                         </thead>
                         <tbody>
-                            @foreach($institutions as $institution)
-                            <tr id="institution_{{ $institution->id }}" class="row-hover" v-on:click="select_row('{{ $institution->id }}')">
-                                <td>{{ $institution->nombre }}</td>
-                                <td>{{ $institution->siglas }}</td>
+                            @foreach($instituciones as $institucion)
+                            <tr id="institucion_{{ $institucion->id }}" class="row-hover" v-on:click="select_row('{{ $institucion->id }}')">
+                                <td>{{ $institucion->nombre }}</td>
+                                <td>{{ $institucion->siglas }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -50,5 +50,5 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institution/index.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/institucion/index.js') }}"></script>
 @endpush

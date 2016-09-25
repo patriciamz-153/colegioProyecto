@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Sede extends Model
 {
     protected $table = 'sede';
 
@@ -17,28 +17,28 @@ class Branch extends Model
 
     public $timestamps = false;
 
-    public function institution()
+    public function institucion()
     {
-        return $this->belongsTo(Institution::class, 'institucion_id');
+        return $this->belongsTo(Institucion::class, 'institucion_id');
     }
 
-    public function district()
+    public function distrito()
     {
-        return $this->belongsTo(District::class, 'distrito_id');
+        return $this->belongsTo(Distrito::class, 'distrito_id');
     }
 
     public function getDistritoNombreAttribute()
     {
-        return $this->district->nombre;
+        return $this->distrito->nombre;
     }
 
     public function getDepartamentoIdAttribute()
     {
-        return $this->district->province->departamento_id;
+        return $this->distrito->province->departamento_id;
     }
 
     public function getProvinciaIdAttribute()
     {
-        return $this->district->provincia_id;
+        return $this->distrito->provincia_id;
     }
 }

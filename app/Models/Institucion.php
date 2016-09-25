@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Institution extends Model
+class Institucion extends Model
 {
     protected $table = 'institucion';
 
@@ -16,13 +16,13 @@ class Institution extends Model
 
     public $timestamps = false;
 
-    public function branches()
+    public function sedes()
     {
-        return $this->hasMany(Branch::class, 'institucion_id');
+        return $this->hasMany(Sede::class, 'institucion_id');
     }
 
-    public function faculties()
+    public function facultades()
     {
-        return $this->hasMany(Faculty::class, 'institucion_id');
+        return $this->hasMany(Facultad::class, 'institucion_id');
     }
 }

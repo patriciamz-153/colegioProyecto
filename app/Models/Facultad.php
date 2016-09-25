@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Faculty extends Model
+class Facultad extends Model
 {
     protected $table = 'facultad';
 
@@ -16,9 +16,9 @@ class Faculty extends Model
 
     public $timestamps = false;
 
-    public function institution()
+    public function institucion()
     {
-        return $this->belongsTo(Institution::class);
+        return $this->belongsTo(Institucion::class);
     }
 
     public function schools()

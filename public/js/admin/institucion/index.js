@@ -3,7 +3,7 @@ var vm = new Vue(
     el: '#app',
 
     data: {
-        institution_selected: 0,
+        institucion_selected: 0,
         url_edit: '',
         url_delete: '',
         url_branches: '',
@@ -13,13 +13,13 @@ var vm = new Vue(
     methods: {
         select_row: function(id)
         {
-            var last_tr = document.getElementById('institution_' + this.institution_selected)
-            var tr_selected = document.getElementById('institution_' + id)
+            var last_tr = document.getElementById('institucion_' + this.institucion_selected)
+            var tr_selected = document.getElementById('institucion_' + id)
 
-            if (this.institution_selected == 0) {
+            if (this.institucion_selected == 0) {
                 tr_selected.className += ' row-selected'
             } else {
-                if (this.institution_selected == id) {
+                if (this.institucion_selected == id) {
                     tr_selected.className = 'row-hover'
                 } else {
                     last_tr.className = 'row-hover'
@@ -27,17 +27,17 @@ var vm = new Vue(
                 }
             }
 
-            this.institution_selected = (this.institution_selected == id) ? 0 : id
+            this.institucion_selected = (this.institucion_selected == id) ? 0 : id
         },
-        delete_institution: function()
+        delete_institucion: function()
         {
             event.preventDefault();
-            document.getElementById('delete-institution-form').submit();
+            document.getElementById('delete-institucion-form').submit();
         }
     },
 
     watch: {
-        institution_selected: function(newValue){
+        institucion_selected: function(newValue){
             var base_url = '/admin/instituciones/' + newValue
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
