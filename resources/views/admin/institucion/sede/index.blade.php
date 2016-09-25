@@ -7,17 +7,17 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3>{{ $institution->siglas }} - Sedes</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar Sede" href="{{ route('institutions.branches.create', ['institution' => $institution->id]) }}">
+                <h3>{{ $institucion->siglas }} - Sedes</h3>
+                <a type="button" class="btn btn-success btn-header" title="Agregar Sede" href="{{ route('instituciones.sedes.create', ['institucion' => $institucion->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
-                 <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="branch_selected" title="Editar" transition="btn-header" >
+                 <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="sede_selected" title="Editar" transition="btn-header" >
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="branch_selected" title="Eliminar" @click="delete_branch" transition="btn-header">
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="sede_selected" title="Eliminar" @click="delete_sede" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
-                <form id="delete-branch-form" v-bind:action="url_delete" method="POST" hidden>
+                <form id="delete-sede-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>
             </div>
@@ -29,10 +29,10 @@
                             <th>Distrito</th>
                         </thead>
                         <tbody>
-                            @foreach($branches as $branch)
-                            <tr id="branch_{{ $branch->id }}" class="row-hover" v-on:click="select_row('{{ $branch->id }}')">
-                                <td>{{ $branch->nombre }}</td>
-                                <td>{{ $branch->distrito_nombre }}</td>
+                            @foreach($sedes as $sede)
+                            <tr id="sede_{{ $sede->id }}" class="row-hover" v-on:click="select_row('{{ $sede->id }}')">
+                                <td>{{ $sede->nombre }}</td>
+                                <td>{{ $sede->distrito_nombre }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -43,14 +43,14 @@
     </div>
 
     <div class="row">
-        <a class="btn btn-info" href="{{ route('institutions.index') }}" title="Regresar a instituciones">
+        <a class="btn btn-info" href="{{ route('instituciones.index') }}" title="Regresar a instituciones">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
         </a>
     </div>
 
-    <input type="hidden" id="institution_id" value="{{ $institution->id }}">
+    <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institution/branch/index.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/institucion/sede/index.js') }}"></script>
 @endpush

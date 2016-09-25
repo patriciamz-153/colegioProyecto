@@ -3,8 +3,8 @@ var vm = new Vue(
     el: '#app',
 
     data: {
-        branch_selected: 0,
-        institution_selected: 0,
+        sede_selected: 0,
+        institucion_selected: 0,
         url_edit: '',
         url_delete: '',
     },
@@ -12,13 +12,13 @@ var vm = new Vue(
     methods: {
         select_row: function(id)
         {
-            var last_tr = document.getElementById('branch_' + this.branch_selected)
-            var tr_selected = document.getElementById('branch_' + id)
+            var last_tr = document.getElementById('sede_' + this.sede_selected)
+            var tr_selected = document.getElementById('sede_' + id)
 
-            if (this.branch_selected == 0) {
+            if (this.sede_selected == 0) {
                 tr_selected.className += ' row-selected'
             } else {
-                if (this.branch_selected == id) {
+                if (this.sede_selected == id) {
                     tr_selected.className = 'row-hover'
                 } else {
                     last_tr.className = 'row-hover'
@@ -26,17 +26,17 @@ var vm = new Vue(
                 }
             }
 
-            this.branch_selected = (this.branch_selected == id) ? 0 : id
+            this.sede_selected = (this.sede_selected == id) ? 0 : id
         },
-        delete_branch: function()
+        delete_sede: function()
         {
             event.preventDefault()
-            document.getElementById('delete-branch-form').submit()
+            document.getElementById('delete-sede-form').submit()
         }
     },
 
     watch: {
-        branch_selected: function(newValue){
+        sede_selected: function(newValue){
             var base_url = this.default_url + newValue
 
             if (newValue > 0) {
@@ -48,10 +48,10 @@ var vm = new Vue(
 
     ready: function()
     {
-        var institution = document.getElementById('institution_id')
-        this.institution_selected = institution.value
-        institution.remove()
+        var institucion = document.getElementById('institucion_id')
+        this.institucion_selected = institucion.value
+        institucion.remove()
 
-        this.default_url = '/admin/instituciones/' + this.institution_selected + '/sedes/'
+        this.default_url = '/admin/instituciones/' + this.institucion_selected + '/sedes/'
     }
 });

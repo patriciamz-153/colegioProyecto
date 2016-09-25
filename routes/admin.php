@@ -10,15 +10,15 @@ Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function()
         Route::post('/editar', ['as' => 'update', 'uses' => 'InstitucionController@update']);
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'InstitucionController@delete']);
 
-        Route::group(['prefix' => 'sedes', 'as' => 'branches.'], function() {
-            Route::get('/', ['as' => 'index', 'uses' => 'BranchController@index']);
-            Route::get('/nuevo', ['as' => 'create', 'uses' => 'BranchController@create']);
-            Route::post('/nuevo', ['as' => 'store', 'uses' => 'BranchController@store']);
+        Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
+            Route::get('/', ['as' => 'index', 'uses' => 'SedeController@index']);
+            Route::get('/nuevo', ['as' => 'create', 'uses' => 'SedeController@create']);
+            Route::post('/nuevo', ['as' => 'store', 'uses' => 'SedeController@store']);
 
             Route::group(['prefix' => '{sede}'], function() {
-                Route::get('/editar', ['as' => 'edit', 'uses' => 'BranchController@edit']);
-                Route::post('/editar', ['as' => 'update', 'uses' => 'BranchController@update']);
-                Route::post('/eliminar', ['as' => 'delete', 'uses' => 'BranchController@delete']);
+                Route::get('/editar', ['as' => 'edit', 'uses' => 'SedeController@edit']);
+                Route::post('/editar', ['as' => 'update', 'uses' => 'SedeController@update']);
+                Route::post('/eliminar', ['as' => 'delete', 'uses' => 'SedeController@delete']);
             });
         });
 
