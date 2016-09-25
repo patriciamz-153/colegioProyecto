@@ -7,7 +7,7 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3 class="text-center">{{ $institution->siglas }} - Registrar Facultad</h3>
+                <h3 class="text-center">{{ $institucion->siglas }} - Registrar Facultad</h3>
             </div>
             <form class="form form-horizontal" method="POST">
             {{ csrf_field() }}
@@ -31,7 +31,7 @@
                 <button class="btn btn-primary">Agregar</button>
             </div>
 
-            <input type="hidden" id="institution_id" value="{{ $institution->id }}">
+            <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
 
             </form>
         </div>

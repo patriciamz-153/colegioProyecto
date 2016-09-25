@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Facultad;
 
-use App\Http\Requests\Admin\facultad\StoreRequest;
+use App\Http\Requests\Admin\Facultad\StoreRequest;
 
 class FacultadController extends Controller
 {

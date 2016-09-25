@@ -36,7 +36,3 @@
     </div>
 
 @endsection
-
-@push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institution/index.js') }}"></script>
-@endpush

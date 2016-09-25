@@ -7,7 +7,7 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3 class="text-center">{{ $institution->siglas }} - Editar Facultad</h3>
+                <h3 class="text-center">{{ $institucion->siglas }} - Editar Facultad</h3>
             </div>
             <form class="form form-horizontal" method="POST">
             {{ csrf_field() }}
@@ -16,14 +16,14 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Nombre</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="nombre" value="{{ $faculty->nombre }}">
+                        <input type="text" class="form-control" name="nombre" value="{{ $facultad->nombre }}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Codigo</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="codigo" value="{{ $faculty->codigo }}">
+                        <input type="text" class="form-control" name="codigo" value="{{ $facultad->codigo }}">
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <button class="btn btn-primary">Actualizar</button>
             </div>
 
-            <input type="hidden" id="institution_id" value="{{ $institution->id }}">
+            <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
 
             </form>
         </div>
