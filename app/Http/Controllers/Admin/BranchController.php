@@ -16,7 +16,7 @@ class BranchController extends Controller
         $branches = $institution->branches;
 
         $data = [
-            'branches' => $branches,
+            'branches'    => $branches,
             'institution' => $institution,
         ];
 
@@ -25,11 +25,11 @@ class BranchController extends Controller
 
     public function create($institution)
     {
-        $departaments = Department::all();
+        $departments = Department::all();
 
         $data = [
             'institution' => $institution,
-            'departaments' => $departaments,
+            'departments' => $departments,
         ];
 
         return view('admin.institution.branch.create', $data);
@@ -45,5 +45,37 @@ class BranchController extends Controller
         return redirect()
              ->route('institutions.branches.index', ['institution' => $institution->id])
              ->with('message', 'Sede creada satisfactoriamente.');
+    }
+
+    public function edit($institution, $branch)
+    {
+        $departments = Department::all();
+
+        $data = [
+            'institution' => $institution,
+            'branch'      => $branch,
+            'departments' => $departments,
+        ];
+
+        return view('admin.institution.branch.edit', $data);
+    }
+
+    public function update($institution, $branch, StoreRequest $request)
+    {
+        $branch->fill($request->all());
+        $branch->save();
+
+        return redirect()
+             ->route('institutions.branches.index', ['institution' => $institution->id])
+             ->with('message', 'Sede actualizada satisfactoriamente.');
+    }
+
+    public function delete($institution, $branch)
+    {
+        $branch->delete();
+
+        return redirect()
+             ->route('institutions.branches.index', ['institution' => $institution->id])
+             ->with('message', 'Sede eliminada satisfactoriamente.');
     }
 }

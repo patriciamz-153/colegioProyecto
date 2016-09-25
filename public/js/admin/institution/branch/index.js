@@ -30,14 +30,15 @@ var vm = new Vue(
         },
         delete_branch: function()
         {
-            event.preventDefault();
-            document.getElementById('delete-institution-form').submit();
+            event.preventDefault()
+            document.getElementById('delete-branch-form').submit()
         }
     },
 
     watch: {
         branch_selected: function(newValue){
             var base_url = this.default_url + newValue
+
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
@@ -47,10 +48,10 @@ var vm = new Vue(
 
     ready: function()
     {
-        this.default_url = '/admin/instituciones/' + this.institution_selected + '/sedes/'
-
         var institution = document.getElementById('institution_id')
         this.institution_selected = institution.value
         institution.remove()
+
+        this.default_url = '/admin/instituciones/' + this.institution_selected + '/sedes/'
     }
 });

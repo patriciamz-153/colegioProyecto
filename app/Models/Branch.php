@@ -31,4 +31,14 @@ class Branch extends Model
     {
         return $this->district->nombre;
     }
+
+    public function getDepartamentoIdAttribute()
+    {
+        return $this->district->province->departamento_id;
+    }
+
+    public function getProvinciaIdAttribute()
+    {
+        return $this->district->provincia_id;
+    }
 }
