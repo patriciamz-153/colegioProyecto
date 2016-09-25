@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Institucion;
 
-use App\Http\Requests\Admin\institucion\StoreRequest;
+use App\Http\Requests\Admin\Institucion\StoreRequest;
 
 class InstitucionController extends Controller
 {
@@ -31,7 +31,7 @@ class InstitucionController extends Controller
         Institucion::create($request->all());
 
         return redirect()
-             ->route('institucions.index')
+             ->route('instituciones.index')
              ->with('message', 'Institucion creada satisfactoriamente.');
     }
 
@@ -51,7 +51,7 @@ class InstitucionController extends Controller
         $institucion->save();
 
         return redirect()
-             ->route('institucions.index')
+             ->route('instituciones.index')
              ->with('message', 'Institucion actualizada satisfactoriamente.');
     }
 
@@ -60,7 +60,7 @@ class InstitucionController extends Controller
         $institucion->delete();
 
         return redirect()
-             ->route('institucions.index')
+             ->route('instituciones.index')
              ->with('message', 'Institucion eliminada satisfactoriamente.');
     }
 }

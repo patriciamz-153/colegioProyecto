@@ -16,14 +16,14 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Nombre</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="nombre" value="{{ $institution->nombre }}">
+                        <input type="text" class="form-control" name="nombre" value="{{ $institucion->nombre }}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Siglas</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="siglas" value="{{ $institution->siglas }}">
+                        <input type="text" class="form-control" name="siglas" value="{{ $institucion->siglas }}">
                     </div>
                 </div>
             </div>
