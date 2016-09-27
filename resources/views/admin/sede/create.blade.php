@@ -67,7 +67,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Institucion</label>
                     <div class="col-sm-6">
-                        <select class="form-control" v-model="institucion_selected">
+                        <select class="form-control" v-model="institucion_selected" name="institucion_id">
                             <option value="">Seleccione la institucion</option>
                         @foreach($instituciones as $institucion)
                             <option value="{{ $institucion->id }}">{{ $institucion->nombre }}</option>

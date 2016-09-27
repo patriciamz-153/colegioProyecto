@@ -19,12 +19,10 @@ class SedeController extends Controller
         $institucion_id = $request->input('institucion_id');
         $institucion = Institucion::find($institucion_id);
 
-        if ($institucion) {
+        if ($institucion)
             $sedes = $institucion->sedes()->paginate(10);
-        }
-        else {
+        else
             $sedes = Sede::paginate(10);
-        }
 
         $data = [
             'sedes' => $sedes,
@@ -50,47 +48,69 @@ class SedeController extends Controller
         return view('admin.sede.create', $data);
     }
 
-    public function store($institucion, StoreRequest $request)
+    public function store(StoreRequest $request)
     {
-        $sede = new sede;
+        $sede = new Sede;
         $sede->fill($request->all());
-        $sede->institucion_id = $institucion->id;
         $sede->save();
 
+        $institucion_id = $request->input('institucion_id');
+
         return redirect()
-             ->route('instituciones.sedes.index', ['institucion' => $institucion->id])
+             ->route('sedes.index', ['institucion_id' => $institucion_id])
              ->with('message', 'Sede creada satisfactoriamente.');
     }
 
-    public function edit($institucion, $sede)
+    public function edit($sede, Request $request)
     {
+        $institucion_id = $request->input('institucion_id');
         $departamentos = Departamento::all();
+        $institucion = Institucion::find($institucion_id);
+        $instituciones = Institucion::all();
 
         $data = [
             'institucion' => $institucion,
             'sede'      => $sede,
             'departamentos' => $departamentos,
+            'instituciones' => $instituciones,
         ];
 
-        return view('admin.institucion.sede.edit', $data);
+        return view('admin.sede.edit', $data);
     }
 
-    public function update($institucion, $sede, StoreRequest $request)
+    public function update($sede, StoreRequest $request)
     {
         $sede->fill($request->all());
         $sede->save();
 
+        $institucion_id = $request->input('institucion_id');
+
         return redirect()
-             ->route('instituciones.sedes.index', ['institucion' => $institucion->id])
+             ->route('sedes.index', ['institucion_id' => $institucion_id])
              ->with('message', 'Sede actualizada satisfactoriamente.');
     }
 
-    public function delete($institucion, $sede)
+    public function delete($sede, Request $request)
     {
         $sede->delete();
 
+        $institucion_id = $request->input('institucion_id');
+
         return redirect()
-             ->route('instituciones.sedes.index', ['institucion' => $institucion->id])
+             ->route('sedes.index', ['institucion_id' => $institucion_id])
              ->with('message', 'Sede eliminada satisfactoriamente.');
+    }
+
+    public function facultades($institucion, $sede)
+    {
+        $facultades = $institucion->facultades;
+        $sede_facultades = $sede->facultades;
+
+        $data = [
+            'facultades' => $facultades,
+            'sede_facultades' => $sede_facultades,
+        ];
+
+        //return view('');
     }
 }

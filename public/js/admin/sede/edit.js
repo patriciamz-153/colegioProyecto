@@ -6,6 +6,7 @@ var vm = new Vue(
         departamento_selected: 0,
         provincia_selected: 0,
         distrito_selected: 0,
+        institucion_selected: 0,
         provincias: [],
         distritos: [],
     },
@@ -57,12 +58,17 @@ var vm = new Vue(
         var departamento = document.getElementById('departamento')
         var provincia = document.getElementById('provincia')
         var distrito = document.getElementById('distrito')
+        var institucion = document.getElementById('institucion')
+
         this.departamento_selected = departamento.value
         this.provincia_selected = provincia.value
         this.distrito_selected = distrito.value
+        this.institucion_selected = institucion.value
+
         departamento.remove()
         provincia.remove()
         distrito.remove()
+        institucion.remove()
     },
 
 });

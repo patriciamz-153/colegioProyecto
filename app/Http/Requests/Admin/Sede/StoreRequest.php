@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'nombre' => 'required|max:90',
             'direccion' => 'required|max:255',
             'distrito_id' => 'required|exists:distrito,id',
+            'institucion_id' => 'required|exists:institucion,id',
         ];
     }
 }
