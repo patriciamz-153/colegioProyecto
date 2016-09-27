@@ -49,10 +49,6 @@ var vm = new Vue(
 
     ready: function()
     {
-        var institucion = document.getElementById('institucion_id')
-        this.institucion_selected = institucion.value
-        institucion.remove()
-
-        this.default_url = '/admin/instituciones/' + this.institucion_selected + '/facultades/'
+        this.default_url = '/admin/facultades/'
     }
 });

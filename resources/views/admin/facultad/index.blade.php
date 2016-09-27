@@ -7,10 +7,22 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
+
+            @if ($institucion)
+
                 <h3>{{ $institucion->siglas }} - Facultades</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar Facultad" href="{{ route('instituciones.facultades.create', ['institucion' => $institucion->id]) }}">
+                <a type="button" class="btn btn-success btn-header" title="Agregar Facultad" href="{{ route('facultades.create', ['institucion' => $institucion->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
+
+            @else
+
+                <h3>Facultades</h3>
+                <a type="button" class="btn btn-success btn-header" title="Agregar Facultad" href="{{ route('facultades.create') }}">
+                  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </a>
+
+            @endif
                 <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="facultad_selected" title="Editar" transition="btn-header" >
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
@@ -40,17 +52,14 @@
                 </div>
             </div>
         </div>
+    @if ($institucion)
+        <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
+    @endif
     </div>
 
-    <div class="row">
-        <a class="btn btn-info" href="{{ route('instituciones.index') }}" title="Regresar a instituciones">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        </a>
-    </div>
 
-    <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institucion/facultad/index.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/facultad/index.js') }}"></script>
 @endpush

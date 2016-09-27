@@ -12,18 +12,6 @@ Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function()
 
         Route::get('/sedes', ['as' => 'sedes', 'uses' => 'InstitucionController@sedes']);
 
-        Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
-            Route::get('/', ['as' => 'index', 'uses' => 'FacultadController@index']);
-            Route::get('/nuevo', ['as' => 'create', 'uses' => 'FacultadController@create']);
-            Route::post('/nuevo', ['as' => 'store', 'uses' => 'FacultadController@store']);
-
-            Route::group(['prefix' => '{facultad}'], function() {
-                Route::get('/editar', ['as' => 'edit', 'uses' => 'FacultadController@edit']);
-                Route::post('/editar', ['as' => 'update', 'uses' => 'FacultadController@update']);
-                Route::post('/eliminar', ['as' => 'delete', 'uses' => 'FacultadController@delete']);
-            });
-
-        });
     });
 });
 
@@ -39,4 +27,17 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
 
         Route::get('/facultades', ['as' => 'facultades', 'uses' => 'SedeController@facultades']);
     });
+});
+
+Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'FacultadController@index']);
+    Route::get('/nuevo', ['as' => 'create', 'uses' => 'FacultadController@create']);
+    Route::post('/nuevo', ['as' => 'store', 'uses' => 'FacultadController@store']);
+
+    Route::group(['prefix' => '{facultad}'], function() {
+        Route::get('/editar', ['as' => 'edit', 'uses' => 'FacultadController@edit']);
+        Route::post('/editar', ['as' => 'update', 'uses' => 'FacultadController@update']);
+        Route::post('/eliminar', ['as' => 'delete', 'uses' => 'FacultadController@delete']);
+    });
+
 });

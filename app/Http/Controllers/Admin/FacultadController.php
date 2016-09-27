@@ -5,21 +5,30 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Facultad;
+use App\Models\Institucion;
 
 use App\Http\Requests\Admin\Facultad\StoreRequest;
 
+use Illuminate\Http\Request;
+
 class FacultadController extends Controller
 {
-    public function index($institucion)
+    public function index(Request $request)
     {
-        $facultades = $institucion->facultades;
+        $institucion_id = $request->input('institucion_id');
+        $institucion = Institucion::find($institucion_id);
+
+        if ($institucion)
+            $facultades = $institucion->facultades()->paginate(10);
+        else
+            $facultades = Facultad::paginate(10);
 
         $data = [
             'facultades' => $facultades,
             'institucion' => $institucion,
         ];
 
-        return view('admin.institucion.facultad.index', $data);
+        return view('admin.facultad.index', $data);
     }
 
     public function create($institucion)
@@ -28,7 +37,7 @@ class FacultadController extends Controller
             'institucion' => $institucion,
         ];
 
-        return view('admin.institucion.facultad.create', $data);
+        return view('admin.facultad.create', $data);
     }
 
     public function store($institucion, StoreRequest $request)
