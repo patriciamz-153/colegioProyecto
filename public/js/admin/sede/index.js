@@ -7,6 +7,7 @@ var vm = new Vue(
         institucion_selected: 0,
         url_edit: '',
         url_delete: '',
+        url_facultades: '',
     },
 
     methods: {
@@ -42,6 +43,7 @@ var vm = new Vue(
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
+                this.url_facultades = base_url + '/facultades'
             }
         }
     },
@@ -52,6 +54,6 @@ var vm = new Vue(
         this.institucion_selected = institucion.value
         institucion.remove()
 
-        this.default_url = '/admin/instituciones/' + this.institucion_selected + '/sedes/'
+        this.default_url = '/admin/sedes/'
     }
 });

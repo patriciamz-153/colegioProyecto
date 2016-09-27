@@ -8,7 +8,7 @@
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h3>{{ $institucion->siglas }} - Sedes</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar Sede" href="{{ route('instituciones.sedes.create', ['institucion' => $institucion->id]) }}">
+                <a type="button" class="btn btn-success btn-header" title="Agregar Sede" href="{{ route('sedes.create', ['institucion' => $institucion->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
                  <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="sede_selected" title="Editar" transition="btn-header" >
@@ -16,6 +16,9 @@
                 </a>
                 <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="sede_selected" title="Eliminar" @click="delete_sede" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_facultades" v-show="sede_selected" title="Asignar Facultades" transition="btn-header">
+                    <i class="fa fa-university" aria-hidden="true"></i>
                 </a>
                 <form id="delete-sede-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
@@ -52,5 +55,5 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institucion/sede/index.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/institucion/sedes.js') }}"></script>
 @endpush

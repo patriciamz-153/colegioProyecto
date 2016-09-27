@@ -6,6 +6,7 @@ var vm = new Vue(
         departamento_selected: 0,
         provincia_selected: 0,
         distrito_selected: 0,
+        institucion_selected: 0,
         provincias: [],
         distritos: [],
     },

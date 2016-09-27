@@ -11,6 +11,7 @@ class BranchSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('facultad_x_sede')->truncate();
         DB::table('sede')->truncate();
         DB::table('distrito')->truncate();
         DB::table('provincia')->truncate();
@@ -42,6 +43,19 @@ class BranchSeeder extends Seeder
                 'direccion' => 'Av ...',
                 'institucion_id' => 1,
                 'distrito_id' => 1,
+            ],
+        ]);
+
+        DB::table('facultad_x_sede')->insert([
+            [
+                'id' => 1,
+                'sede_id' => 1,
+                'facultad_id' => 1,
+            ],
+            [
+                'id' => 2,
+                'sede_id' => 1,
+                'facultad_id' => 2,
             ],
         ]);
     }

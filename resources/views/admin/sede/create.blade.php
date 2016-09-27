@@ -7,7 +7,11 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading">
+            @if ($institucion)
                 <h3 class="text-center">{{ $institucion->siglas }} - Registrar Sede</h3>
+            @else
+                <h3 class="text-center">Registrar Sede</h3>
+            @endif
             </div>
             <form class="form form-horizontal" method="POST">
             {{ csrf_field() }}
@@ -58,6 +62,20 @@
                         </select>
                     </div>
                 </div>
+
+            @if (is_null($institucion))
+                <div class="form-group">
+                    <label class="col-sm-3 control-label text-left">Institucion</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" v-model="institucion_selected">
+                            <option value="">Seleccione la institucion</option>
+                        @foreach($instituciones as $institucion)
+                            <option value="{{ $institucion->id }}">{{ $institucion->nombre }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                </div>
+            @endif
             </div>
 
 
@@ -72,5 +90,5 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institucion/sede/create.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/sede/create.js') }}"></script>
 @endpush

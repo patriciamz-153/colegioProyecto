@@ -6,33 +6,48 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Departamento;
 use App\Models\Sede;
+use App\Models\Institucion;
 
 use App\Http\Requests\Admin\Sede\StoreRequest;
 
+use Illuminate\Http\Request;
+
 class SedeController extends Controller
 {
-    public function index($institucion)
+    public function index(Request $request)
     {
-        $sedes = $institucion->sedes;
+        $institucion_id = $request->input('institucion_id');
+        $institucion = Institucion::find($institucion_id);
+
+        if ($institucion) {
+            $sedes = $institucion->sedes()->paginate(10);
+        }
+        else {
+            $sedes = Sede::paginate(10);
+        }
 
         $data = [
-            'sedes'    => $sedes,
+            'sedes' => $sedes,
             'institucion' => $institucion,
         ];
 
-        return view('admin.institucion.sede.index', $data);
+        return view('admin.sede.index', $data);
     }
 
-    public function create($institucion)
+    public function create(Request $request)
     {
+        $institucion_id = $request->input('institucion_id');
+        $institucion = Institucion::find($institucion_id);
         $departamentos = Departamento::all();
+        $instituciones = Institucion::all();
 
         $data = [
             'institucion' => $institucion,
             'departamentos' => $departamentos,
+            'instituciones' => $instituciones,
         ];
 
-        return view('admin.institucion.sede.create', $data);
+        return view('admin.sede.create', $data);
     }
 
     public function store($institucion, StoreRequest $request)
