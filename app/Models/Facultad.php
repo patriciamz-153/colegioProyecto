@@ -21,9 +21,9 @@ class Facultad extends Model
         return $this->belongsTo(Institucion::class);
     }
 
-    public function getInstitucionNombreAttribute()
+    public function getInstitucionSiglasAttribute()
     {
-        return $this->institucion->nombre;
+        return $this->institucion->siglas;
     }
 
     public function schools()

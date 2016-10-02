@@ -45,7 +45,7 @@
                             @foreach($facultades as $facultad)
                             <tr id="facultad_{{ $facultad->id }}" class="row-hover" v-on:click="select_row('{{ $facultad->id }}')">
                                 <td>{{ $facultad->nombre }}</td>
-                                <td>{{ $facultad->institucion_nombre }}</td>
+                                <td>{{ $facultad->institucion_siglas }}</td>
                                 <td>{{ $facultad->codigo }}</td>
                             </tr>
                             @endforeach
