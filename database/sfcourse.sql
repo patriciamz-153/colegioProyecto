@@ -140,6 +140,7 @@ CREATE TABLE ambiente (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(30) NOT NULL,
 	facultad_id INT UNSIGNED NOT NULL,
+	sede_id INT UNSIGNED NOT NULL,
 	tipo_id INT UNSIGNED NOT NULL,
 	PRIMARY KEY (id)
 );
@@ -232,13 +233,6 @@ CREATE TABLE grupo (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE facultad_x_sede (
-	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	sede_id INT UNSIGNED NOT NULL,
-	facultad_id INT UNSIGNED NOT NULL,
-	PRIMARY KEY (id)
-);
-
 CREATE TABLE departamento (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(90) NOT NULL,
@@ -268,9 +262,6 @@ ALTER TABLE periodo_academico ADD CONSTRAINT periodo_academico_tipo_periodo_fk F
 
 ALTER TABLE evaluacion_x_alumno ADD CONSTRAINT evaluacion_x_alumno_alumno_matriculado_fk FOREIGN KEY (matricula_id)
 	REFERENCES alumno_matriculado (id);
-
-ALTER TABLE ambiente ADD CONSTRAINT ambiente_facultad_fk FOREIGN KEY (facultad_id)
-	REFERENCES facultad (id);
 
 ALTER TABLE periodo_academico ADD CONSTRAINT periodo_academico_facultad_fk FOREIGN KEY (facultad_id)
 	REFERENCES facultad (id);
@@ -353,11 +344,11 @@ ALTER TABLE sesion ADD CONSTRAINT sesion_clase_fk FOREIGN KEY (clase_id)
 ALTER TABLE asistencia ADD CONSTRAINT asistencia_sesion_fk FOREIGN KEY (sesion_id)
 	REFERENCES sesion (id);
 
-ALTER TABLE facultad_x_sede ADD CONSTRAINT facultad_x_sede_sede_fk FOREIGN KEY (sede_id)
-	REFERENCES grupo (id);
+ALTER TABLE ambiente ADD CONSTRAINT ambiente_sede_fk FOREIGN KEY (sede_id)
+	REFERENCES sede (id);
 
-ALTER TABLE facultad_x_sede ADD CONSTRAINT facultad_x_sede_facultad_fk FOREIGN KEY (facultad_id)
-	REFERENCES grupo (id);
+ALTER TABLE ambiente ADD CONSTRAINT ambiente_facultad_fk FOREIGN KEY (facultad_id)
+	REFERENCES facultad (id);
 
 ALTER TABLE provincia ADD CONSTRAINT provincia_departamento_fk FOREIGN KEY (departamento_id)
 	REFERENCES departamento (id);
