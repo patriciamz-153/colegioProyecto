@@ -31,53 +31,57 @@ class FacultadController extends Controller
         return view('admin.facultad.index', $data);
     }
 
-    public function create($institucion)
+    public function create(Request $request)
     {
+        $institucion_id = $request->input('institucion_id');
+        $institucion = Institucion::find($institucion_id);
+        $instituciones = Institucion::all();
+
         $data = [
             'institucion' => $institucion,
+            'instituciones' => $instituciones,
         ];
 
         return view('admin.facultad.create', $data);
     }
 
-    public function store($institucion, StoreRequest $request)
+    public function store(StoreRequest $request)
     {
-        $facultad = new Facultad;
-        $facultad->fill($request->all());
-        $facultad->institucion_id = $institucion->id;
-        $facultad->save();
+        $facultad = Facultad::create($request->all());
 
         return redirect()
-             ->route('instituciones.facultades.index', ['institucion' => $institucion->id])
+             ->route('facultades.index', ['institucion_id' => $facultad->institucion_id])
              ->with('message', 'Facultad creada satisfactoriamente.');
     }
 
-    public function edit($institucion, $facultad)
+    public function edit($facultad)
     {
+        $institucion = $facultad->institucion;
+
         $data = [
-            'institucion' => $institucion,
             'facultad' => $facultad,
+            'institucion' => $institucion,
         ];
 
-        return view('admin.institucion.facultad.edit', $data);
+        return view('admin.facultad.edit', $data);
     }
 
-    public function update($institucion, $facultad, StoreRequest $request)
+    public function update($facultad, StoreRequest $request)
     {
         $facultad->fill($request->all());
         $facultad->save();
 
         return redirect()
-             ->route('instituciones.facultades.index', ['institucion' => $institucion->id])
+             ->route('facultades.index', ['institucion_id' => $facultad->institucion_id])
              ->with('message', 'Facultad actualizada satisfactoriamente.');
     }
 
-    public function delete($institucion, $facultad)
+    public function delete($facultad)
     {
         $facultad->delete();
 
         return redirect()
-             ->route('instituciones.facultades.index', ['institucion' => $institucion->id])
+             ->route('facultades.index')
              ->with('message', 'Facultad eliminada satisfactoriamente.');
     }
 }

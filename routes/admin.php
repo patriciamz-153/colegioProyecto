@@ -9,9 +9,6 @@ Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function()
         Route::get('/editar', ['as' => 'edit', 'uses' => 'InstitucionController@edit']);
         Route::post('/editar', ['as' => 'update', 'uses' => 'InstitucionController@update']);
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'InstitucionController@delete']);
-
-        Route::get('/sedes', ['as' => 'sedes', 'uses' => 'InstitucionController@sedes']);
-
     });
 });
 

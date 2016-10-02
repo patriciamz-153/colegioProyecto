@@ -68,7 +68,6 @@ var vm = new Vue(
         departamento.remove()
         provincia.remove()
         distrito.remove()
-        institucion.remove()
     },
 
 });

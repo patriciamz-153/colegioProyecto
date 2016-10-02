@@ -42,8 +42,8 @@ var vm = new Vue(
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
-                this.url_sedes = base_url + '/sedes'
-                this.url_facultades = base_url + '/facultades'
+                this.url_sedes = '/admin/sedes?institucion_id=' + newValue
+                this.url_facultades = '/admin/facultades?institucion_id=' + newValue
             }
         }
     }

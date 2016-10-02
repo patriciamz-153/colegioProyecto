@@ -38,12 +38,14 @@
                     <table class="table">
                         <thead>
                             <th>Nombre</th>
+                            <th>Institucion</th>
                             <th>Codigo</th>
                         </thead>
                         <tbody>
                             @foreach($facultades as $facultad)
                             <tr id="facultad_{{ $facultad->id }}" class="row-hover" v-on:click="select_row('{{ $facultad->id }}')">
                                 <td>{{ $facultad->nombre }}</td>
+                                <td>{{ $facultad->institucion_nombre }}</td>
                                 <td>{{ $facultad->codigo }}</td>
                             </tr>
                             @endforeach
@@ -52,12 +54,14 @@
                 </div>
             </div>
         </div>
-    @if ($institucion)
-        <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
-    @endif
     </div>
 
-
+    @if ($institucion)
+    <div class="row text-center">
+        <a href="{{ route('facultades.index') }}" class="btn btn-default">Ver todas las facultades</a>
+    </div>
+    <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
+    @endif
 @endsection
 
 @push('scripts')

@@ -26,6 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'nombre' => 'required|max:90',
             'codigo' => 'required|max:10',
+            'institucion_id' => 'required|exists:institucion,id',
         ];
     }
 }

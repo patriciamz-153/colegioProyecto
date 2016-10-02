@@ -50,22 +50,17 @@ class SedeController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $sede = new Sede;
-        $sede->fill($request->all());
-        $sede->save();
-
-        $institucion_id = $request->input('institucion_id');
+        $sede = Sede::create($request->all());
 
         return redirect()
-             ->route('sedes.index', ['institucion_id' => $institucion_id])
+             ->route('sedes.index', ['institucion_id' => $sede->institucion_id])
              ->with('message', 'Sede creada satisfactoriamente.');
     }
 
     public function edit($sede, Request $request)
     {
-        $institucion_id = $request->input('institucion_id');
         $departamentos = Departamento::all();
-        $institucion = Institucion::find($institucion_id);
+        $institucion = $sede->institucion;
         $instituciones = Institucion::all();
 
         $data = [
@@ -83,10 +78,8 @@ class SedeController extends Controller
         $sede->fill($request->all());
         $sede->save();
 
-        $institucion_id = $request->input('institucion_id');
-
         return redirect()
-             ->route('sedes.index', ['institucion_id' => $institucion_id])
+             ->route('sedes.index', ['institucion_id' => $sede->institucion_id])
              ->with('message', 'Sede actualizada satisfactoriamente.');
     }
 
@@ -101,16 +94,18 @@ class SedeController extends Controller
              ->with('message', 'Sede eliminada satisfactoriamente.');
     }
 
-    public function facultades($institucion, $sede)
+    public function facultades($sede)
     {
-        $facultades = $institucion->facultades;
+        $facultades = $sede->institucion->facultades;
         $sede_facultades = $sede->facultades;
+        $facultades_id = $facultades->pluck('id')->toArray();
 
         $data = [
             'facultades' => $facultades,
             'sede_facultades' => $sede_facultades,
+            'facultades_id' => $facultades_id,
         ];
 
-        //return view('');
+        return view('admin.sede.facultades', $data);
     }
 }

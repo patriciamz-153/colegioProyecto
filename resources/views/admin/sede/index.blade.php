@@ -61,10 +61,14 @@
                 </div>
             </div>
         </div>
-    @if ($institucion)
-        <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
-    @endif
     </div>
+
+    @if ($institucion)
+    <div class="row text-center">
+        <a href="{{ route('sedes.index') }}" class="btn btn-default">Ver todas las sedes</a>
+    </div>
+    <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
+    @endif
 @endsection
 
 @push('scripts')
