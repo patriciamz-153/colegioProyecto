@@ -142,6 +142,12 @@
             <li>
                 <a class="sidebar-link" href="{{ route('instituciones.index') }}">Instituciones</a>
             </li>
+            <li>
+                <a class="sidebar-link" href="{{ route('sedes.index') }}">Sedes</a>
+            </li>
+            <li>
+                <a class="sidebar-link" href="{{ route('facultades.index') }}">Facultades</a>
+            </li>
         </ul>
         </div>
     </div>

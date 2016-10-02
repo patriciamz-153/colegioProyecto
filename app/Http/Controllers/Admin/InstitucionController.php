@@ -63,4 +63,16 @@ class InstitucionController extends Controller
              ->route('instituciones.index')
              ->with('message', 'Institucion eliminada satisfactoriamente.');
     }
+
+    public function sedes($institucion)
+    {
+        $sedes = $institucion->sedes;
+
+        $data = [
+            'sedes'    => $sedes,
+            'institucion' => $institucion,
+        ];
+
+        return view('admin.institucion.sedes', $data);
+    }
 }

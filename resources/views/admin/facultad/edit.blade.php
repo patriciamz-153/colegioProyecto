@@ -31,8 +31,7 @@
                 <button class="btn btn-primary">Actualizar</button>
             </div>
 
-            <input type="hidden" id="institucion_id" value="{{ $institucion->id }}">
-
+            <input type="hidden" name="institucion_id" id="institucion_id" value="{{ $institucion->id }}">
             </form>
         </div>
     </div>

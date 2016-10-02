@@ -7,17 +7,20 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3>{{ $institucion->siglas }} - Facultades</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar Facultad" href="{{ route('instituciones.facultades.create', ['institucion' => $institucion->id]) }}">
+                <h3>{{ $institucion->siglas }} - Sedes</h3>
+                <a type="button" class="btn btn-success btn-header" title="Agregar Sede" href="{{ route('sedes.create', ['institucion' => $institucion->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="facultad_selected" title="Editar" transition="btn-header" >
+                 <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="sede_selected" title="Editar" transition="btn-header" >
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="facultad_selected" title="Eliminar" @click="delete_facultad" transition="btn-header">
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="sede_selected" title="Eliminar" @click="delete_sede" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
-                <form id="delete-facultad-form" v-bind:action="url_delete" method="POST" hidden>
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_facultades" v-show="sede_selected" title="Asignar Facultades" transition="btn-header">
+                    <i class="fa fa-university" aria-hidden="true"></i>
+                </a>
+                <form id="delete-sede-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>
             </div>
@@ -26,13 +29,13 @@
                     <table class="table">
                         <thead>
                             <th>Nombre</th>
-                            <th>Codigo</th>
+                            <th>Distrito</th>
                         </thead>
                         <tbody>
-                            @foreach($facultades as $facultad)
-                            <tr id="facultad_{{ $facultad->id }}" class="row-hover" v-on:click="select_row('{{ $facultad->id }}')">
-                                <td>{{ $facultad->nombre }}</td>
-                                <td>{{ $facultad->codigo }}</td>
+                            @foreach($sedes as $sede)
+                            <tr id="sede_{{ $sede->id }}" class="row-hover" v-on:click="select_row('{{ $sede->id }}')">
+                                <td>{{ $sede->nombre }}</td>
+                                <td>{{ $sede->distrito_nombre }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -52,5 +55,5 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/institucion/facultad/index.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/institucion/sedes.js') }}"></script>
 @endpush

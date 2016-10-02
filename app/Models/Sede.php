@@ -41,4 +41,14 @@ class Sede extends Model
     {
         return $this->distrito->provincia_id;
     }
+
+    public function getInstitucionSiglasAttribute()
+    {
+        return $this->institucion->siglas;
+    }
+
+    public function facultades()
+    {
+        return $this->belongsToMany(Facultad::class, 'facultad_x_sede', 'sede_id', 'facultad_id');
+    }
 }

@@ -11,7 +11,7 @@ class Facultad extends Model
     protected $fillable = [
         'nombre',
         'codigo',
-        'institution_id',
+        'institucion_id',
     ];
 
     public $timestamps = false;
@@ -19,6 +19,11 @@ class Facultad extends Model
     public function institucion()
     {
         return $this->belongsTo(Institucion::class);
+    }
+
+    public function getInstitucionNombreAttribute()
+    {
+        return $this->institucion->nombre;
     }
 
     public function schools()

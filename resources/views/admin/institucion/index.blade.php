@@ -17,10 +17,10 @@
                 <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="institucion_selected" title="Eliminar" @click="delete_institucion" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
-                <a type="button" class="btn btn-info btn-header" v-bind:href="url_branches" v-show="institucion_selected" title="Sedes" transition="btn-header">
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_sedes" v-show="institucion_selected" title="Sedes" transition="btn-header">
                     <i class="fa fa-building" aria-hidden="true"></i>
                 </a>
-                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_faculties" v-show="institucion_selected" title="Facultades" transition="btn-header">
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_facultades" v-show="institucion_selected" title="Facultades" transition="btn-header">
                     <i class="fa fa-university" aria-hidden="true"></i>
                 </a>
                 <form id="delete-institucion-form" v-bind:action="url_delete" method="POST" hidden>
