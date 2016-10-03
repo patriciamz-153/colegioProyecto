@@ -68,8 +68,7 @@ class FacultadController extends Controller
 
     public function update($facultad, StoreRequest $request)
     {
-        $facultad->fill($request->all());
-        $facultad->save();
+        $facultad->update($request->all());
 
         return redirect()
              ->route('facultades.index', ['institucion_id' => $facultad->institucion_id])
