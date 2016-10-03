@@ -45,8 +45,8 @@ CREATE TABLE facultad (
 CREATE TABLE evaluacion (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	fecha DATE NOT NULL,
-	hora_inicio DATE NOT NULL,
-	hora_fin DATE NOT NULL,
+	hora_inicio TIME NOT NULL,
+	hora_fin TIME NOT NULL,
 	peso DOUBLE UNSIGNED NOT NULL,
 	grupo_id INT UNSIGNED NOT NULL,
 	tipo_id INT UNSIGNED NOT NULL,
