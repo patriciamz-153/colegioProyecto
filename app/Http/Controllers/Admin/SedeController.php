@@ -75,8 +75,7 @@ class SedeController extends Controller
 
     public function update($sede, StoreRequest $request)
     {
-        $sede->fill($request->all());
-        $sede->save();
+        $sede->update($request->all());
 
         return redirect()
              ->route('sedes.index', ['institucion_id' => $sede->institucion_id])
