@@ -1,14 +1,14 @@
 <?php
 
-namespace FisiLog\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class School extends Model
+class Escuela extends Model
 {
-   protected $table = 'schools';
+   protected $table = 'eap';
 
-   protected $fillable = ['name', 'code', 'facultad_id'];
+   protected $fillable = ['nombre', 'codigo', 'facultad_id'];
 
    public $timestamps = false;
 

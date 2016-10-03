@@ -38,3 +38,16 @@ Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
     });
 
 });
+
+Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'EscuelaController@index']);
+    Route::get('/nuevo', ['as' => 'create', 'uses' => 'EscuelaController@create']);
+    Route::post('/nuevo', ['as' => 'store', 'uses' => 'EscuelaController@store']);
+
+    Route::group(['prefix' => '{eap}'], function() {
+        Route::get('/editar', ['as' => 'edit', 'uses' => 'EscuelaController@edit']);
+        Route::post('/editar', ['as' => 'update', 'uses' => 'EscuelaController@update']);
+        Route::post('/eliminar', ['as' => 'delete', 'uses' => 'EscuelaController@delete']);
+    });
+
+});

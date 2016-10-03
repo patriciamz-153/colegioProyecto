@@ -148,6 +148,9 @@
             <li>
                 <a class="sidebar-link" href="{{ route('facultades.index') }}">Facultades</a>
             </li>
+            <li>
+                <a class="sidebar-link" href="{{ route('eaps.index') }}">EAPs</a>
+            </li>
         </ul>
         </div>
     </div>

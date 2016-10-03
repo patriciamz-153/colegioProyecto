@@ -26,9 +26,9 @@ class Facultad extends Model
         return $this->institucion->siglas;
     }
 
-    public function schools()
+    public function escuelas()
     {
-        return $this->hasMany(School::class,'facultad_id');
+        return $this->hasMany(Escuela::class,'facultad_id');
     }
 
     public function classrooms()
