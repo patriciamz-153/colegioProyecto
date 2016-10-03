@@ -52,4 +52,14 @@ class User extends Authenticatable
     {
         return ucfirst($this->nombres) . " " . ucfirst($this->apellidos);
     }
+
+    public function getEsAdminAttribute()
+    {
+        return $this->tipo_usuario_id == 1;
+    }
+
+    public function getEsDocenteAttribute()
+    {
+        return $this->tipo_usuario_id == 3;
+    }
 }
