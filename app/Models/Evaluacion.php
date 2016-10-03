@@ -27,4 +27,9 @@ class Evaluacion extends Model
     {
         return $this->belongsTo(TipoEvaluacion::class, 'tipo_id');
     }
+
+    public function grupo()
+    {
+        return $this->belongsTo(Grupo::class, 'grupo_id');
+    }
 }

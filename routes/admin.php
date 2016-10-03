@@ -38,3 +38,7 @@ Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
     });
 
 });
+
+Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'GrupoController@index']);
+});
