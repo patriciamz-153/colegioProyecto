@@ -17,6 +17,10 @@ class GrupoController extends Controller
         $docente_id = Auth::user()->id;
         $grupos = Grupo::where('docente_id', $docente_id)->get();
 
+        $data = [
+            'grupos' => $grupos,
+        ];
 
+        return view('admin.grupo.index', $data);
     }
 }

@@ -138,8 +138,9 @@
     </nav>
     @if( Auth::user()->tipo_usuario_id == 1 )
         @include('layouts.admin_sidebar')
-    @elseif( Auth::user()->tipo_usuario_id == 2 )
+    @elseif( Auth::user()->tipo_usuario_id == 3 )
         @include('layouts.docente_sidebar')
+    @endif
 
     <script src="{{ url('js/app.js') }}"></script>
 
