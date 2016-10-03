@@ -19,7 +19,7 @@ class PeriodoAcademicoSeeder extends Seeder
                 'fecha_inicio' => '2016-04-01',
                 'fecha_fin' => '2016-08-01',
                 'facultad_id' => 1,
-                'tipo_periodo_id' => 1,
+                'tipo_id' => 1,
             ],
             [
                 'id' => 2,
@@ -27,7 +27,7 @@ class PeriodoAcademicoSeeder extends Seeder
                 'fecha_inicio' => '2016-09-01',
                 'fecha_fin' => '2016-12-01',
                 'facultad_id' => 1,
-                'tipo_periodo_id' => 1,
+                'tipo_id' => 1,
             ],
         ]);
     }

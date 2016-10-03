@@ -19,8 +19,8 @@ class AsignaturaSeeder extends Seeder
                 'codigo' => 20160101,
                 'cantidad_de_creditos' => 4,
                 'ciclo' => 2,
-                'plan_de_estudio_id' => 1,
-                'tipo_asignatura_id' => 1,
+                'plan_id' => 1,
+                'tipo_id' => 1,
             ],
             [
                 'id' => 2,
@@ -28,8 +28,8 @@ class AsignaturaSeeder extends Seeder
                 'codigo' => 20160102,
                 'cantidad_de_creditos' => 4,
                 'ciclo' => 3,
-                'plan_de_estudio_id' => 1,
-                'tipo_asignatura_id' => 1,
+                'plan_id' => 1,
+                'tipo_id' => 1,
             ],
         ]);
     }
