@@ -144,6 +144,9 @@
     @endif
 
     <script src="{{ url('js/app.js') }}"></script>
+    <script>
+        window.app_url = "{{ url('/') }}";
+    </script>
 
     <div class="content">
         @yield('content')

@@ -8,6 +8,8 @@ var vm = new Vue(
         url_delete: '',
         url_sedes: '',
         url_facultades: '',
+        base_url: '',
+        app_url: '',
     },
 
     methods: {
@@ -38,13 +40,18 @@ var vm = new Vue(
 
     watch: {
         institucion_selected: function(newValue){
-            var base_url = '/admin/instituciones/' + newValue
+            this.base_url = this.app_url + '/admin/instituciones/' + newValue;
             if (newValue > 0) {
-                this.url_edit = base_url + '/editar'
-                this.url_delete = base_url + '/eliminar'
-                this.url_sedes = '/admin/sedes?institucion_id=' + newValue
-                this.url_facultades = '/admin/facultades?institucion_id=' + newValue
+                this.url_edit = this.base_url + '/editar'
+                this.url_delete = this.base_url + '/eliminar'
+                this.url_sedes =   this.app_url + '/admin/sedes?institucion_id=' + newValue
+                this.url_facultades =  this.app_url +'/admin/facultades?institucion_id=' + newValue
             }
         }
+    },
+
+    ready: function()
+    {
+        this.app_url = window.app_url;
     }
 });
