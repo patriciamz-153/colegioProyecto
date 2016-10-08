@@ -3,25 +3,23 @@ var vm = new Vue(
     el: '#app',
 
     data: {
-        facultad_selected: 0,
-        institucion_selected: 0,
-        app_url: '',
+        eap_selected: 0,
+        default_url: '',
         url_edit: '',
+        base_url: '',
         url_delete: '',
-        base_url : '',
-        url_eaps : '',
     },
 
     methods: {
         select_row: function(id)
         {
-            var last_tr = document.getElementById('facultad_' + this.facultad_selected)
-            var tr_selected = document.getElementById('facultad_' + id)
+            var last_tr = document.getElementById('eap_' + this.eap_selected)
+            var tr_selected = document.getElementById('eap_' + id)
 
-            if (this.facultad_selected == 0) {
+            if (this.eap_selected == 0) {
                 tr_selected.className += ' row-selected'
             } else {
-                if (this.facultad_selected == id) {
+                if (this.eap_selected == id) {
                     tr_selected.className = 'row-hover'
                 } else {
                     last_tr.className = 'row-hover'
@@ -29,23 +27,22 @@ var vm = new Vue(
                 }
             }
 
-            this.facultad_selected = (this.facultad_selected == id) ? 0 : id
+            this.eap_selected = (this.eap_selected == id) ? 0 : id
         },
-        delete_facultad: function()
+        delete_eap: function()
         {
             event.preventDefault()
-            document.getElementById('delete-facultad-form').submit()
+            document.getElementById('delete-eap-form').submit()
         }
     },
 
     watch: {
-        facultad_selected: function(newValue)
+        eap_selected: function(newValue)
         {
-            this.base_url = this.app_url + '/admin/facultades/' + newValue;
+            this.base_url = this.app_url + '/admin/eaps/' + newValue
             if (newValue > 0) {
                 this.url_edit = this.base_url + '/editar'
                 this.url_delete = this.base_url + '/eliminar'
-                this.url_eaps = this.app_url + '/admin/eaps?facultad_id=' + newValue
             }
         }
     },

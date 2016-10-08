@@ -137,6 +137,7 @@
 
         </div>
     </nav>
+
     @if( Auth::user()->tipo_usuario_id == 1 )
         @include('layouts.admin_sidebar')
     @elseif( Auth::user()->tipo_usuario_id == 3 )

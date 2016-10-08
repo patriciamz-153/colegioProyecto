@@ -29,6 +29,9 @@
                 <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="facultad_selected" title="Eliminar" @click="delete_facultad" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_eaps" v-show="facultad_selected" title="EAPs" transition="btn-header">
+                  <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                </a>
                 <form id="delete-facultad-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>
