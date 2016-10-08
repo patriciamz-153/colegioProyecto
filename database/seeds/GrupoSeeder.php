@@ -19,6 +19,12 @@ class GrupoSeeder extends Seeder
                 'asignatura_aperturada_id' => 1,
                 'docente_id' => 2,
             ],
+            [
+                'id' => 2,
+                'numero_grupo' => 1,
+                'asignatura_aperturada_id' => 1,
+                'docente_id' => 3,
+            ],
         ]);
     }
 }

@@ -20,6 +20,7 @@ class DepartamentoAcademicoSeeder extends Seeder
         DB::table('docente_x_departamento')->truncate();
         DB::table('docente_x_departamento')->insert([
             ['id' => 1, 'departamento_id' => 1, 'docente_id' => 2],
+            ['id' => 2, 'departamento_id' => 1, 'docente_id' => 3],
         ]);
     }
 }
