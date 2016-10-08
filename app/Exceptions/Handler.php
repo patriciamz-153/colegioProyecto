@@ -6,6 +6,8 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -44,6 +46,18 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->expectsJson() && $exception instanceof ModelNotFoundException) {
+            $model_tree = $exception->getModel();
+            $model_name = array_last(explode('\\', $model_tree));
+
+            return response()->json([
+                'error' => [
+                    'descripcion' => 'La entidad '. $model_name . ' que deseabas no se encuentra en la base de datos.',
+                ],
+                'mensaje' => 'Entidad no encontrada',
+            ], 404);
+        }
+
         return parent::render($request, $exception);
     }
 
