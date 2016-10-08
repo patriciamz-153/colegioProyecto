@@ -58,6 +58,8 @@ Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
     Route::group(['prefix' => '{grupo}'], function() {
         Route::group(['prefix' => 'evaluaciones', 'as' => 'evaluaciones.'], function() {
             Route::get('/', ['as' => 'index', 'uses' => 'EvaluacionController@index']);
+            Route::get('/nuevo', ['as' => 'create', 'uses' => 'EvaluacionController@create']);
+            Route::post('/nuevo', ['as' => 'store', 'uses' => 'EvaluacionController@store']);
         });
     });
 

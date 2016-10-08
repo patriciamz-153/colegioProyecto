@@ -9,7 +9,7 @@
                 <div class="panel-heading text-center">
 
                     <h3>{{ $asignatura->nombre }} - Evaluaciones</h3>
-                    <a type="button" class="btn btn-success btn-header" title="Agregar Facultad" href="{{ route('grupos.evaluaciones.index', ['grupo' => $grupo->id]) }}">
+                    <a type="button" class="btn btn-success btn-header" title="Agregar Evaluacion" href="{{ route('grupos.evaluaciones.create', ['grupo' => $grupo->id]) }}">
                       <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                     </a>
 
