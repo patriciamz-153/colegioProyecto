@@ -46,9 +46,7 @@ class InstitucionController extends Controller
 
     public function update($institucion, StoreRequest $request)
     {
-        $institucion->nombre = $request->input('nombre');
-        $institucion->siglas = $request->input('siglas');
-        $institucion->save();
+        $institucion->update($request->all());
 
         return redirect()
              ->route('instituciones.index')

@@ -5,7 +5,7 @@ var vm = new Vue(
     data: {
         facultad_selected: 0,
         institucion_selected: 0,
-        default_url: '',
+        app_url: '',
         url_edit: '',
         url_delete: '',
     },
@@ -39,7 +39,7 @@ var vm = new Vue(
     watch: {
         facultad_selected: function(newValue)
         {
-            var base_url = this.default_url + newValue
+            var base_url = this.app_url + newValue
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
@@ -49,6 +49,6 @@ var vm = new Vue(
 
     ready: function()
     {
-        this.default_url = '/admin/facultades/'
+        this.app_url = window.app_url + '/admin/facultades/'
     }
 });

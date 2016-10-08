@@ -51,3 +51,8 @@ Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
     });
 
 });
+
+Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'GrupoController@index']);
+});
+

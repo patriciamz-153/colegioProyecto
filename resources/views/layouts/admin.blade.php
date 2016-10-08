@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ url('favicon.ico') }}" />
 
     <!-- Styles -->
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
@@ -136,26 +137,17 @@
 
         </div>
     </nav>
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="navbar-collapse collapse">
-        <ul class="nav in">
-            <li>
-                <a class="sidebar-link" href="{{ route('instituciones.index') }}">Instituciones</a>
-            </li>
-            <li>
-                <a class="sidebar-link" href="{{ route('sedes.index') }}">Sedes</a>
-            </li>
-            <li>
-                <a class="sidebar-link" href="{{ route('facultades.index') }}">Facultades</a>
-            </li>
-            <li>
-                <a class="sidebar-link" href="{{ route('eaps.index') }}">EAPs</a>
-            </li>
-        </ul>
-        </div>
-    </div>
+
+    @if( Auth::user()->tipo_usuario_id == 1 )
+        @include('layouts.admin_sidebar')
+    @elseif( Auth::user()->tipo_usuario_id == 3 )
+        @include('layouts.docente_sidebar')
+    @endif
 
     <script src="{{ url('js/app.js') }}"></script>
+    <script>
+        window.app_url = "{{ url('/') }}";
+    </script>
 
     <div class="content">
         @yield('content')
