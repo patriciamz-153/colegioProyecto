@@ -69,8 +69,7 @@ class EscuelaController extends Controller
 
     public function update($eap, StoreRequest $request)
     {
-        $eap->fill($request->all());
-        $eap->save();
+        $eap->update($request->all());
 
         return redirect()
              ->route('eaps.index', ['facultad_id' => $eap->facultad_id])
