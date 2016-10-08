@@ -26,8 +26,14 @@ class Grupo extends Model
         return $this->belongsTo(AsignaturaAperturada::class, 'asignatura_aperturada_id');
     }
 
+    public function docente()
+    {
+        return $this->belongsTo(Docente::class, 'docente_id');
+    }
+
     public function getAsignaturaNombreAttribute()
     {
         return $this->asignatura_aperturada->asignatura_nombre;
     }
+
 }
