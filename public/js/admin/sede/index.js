@@ -38,9 +38,9 @@ var vm = new Vue(
     },
 
     watch: {
-        sede_selected: function(newValue){
+        sede_selected: function(newValue)
+        {
             var base_url = this.app_url + newValue
-
             if (newValue > 0) {
                 this.url_edit = base_url + '/editar'
                 this.url_delete = base_url + '/eliminar'
