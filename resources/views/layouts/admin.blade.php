@@ -16,6 +16,8 @@
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet" >
     <link href="{{ url('css/admin/button.css') }}" rel="stylesheet">
     <link href="{{ url('css/admin/heading.css') }}" rel="stylesheet">
+    <link href="{{ url('css/admin/panel.css') }}" rel="stylesheet">
+    <link href="{{ url('css/admin/text.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
