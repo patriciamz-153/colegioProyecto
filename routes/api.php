@@ -19,5 +19,6 @@ Route::get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'InstitucionController@index']);
-    Route::get('/buscar', ['as' => 'index', 'uses' => 'InstitucionController@search']);
+    Route::get('/buscar', ['as' => 'search', 'uses' => 'InstitucionController@search']);
+    Route::post('/nuevo', ['as' => 'store', 'uses' => 'InstitucionController@store']);
 });
