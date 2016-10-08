@@ -31,4 +31,13 @@ class InstitucionController extends Controller
             'mensaje' => 'Institucion creada.'
         ]);
     }
+
+    public function update($id, StoreInstitucionApi $request)
+    {
+        $institucion = Institucion::findOrFail($id);
+        $institucion->update($request->all());
+        return response()->json([
+            'mensaje' => 'Institucion actualizada.',
+        ]);
+    }
 }
