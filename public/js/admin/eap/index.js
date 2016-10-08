@@ -6,6 +6,7 @@ var vm = new Vue(
         eap_selected: 0,
         default_url: '',
         url_edit: '',
+        base_url: '',
         url_delete: '',
     },
 
@@ -38,16 +39,16 @@ var vm = new Vue(
     watch: {
         eap_selected: function(newValue)
         {
-            var base_url = 'http://localhost/sfcourse/public' + this.default_url + newValue
+            this.base_url = this.app_url + '/admin/eaps/' + newValue
             if (newValue > 0) {
-                this.url_edit = base_url + '/editar'
-                this.url_delete = base_url + '/eliminar'
+                this.url_edit = this.base_url + '/editar'
+                this.url_delete = this.base_url + '/eliminar'
             }
         }
     },
 
     ready: function()
     {
-        this.default_url = '/admin/eaps/'
+        this.app_url = window.app_url
     }
 });

@@ -8,6 +8,8 @@ var vm = new Vue(
         app_url: '',
         url_edit: '',
         url_delete: '',
+        base_url : '',
+        url_eaps : '',
     },
 
     methods: {
@@ -39,16 +41,17 @@ var vm = new Vue(
     watch: {
         facultad_selected: function(newValue)
         {
-            var base_url = this.app_url + newValue
+            this.base_url = this.app_url + '/admin/facultades/' + newValue;
             if (newValue > 0) {
-                this.url_edit = base_url + '/editar'
-                this.url_delete = base_url + '/eliminar'
+                this.url_edit = this.base_url + '/editar'
+                this.url_delete = this.base_url + '/eliminar'
+                this.url_eaps = this.app_url + '/admin/eaps?facultad_id=' + newValue
             }
         }
     },
 
     ready: function()
     {
-        this.app_url = window.app_url + '/admin/facultades/'
+        this.app_url = window.app_url
     }
 });
