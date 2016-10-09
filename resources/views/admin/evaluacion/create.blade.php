@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Fecha</label>
                     <div class="col-sm-4">
-                        <input type="date" class="form-control" name="fecha">
+                        <input class="form-control" id="datepicker" name="fecha" data-date-language="es">
                     </div>
                 </div>
 
@@ -62,3 +62,10 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    $('#datepicker').datepicker('setDate', new Date())
+    $('#datepicker').datepicker('update')
+</script>
+@endpush

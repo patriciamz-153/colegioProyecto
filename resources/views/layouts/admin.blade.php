@@ -18,6 +18,7 @@
     <link href="{{ url('css/admin/heading.css') }}" rel="stylesheet">
     <link href="{{ url('css/admin/panel.css') }}" rel="stylesheet">
     <link href="{{ url('css/admin/text.css') }}" rel="stylesheet">
+    <link href="{{ url('css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -147,6 +148,8 @@
     @endif
 
     <script src="{{ url('js/app.js') }}"></script>
+    <script src="{{ url('js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap-datepicker.es.min.js') }}" charset="UTF-8"></script>
     <script>
         window.app_url = "{{ url('/') }}";
     </script>
