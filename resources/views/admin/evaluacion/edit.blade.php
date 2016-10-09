@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Peso</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="peso" value="{{ $evaluacion->peso }}">
+                        <input type="number" class="form-control" name="peso" value="{{ $evaluacion->peso }}">
                     </div>
                 </div>
             </div>
