@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Auth;
+use Carbon\Carbon;
 
 class Evaluacion extends Model
 {
@@ -48,6 +48,11 @@ class Evaluacion extends Model
     public function getTipoEvaluacionNombreAttribute()
     {
         return $this->tipo_evaluacion->nombre;
+    }
+
+    public function setFechaAttribute($value)
+    {
+        $this->attributes['fecha'] = Carbon::createFromFormat('d/m/Y', $value);
     }
 
 }
