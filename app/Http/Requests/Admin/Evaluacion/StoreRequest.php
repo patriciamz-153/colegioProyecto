@@ -24,7 +24,12 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'fecha' => 'required|date_format:d/m/Y',
+            'hora_inicio' => 'required|date_format:H:i',
+            'hora_fin' => 'required|date_format:H:i|after:hora_inicio',
+            'peso' => 'required|numeric',
+            'grupo_id' => 'required|exists:grupo,id',
+            'tipo_id' => 'required|exists:tipo_evaluacion,id',
         ];
     }
 }
