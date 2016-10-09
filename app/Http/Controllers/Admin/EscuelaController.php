@@ -81,7 +81,7 @@ class EscuelaController extends Controller
         $eap->delete();
 
         return redirect()
-             ->route('eaps.index')
+             ->route('eaps.index', ['facultad_id' => $eap->facultad_id])
              ->with('message', 'EAP eliminada satisfactoriamente.');
     }
 }
