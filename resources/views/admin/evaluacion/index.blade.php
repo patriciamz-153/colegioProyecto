@@ -35,7 +35,10 @@
                             </thead>
                             <tbody>
                                 @foreach($evaluaciones as $evaluacion)
-                                <tr id="evaluacion_{{ $evaluacion->id }}" class="row-hover" v-on:click="select_row('{{ $evaluacion->id }}')">
+                                <tr id="evaluacion_{{ $evaluacion->id }}"
+                                    class="row-hover"
+                                    v-on:click="select_row('{{ $evaluacion->id }}')"
+                                >
                                     <td>{{ $evaluacion->tipo_evaluacion_nombre }}</td>
                                     <td>{{ $evaluacion->fecha->format('d/m/Y') }}</td>
                                     <td>{{ $evaluacion->hora_inicio }}</td>
@@ -53,7 +56,10 @@
         <div class="row">
             @foreach($evaluaciones as $evaluacion)
             <div class="panel panel-primary panel-mobile">
-                <div class="panel-heading panel-clickable" v-on:click="select_row('{{ $evaluacion->id }}')">
+                <div class="panel-heading panel-clickable"
+                     v-on:click="select_row('{{ $evaluacion->id }}')"
+                     id="panel_{{ $evaluacion->id }}"
+                >
                     <span>Tipo:</span><span class="float-right">{{ $evaluacion->tipo_evaluacion_nombre }}</span>
                 </div>
                 <div class="panel-body">

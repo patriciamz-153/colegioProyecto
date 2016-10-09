@@ -4,6 +4,9 @@
 .panel-clickable {
     cursor: pointer;
 }
+.panel-selected {
+    background-color: #000 !important;
+}
 @media(max-width: 480px) {
     .panel-mobile {
         display: block;

@@ -18,14 +18,22 @@ var vm = new Vue(
             var last_tr = document.getElementById('evaluacion_' + this.evaluacion_selected)
             var tr_selected = document.getElementById('evaluacion_' + id)
 
+            var last_panel = document.getElementById('panel_' + this.evaluacion_selected)
+            var panel_selected = document.getElementById('panel_' + id)
+
             if (this.evaluacion_selected == 0) {
                 tr_selected.className += ' row-selected'
+                panel_selected.className += ' panel-selected'
             } else {
                 if (this.evaluacion_selected == id) {
                     tr_selected.className = 'row-hover'
+                    panel_selected.className = 'panel-heading panel-clickable'
                 } else {
                     last_tr.className = 'row-hover'
                     tr_selected.className += ' row-selected'
+
+                    last_panel.className = 'panel-heading panel-clickable'
+                    panel_selected.className += ' panel-selected'
                 }
             }
 
