@@ -8,7 +8,12 @@ class PlanEstudio extends Model
 {
     protected $table = 'plan_de_estudio';
 
-    protected $fillable = ['escuela_id', 'nombre', 'anio_de_publicacion', 'esta_vigente'];
+    protected $fillable = [
+        'escuela_id',
+        'nombre',
+        'anio_de_publicacion',
+        'esta_vigente'
+    ];
 
     public $timestamps = false;
 

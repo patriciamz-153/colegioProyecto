@@ -8,7 +8,14 @@ class Asignatura extends Model
 {
     protected $table = 'asignatura';
 
-    protected $fillable = ['nombre', 'codigo', 'cantidad_de_creditos', 'plan_id', 'ciclo', 'tipo_id'];
+    protected $fillable = [
+        'nombre',
+        'codigo',
+        'cantidad_de_creditos',
+        'plan_id',
+        'ciclo',
+        'tipo_id'
+    ];
 
     public $timestamps = false;
 
