@@ -8,6 +8,9 @@
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h3>Grupos</h3>
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_evaluaciones" v-show="grupo_selected" title="Evaluaciones" transition="btn-header">
+                    <i class="fa fa-inbox" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -32,5 +35,5 @@
 @endsection
 
 @push('scripts')
-
+    <script type="text/javascript" src="{{ asset('js/admin/grupo/index.js') }}"></script>
 @endpush
