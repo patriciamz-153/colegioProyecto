@@ -23,3 +23,7 @@ Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function()
     Route::get('/buscar', ['as' => 'search', 'uses' => 'InstitucionController@search']);
     Route::post('/{id}/editar', ['as' => 'update', 'uses' => 'InstitucionController@update']);
 });
+
+Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'SedeController@index']);
+});
