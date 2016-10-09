@@ -52,6 +52,19 @@ Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
 
 });
 
+Route::group(['prefix' => 'planes_estudio', 'as' => 'planes_estudio.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'PlanEstudioController@index']);
+    Route::get('/nuevo', ['as' => 'create', 'uses' => 'PlanEstudioController@create']);
+    Route::post('/nuevo', ['as' => 'store', 'uses' => 'PlanEstudioController@store']);
+
+    Route::group(['prefix' => '{plan}'], function() {
+        Route::get('/editar', ['as' => 'edit', 'uses' => 'PlanEstudioController@edit']);
+        Route::post('/editar', ['as' => 'update', 'uses' => 'PlanEstudioController@update']);
+        Route::post('/eliminar', ['as' => 'delete', 'uses' => 'PlanEstudioController@delete']);
+    });
+
+});
+
 Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'GrupoController@index']);
 
