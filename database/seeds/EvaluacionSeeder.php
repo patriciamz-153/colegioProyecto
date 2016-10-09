@@ -30,7 +30,16 @@ class EvaluacionSeeder extends Seeder
                 'peso' => 0.3,
                 'grupo_id' => 1,
                 'tipo_id' => 4,
-            ]
+            ],
+            [
+                'id' => 3,
+                'fecha' => '2016-10-05',
+                'hora_inicio' => '18:00:00',
+                'hora_fin' => '20:00:00',
+                'peso' => 0.2,
+                'grupo_id' => 2,
+                'tipo_id' => 3,
+            ],
         ]);
     }
 }

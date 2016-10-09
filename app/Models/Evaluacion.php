@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Evaluacion extends Model
 {
     protected $table = 'evaluacion';
@@ -32,4 +34,25 @@ class Evaluacion extends Model
     {
         return $this->belongsTo(Grupo::class, 'grupo_id');
     }
+
+    public function getHoraInicioAttribute()
+    {
+        return date('H:i', strtotime($this->attributes['hora_inicio']));
+    }
+
+    public function getHoraFinAttribute()
+    {
+        return date('H:i', strtotime($this->attributes['hora_fin']));
+    }
+
+    public function getTipoEvaluacionNombreAttribute()
+    {
+        return $this->tipo_evaluacion->nombre;
+    }
+
+    public function setFechaAttribute($value)
+    {
+        $this->attributes['fecha'] = Carbon::createFromFormat('d/m/Y', $value);
+    }
+
 }

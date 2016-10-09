@@ -54,5 +54,20 @@ Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
 
 Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'GrupoController@index']);
+
+    Route::group(['prefix' => '{grupo}'], function() {
+        Route::group(['prefix' => 'evaluaciones', 'as' => 'evaluaciones.'], function() {
+            Route::get('/', ['as' => 'index', 'uses' => 'EvaluacionController@index']);
+            Route::get('/nuevo', ['as' => 'create', 'uses' => 'EvaluacionController@create']);
+            Route::post('/nuevo', ['as' => 'store', 'uses' => 'EvaluacionController@store']);
+
+            Route::group(['prefix' => '{evaluacion}'], function() {
+                Route::get('/editar', ['as' => 'edit', 'uses' => 'EvaluacionController@edit']);
+                Route::post('/editar', ['as' => 'update', 'uses' => 'EvaluacionController@update']);
+                Route::post('/eliminar', ['as' => 'delete', 'uses' => 'EvaluacionController@delete']);
+            });
+        });
+    });
+
 });
 

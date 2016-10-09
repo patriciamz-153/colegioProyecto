@@ -1,0 +1,14 @@
+.panel-mobile {
+    display: none;
+}
+.panel-clickable {
+    cursor: pointer;
+}
+@media(max-width: 480px) {
+    .panel-mobile {
+        display: block;
+    }
+    .panel-no-mobile {
+        display: none;
+    }
+}
