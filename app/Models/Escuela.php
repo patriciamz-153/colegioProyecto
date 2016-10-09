@@ -14,16 +14,16 @@ class Escuela extends Model
 
    public function facultad()
    {
-      return $this->belongsTo(Facultad::class);
+      return $this->belongsTo(Facultad::class, 'facultad_id');
    }
 
-   public function academic_plan()
+   public function planes_de_estudio()
    {
-      return $this->hasMany(AcademicPlan::class,'id');
+      return $this->hasMany(PlanEstudio::class,'escuela_id');
    }
 
    public function student()
    {
-      return $this->hasMany(Student::class,'id');
+      return $this->hasMany(Student::class,'escuela_id');
    }
 }
