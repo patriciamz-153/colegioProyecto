@@ -16,10 +16,10 @@
                     <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="evaluacion_selected" title="Editar" transition="btn-header" >
                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
-                    <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="evaluacion_selected" title="Eliminar" @click="delete_facultad" transition="btn-header">
+                    <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="evaluacion_selected" title="Eliminar" @click="delete_evaluacion" transition="btn-header">
                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </a>
-                    <form id="delete-facultad-form" v-bind:action="url_delete" method="POST" hidden>
+                    <form id="delete-evaluacion-form" v-bind:action="url_delete" method="POST" hidden>
                         {{ csrf_field() }}
                     </form>
                 </div>
