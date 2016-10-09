@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Fecha</label>
                     <div class="col-sm-4">
-                        <input class="form-control" id="datepicker" name="fecha" data-date-language="es">
+                        <input type="date" class="form-control" name="fecha">
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label text-left">Peso</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="peso">
+                        <input type="number" class="form-control" name="peso">
                     </div>
                 </div>
             </div>
@@ -62,10 +62,3 @@
     </div>
 
 @endsection
-
-@push('scripts')
-<script type="text/javascript">
-    $('#datepicker').datepicker('setDate', new Date())
-    $('#datepicker').datepicker('update')
-</script>
-@endpush

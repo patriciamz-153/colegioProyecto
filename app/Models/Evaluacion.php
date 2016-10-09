@@ -49,10 +49,4 @@ class Evaluacion extends Model
     {
         return $this->tipo_evaluacion->nombre;
     }
-
-    public function setFechaAttribute($value)
-    {
-        $this->attributes['fecha'] = Carbon::createFromFormat('d/m/Y', $value);
-    }
-
 }
