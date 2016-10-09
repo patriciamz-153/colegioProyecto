@@ -7,7 +7,7 @@
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
-                <h3 class="text-center">{{ $asignatura->nombre }} - Registrar Evaluacion</h3>
+                <h3 class="text-center">{{ $asignatura->nombre }} - Editar Evaluacion</h3>
             </div>
             <form class="form form-horizontal" method="POST">
             {{ csrf_field() }}
