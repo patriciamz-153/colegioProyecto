@@ -29,6 +29,9 @@
                 <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="eap_selected" title="Eliminar" @click="delete_eap" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
+                <a type="button" class="btn btn-warning btn-header" v-bind:href="url_planes" v-show="eap_selected" title="Planes de estudio" transition="btn-header">
+                  <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                </a>
                 <form id="delete-eap-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>
