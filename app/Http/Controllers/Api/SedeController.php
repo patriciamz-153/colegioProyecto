@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Models\Institucion;
 use App\Models\Sede;
+
+use App\Http\Requests\Api\Sede\StoreSedeApi;
 
 class SedeController extends Controller
 {
@@ -17,5 +18,13 @@ class SedeController extends Controller
         $institucion_id = $request->input('institucion_id');
         $sedes = Sede::todas()->get();
         return response()->json($sedes);
+    }
+
+    public function store(StoreSedeApi $request)
+    {
+        Sede::create($request->all());
+        return response()->json([
+            'mensaje' => 'Sede creada satisfactoriamente.'
+        ]);
     }
 }
