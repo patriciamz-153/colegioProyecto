@@ -33,4 +33,5 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
 
 Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'FacultadController@index']);
+    Route::post('/', ['as' => 'store', 'uses' => 'FacultadController@store']);
 });

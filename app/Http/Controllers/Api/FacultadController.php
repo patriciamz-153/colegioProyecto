@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 use App\Models\Facultad;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Facultad\StoreFacultadApi;
 
 class FacultadController extends Controller
 {
@@ -13,5 +14,13 @@ class FacultadController extends Controller
     {
         $facultades = Facultad::todas()->get();
         return response()->json($facultades);
+    }
+
+    public function store(StoreFacultadApi $request)
+    {
+        Facultad::create($request->all());
+        return response()->json([
+            'mensaje' => 'Facultad creada.'
+        ]);
     }
 }
