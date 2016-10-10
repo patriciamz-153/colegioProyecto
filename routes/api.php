@@ -27,4 +27,5 @@ Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function()
 Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'SedeController@index']);
     Route::post('/', ['as' => 'store', 'uses' => 'SedeController@store']);
+    Route::get('/{sede}', ['as' => 'show', 'uses' => 'SedeController@show']);
 });

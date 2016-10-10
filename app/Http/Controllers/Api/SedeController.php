@@ -27,4 +27,11 @@ class SedeController extends Controller
             'mensaje' => 'Sede creada satisfactoriamente.'
         ]);
     }
+
+    public function show(Sede $sede)
+    {
+        return response()->json([
+            'sede' => $sede->first(),
+        ]);
+    }
 }

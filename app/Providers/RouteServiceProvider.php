@@ -23,9 +23,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::model('institucion', \App\Models\Institucion::class);
+        Route::model('facultad', \App\Models\Facultad::class);
+        Route::model('sede', \App\Models\Sede::class);
+        Route::model('departamento', \App\Models\Departamento::class);
+        Route::model('provincia', \App\Models\Provincia::class);
+        Route::model('eap', \App\Models\Escuela::class);
+        Route::model('grupo', \App\Models\Grupo::class);
+        Route::model('evaluacion', \App\Models\Evaluacion::class);
     }
 
     /**
@@ -40,15 +47,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAdminRoutes();
-
-        Route::model('institucion', \App\Models\Institucion::class);
-        Route::model('facultad', \App\Models\Facultad::class);
-        Route::model('sede', \App\Models\Sede::class);
-        Route::model('departamento', \App\Models\Departamento::class);
-        Route::model('provincia', \App\Models\Provincia::class);
-        Route::model('eap', \App\Models\Escuela::class);
-        Route::model('grupo', \App\Models\Grupo::class);
-        Route::model('evaluacion', \App\Models\Evaluacion::class);
     }
 
     /**
