@@ -4,6 +4,10 @@
 
     @include('admin.helpers.show_message')
 
+    <script type="text/javascript">
+        window.facultades = <?php echo json_encode($facultades) ?>;
+    </script>
+
     <div class="row" id="app">
         <form method="POST">
         <div class="panel panel-info">
@@ -14,23 +18,16 @@
             <div class="panel-body">
                 <div class="col-md-6">
                     <div class="col-sm-12 col-md-10 col-md-offset-1">
-                        <table class="table">
+                        <table class="table" id="facultades-disponibles">
                             <thead>
                                 <th>Facultades disponibles</th>
                             </thead>
                             <tbody>
-                            @foreach ($facultades as $facultad)
-                                @if (!in_array($facultad->id, $facultades_id))
-                                <tr>
+                                <tr v-for="facultad in facultades_disponibles">
                                     <td>
-                                        <span class="float-left ln-2-5">{{ $facultad->nombre }}</span>
-                                        <a type="button" class="btn btn-success float-right" @click="add_facultad({{ $facultad->id }})">
-                                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                                        </a>
+                                        <facultad-disponible  :nombre="facultad.nombre"></facultad-disponible>
                                     </td>
                                 </tr>
-                                @endif
-                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -38,7 +35,7 @@
 
                 <div class="col-md-6">
                     <div class="col-sm-12 col-md-10 col-md-offset-1">
-                        <table class="table">
+                        <table class="table" id="sede-facultades">
                             <thead>
                                 <th>Facultades en la Sede</th>
                             </thead>
@@ -46,11 +43,11 @@
                             @foreach ($sede_facultades as $facultad)
                                 @if (in_array($facultad->id, $facultades_id))
                                 <tr>
-                                    <td>
-                                        <span class="float-left ln-2-5">{{ $facultad->nombre }}</span>
-                                        <a type="button" class="btn btn-danger float-right" @click="remove_facultad({{ $facultad->id }})">
-                                            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-                                        </a>
+                                    <td id="sede-facultad-{{ $facultad->id }}">
+                                        <facultad-en-sede
+                                            nombre="{{ $facultad->nombre }}"
+                                            facultad-id="{{ $facultad->id }}">
+                                        </facultad-en-sede>
                                     </td>
                                 </tr>
                                 @endif
