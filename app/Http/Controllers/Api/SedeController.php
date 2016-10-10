@@ -28,10 +28,20 @@ class SedeController extends Controller
         ]);
     }
 
-    public function show(Sede $sede)
+    public function show($id)
     {
+        $sede = Sede::findOrFail($id);
         return response()->json([
-            'sede' => $sede->first(),
+            'sede' => $sede,
+        ]);
+    }
+
+    public function update($id, StoreSedeApi $request)
+    {
+        $sede = Sede::findOrFail($id);
+        $sede->update($request->all());
+        return response()->json([
+            'mensaje' => 'Sede actualizada satisfactoriamente.'
         ]);
     }
 }
