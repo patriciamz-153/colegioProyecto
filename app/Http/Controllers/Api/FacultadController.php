@@ -23,4 +23,13 @@ class FacultadController extends Controller
             'mensaje' => 'Facultad creada.'
         ]);
     }
+
+    public function update($id, StoreFacultadApi $request)
+    {
+        $facultad = Facultad::findOrFail($id);
+        $facultad->update($request->all());
+        return response()->json([
+            'mensaje' => 'Facultad actualizada.'
+        ]);
+    }
 }
