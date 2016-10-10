@@ -14,6 +14,14 @@ class Facultad extends Model
         'institucion_id',
     ];
 
+    protected $appends = [
+        'institucion_siglas'
+    ];
+
+    protected $hidden = [
+        'institucion'
+    ];
+
     public $timestamps = false;
 
     public function institucion()
@@ -39,5 +47,13 @@ class Facultad extends Model
     public function academicPeriods()
     {
         return $this->hasMany(AcademicPeriod::class);
+    }
+
+    public function scopeTodas($query)
+    {
+        $institucion_id = request()->input('institucion_id');
+        if ($institucion_id)
+            return $query->where('institucion_id', $institucion_id);
+        return $query;
     }
 }

@@ -15,7 +15,6 @@ class SedeController extends Controller
 {
     public function index(Request $request)
     {
-        $institucion_id = $request->input('institucion_id');
         $sedes = Sede::todas()->get();
         return response()->json($sedes);
     }
