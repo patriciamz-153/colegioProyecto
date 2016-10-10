@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Facultad;
 
 use App\Http\Requests\Api\Facultad\StoreFacultadApi;
+use App\Http\Requests\Api\Facultad\UpdateFacultadApi;
 
 class FacultadController extends Controller
 {
@@ -24,10 +25,10 @@ class FacultadController extends Controller
         ]);
     }
 
-    public function update($id, StoreFacultadApi $request)
+    public function update($id, UpdateFacultadApi $request)
     {
         $facultad = Facultad::findOrFail($id);
-        $facultad->update($request->all());
+        $facultad->update($request->except(['institucion_id']));
         return response()->json([
             'mensaje' => 'Facultad actualizada.'
         ]);
