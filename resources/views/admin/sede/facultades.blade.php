@@ -24,7 +24,7 @@
                                 <tr>
                                     <td>
                                         <span class="float-left ln-2-5">{{ $facultad->nombre }}</span>
-                                        <a type="button" class="btn btn-success float-right">
+                                        <a type="button" class="btn btn-success float-right" @click="add_facultad({{ $facultad->id }})">
                                             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                                         </a>
                                     </td>
@@ -48,7 +48,7 @@
                                 <tr>
                                     <td>
                                         <span class="float-left ln-2-5">{{ $facultad->nombre }}</span>
-                                        <a type="button" class="btn btn-danger float-right">
+                                        <a type="button" class="btn btn-danger float-right" @click="remove_facultad({{ $facultad->id }})">
                                             <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
                                         </a>
                                     </td>
@@ -69,5 +69,5 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/admin/sede/index.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/sede/facultades.js') }}"></script>
 @endpush
