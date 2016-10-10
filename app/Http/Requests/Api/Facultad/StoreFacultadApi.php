@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\Sede;
+namespace App\Http\Requests\Api\Facultad;
 
 use App\Http\Requests\Api\ApiRequest;
 
-class StoreSedeApi extends ApiRequest
+class StoreFacultadApi extends ApiRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,8 +15,7 @@ class StoreSedeApi extends ApiRequest
     {
         return [
             'nombre' => 'required|max:90',
-            'direccion' => 'required|max:255',
-            'distrito_id' => 'required|exists:distrito,id',
+            'codigo' => 'required|max:10',
             'institucion_id' => 'required|exists:institucion,id',
         ];
     }
