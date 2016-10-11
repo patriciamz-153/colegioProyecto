@@ -89,19 +89,4 @@ class SedeController extends Controller
              ->route('sedes.index', ['institucion_id' => $institucion_id])
              ->with('message', 'Sede eliminada satisfactoriamente.');
     }
-
-    public function facultades($sede)
-    {
-        $facultades = $sede->institucion->facultades;
-        $sede_facultades = $sede->facultades;
-        $facultades_id = $facultades->pluck('id')->toArray();
-
-        $data = [
-            'facultades' => $facultades,
-            'sede_facultades' => $sede_facultades,
-            'facultades_id' => $facultades_id,
-        ];
-
-        return view('admin.sede.facultades', $data);
-    }
 }
