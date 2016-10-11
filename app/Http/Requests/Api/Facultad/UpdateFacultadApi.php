@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\Institucion;
+namespace App\Http\Requests\Api\Facultad;
 
 use App\Http\Requests\Api\ApiRequest;
 
-class StoreInstitucionApi extends ApiRequest
+class UpdateFacultadApi extends ApiRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,8 +14,8 @@ class StoreInstitucionApi extends ApiRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|min:10|max:90',
-            'siglas' => 'required|min:2|max:10',
+            'nombre' => 'required|max:90',
+            'codigo' => 'required|max:10',
         ];
     }
 }

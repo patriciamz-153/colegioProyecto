@@ -15,6 +15,16 @@ class Sede extends Model
         'distrito_id',
     ];
 
+    protected $appends = [
+        'distrito_nombre',
+        'institucion_siglas'
+    ];
+
+    protected $hidden = [
+        'distrito',
+        'institucion'
+    ];
+
     public $timestamps = false;
 
     public function institucion()
@@ -50,5 +60,13 @@ class Sede extends Model
     public function facultades()
     {
         return $this->belongsToMany(Facultad::class, 'facultad_x_sede', 'sede_id', 'facultad_id');
+    }
+
+    public function scopeTodas($query)
+    {
+        $institucion_id = request()->input('institucion_id');
+        if ($institucion_id)
+            return $query->where('institucion_id', $institucion_id);
+        return $query;
     }
 }

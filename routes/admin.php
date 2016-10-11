@@ -22,7 +22,8 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
         Route::post('/editar', ['as' => 'update', 'uses' => 'SedeController@update']);
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'SedeController@delete']);
 
-        Route::get('/facultades', ['as' => 'facultades', 'uses' => 'SedeController@facultades']);
+        Route::get('/facultades', ['as' => 'facultades', 'uses' => 'SedeFacultadesController@index']);
+        Route::post('/facultades', ['as' => 'store_facultades', 'uses' => 'SedeFacultadesController@store']);
     });
 });
 
@@ -55,12 +56,11 @@ Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
             Route::post('/nuevo', ['as' => 'store', 'uses' => 'PlanEstudioController@store']);
 
             Route::group(['prefix' => '{plan}'], function() {
-            Route::get('/editar', ['as' => 'edit', 'uses' => 'PlanEstudioController@edit']);
-            Route::post('/editar', ['as' => 'update', 'uses' => 'PlanEstudioController@update']);
-            Route::post('/eliminar', ['as' => 'delete', 'uses' => 'PlanEstudioController@delete']);
+                Route::get('/editar', ['as' => 'edit', 'uses' => 'PlanEstudioController@edit']);
+                Route::post('/editar', ['as' => 'update', 'uses' => 'PlanEstudioController@update']);
+                Route::post('/eliminar', ['as' => 'delete', 'uses' => 'PlanEstudioController@delete']);
+            });
         });
-
-});
     });
 
 });

@@ -5,6 +5,11 @@
   transition: visibility 0s, opacity 0.5s linear;
 }
 
+.btn-move {
+    display: block;
+    margin-top: 10px;
+}
+
 /** Animations **/
 .btn-header-transition {
   transition: all .3s ease;

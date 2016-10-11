@@ -23,3 +23,16 @@ Route::group(['prefix' => 'instituciones', 'as' => 'instituciones.'], function()
     Route::get('/buscar', ['as' => 'search', 'uses' => 'InstitucionController@search']);
     Route::post('/{id}/editar', ['as' => 'update', 'uses' => 'InstitucionController@update']);
 });
+
+Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'SedeController@index']);
+    Route::post('/', ['as' => 'store', 'uses' => 'SedeController@store']);
+    Route::get('/{id}', ['as' => 'show', 'uses' => 'SedeController@show']);
+    Route::post('/{id}/editar', ['as' => 'update', 'uses' => 'SedeController@update']);
+});
+
+Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'FacultadController@index']);
+    Route::post('/', ['as' => 'store', 'uses' => 'FacultadController@store']);
+    Route::post('/{id}/editar', ['as' => 'update', 'uses' => 'FacultadController@update']);
+});

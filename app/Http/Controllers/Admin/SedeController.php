@@ -19,10 +19,7 @@ class SedeController extends Controller
         $institucion_id = $request->input('institucion_id');
         $institucion = Institucion::find($institucion_id);
 
-        if ($institucion)
-            $sedes = $institucion->sedes()->paginate(10);
-        else
-            $sedes = Sede::paginate(10);
+        $sedes = Sede::todas()->paginate(10);
 
         $data = [
             'sedes' => $sedes,
@@ -91,20 +88,5 @@ class SedeController extends Controller
         return redirect()
              ->route('sedes.index', ['institucion_id' => $institucion_id])
              ->with('message', 'Sede eliminada satisfactoriamente.');
-    }
-
-    public function facultades($sede)
-    {
-        $facultades = $sede->institucion->facultades;
-        $sede_facultades = $sede->facultades;
-        $facultades_id = $facultades->pluck('id')->toArray();
-
-        $data = [
-            'facultades' => $facultades,
-            'sede_facultades' => $sede_facultades,
-            'facultades_id' => $facultades_id,
-        ];
-
-        return view('admin.sede.facultades', $data);
     }
 }
