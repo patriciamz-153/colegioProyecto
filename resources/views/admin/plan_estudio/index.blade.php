@@ -11,14 +11,14 @@
             @if ($escuela)
 
                 <h3>{{ $escuela->nombre }} - Planes de Estudio</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar Plan de estudio" href="{{ route('planes_estudio.create', ['escuela' => $escuela->id]) }}">
+                <a type="button" class="btn btn-success btn-header" title="Agregar Plan de estudio" href="{{ route('eaps.planes.create', ['eap' => $escuela->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
 
             @else
 
                 <h3>Planes de Estudio</h3>
-                <a type="button" class="btn btn-success btn-header" title="Agregar Plan de estudio" href="{{ route('planes_estudio.create') }}">
+                <a type="button" class="btn btn-success btn-header" title="Agregar Plan de estudio" href="{{ route('eaps.planes.create') }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
 
@@ -58,14 +58,8 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="escuela_id" value="{{ $escuela->id }}">
     </div>
-
-    @if ($escuela)
-    <div class="row text-center">
-        <a href="{{ route('planes_estudio.index') }}" class="btn btn-default">Ver todas los planes de estudio</a>
-    </div>
-    <input type="hidden" id="escuela_id" value="{{ $escuela->id }}">
-    @endif
 @endsection
 
 @push('scripts')
