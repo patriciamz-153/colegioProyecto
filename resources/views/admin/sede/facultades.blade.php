@@ -6,6 +6,7 @@
 
     <script type="text/javascript">
         window.facultades = <?php echo json_encode($facultades) ?>;
+        window.facultades_en_sede = <?php echo json_encode($sede_facultades) ?>;
     </script>
 
     <div class="row" id="app">
@@ -24,8 +25,11 @@
                             </thead>
                             <tbody>
                                 <tr v-for="facultad in facultades_disponibles">
-                                    <td>
-                                        <facultad-disponible  :nombre="facultad.nombre"></facultad-disponible>
+                                    <td id="facultad-disponible-@{{ facultad.id }}">
+                                        <facultad-disponible
+                                            :nombre="facultad.nombre"
+                                            facultad-id="facultad.id">
+                                        </facultad-disponible>
                                     </td>
                                 </tr>
                             </tbody>
@@ -40,18 +44,14 @@
                                 <th>Facultades en la Sede</th>
                             </thead>
                             <tbody>
-                            @foreach ($sede_facultades as $facultad)
-                                @if (in_array($facultad->id, $facultades_id))
-                                <tr>
-                                    <td id="sede-facultad-{{ $facultad->id }}">
+                                <tr v-for="facultad in facultades_en_sede">
+                                    <td id="sede-facultad-@{{ facultad.id }}">
                                         <facultad-en-sede
-                                            nombre="{{ $facultad->nombre }}"
-                                            facultad-id="{{ $facultad->id }}">
+                                            :nombre="facultad.nombre"
+                                            facultad-id="facultad.id">
                                         </facultad-en-sede>
                                     </td>
                                 </tr>
-                                @endif
-                            @endforeach
                             </tbody>
                         </table>
                     </div>
