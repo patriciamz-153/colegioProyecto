@@ -11,6 +11,7 @@
 
     <div class="row" id="app">
         <form method="POST">
+        {{ csrf_field() }}
         <div class="panel panel-info">
             <div class="panel-heading text-center">
                 <h3>{{ $institucion->siglas }} - {{ $sede->nombre }}</h3>

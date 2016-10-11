@@ -28,7 +28,8 @@ Vue.component('facultad-en-sede', {
     template:   '<span class="float-left ln-2-5">{{ nombre }}</span>' +
                 '<a type="button" class="btn btn-danger float-right" @click="remove_facultad(facultadId)">' +
                     '<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>' +
-                '</a>',
+                '</a>' +
+                '<input type="hidden" value="{{ facultadId }}" name="facultades[]">',
     methods: {
         remove_facultad: function(id)
         {

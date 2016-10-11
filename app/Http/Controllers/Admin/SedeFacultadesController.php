@@ -26,4 +26,13 @@ class SedeFacultadesController extends Controller
 
         return view('admin.sede.facultades', $data);
     }
+
+    public function store($sede, Request $request)
+    {
+        $sede->facultades()->sync($request->input('facultades'));
+
+        return redirect()
+             ->route('sedes.facultades', ['sede' => $sede->id])
+             ->with('message', 'Facultad de la sede actualizada.');
+    }
 }

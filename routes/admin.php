@@ -23,6 +23,7 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'SedeController@delete']);
 
         Route::get('/facultades', ['as' => 'facultades', 'uses' => 'SedeFacultadesController@index']);
+        Route::post('/facultades', ['as' => 'store_facultades', 'uses' => 'SedeFacultadesController@store']);
     });
 });
 
