@@ -17,11 +17,7 @@ class FacultadController extends Controller
     {
         $institucion_id = $request->input('institucion_id');
         $institucion = Institucion::find($institucion_id);
-
-        if ($institucion)
-            $facultades = $institucion->facultades()->paginate(10);
-        else
-            $facultades = Facultad::paginate(10);
+        $facultades = Facultad::todas()->paginate(10);
 
         $data = [
             'facultades' => $facultades,

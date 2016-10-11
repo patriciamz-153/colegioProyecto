@@ -19,10 +19,7 @@ class SedeController extends Controller
         $institucion_id = $request->input('institucion_id');
         $institucion = Institucion::find($institucion_id);
 
-        if ($institucion)
-            $sedes = $institucion->sedes()->paginate(10);
-        else
-            $sedes = Sede::paginate(10);
+        $sedes = Sede::todas()->paginate(10);
 
         $data = [
             'sedes' => $sedes,
