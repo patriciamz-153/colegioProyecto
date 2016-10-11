@@ -28,7 +28,7 @@
                                     <td id="facultad-disponible-@{{ facultad.id }}">
                                         <facultad-disponible
                                             :nombre="facultad.nombre"
-                                            facultad-id="facultad.id">
+                                            :facultad-id="facultad.id">
                                         </facultad-disponible>
                                     </td>
                                 </tr>
@@ -48,7 +48,7 @@
                                     <td id="sede-facultad-@{{ facultad.id }}">
                                         <facultad-en-sede
                                             :nombre="facultad.nombre"
-                                            facultad-id="facultad.id">
+                                            :facultad-id="facultad.id">
                                         </facultad-en-sede>
                                     </td>
                                 </tr>
