@@ -44,7 +44,7 @@ var vm = new Vue(
             if (newValue > 0) {
                 this.url_edit = this.base_url + '/editar'
                 this.url_delete = this.base_url + '/eliminar'
-                this.url_planes = this.app_url + '/admin/planes_estudio?escuela_id=' + newValue
+                this.url_planes =  this.app_url +'/admin/eaps/' + newValue + '/planes'
             }
         }
     },

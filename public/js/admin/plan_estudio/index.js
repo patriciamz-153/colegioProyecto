@@ -39,7 +39,7 @@ var vm = new Vue(
     watch: {
         plan_selected: function(newValue)
         {
-            this.base_url = this.app_url + '/admin/planes_estudio/' + newValue
+            this.base_url = this.app_url + '/admin/eaps/' + this.eap_selected +'/planes/' + newValue;
             if (newValue > 0) {
                 this.url_edit = this.base_url + '/editar'
                 this.url_delete = this.base_url + '/eliminar'
@@ -50,5 +50,6 @@ var vm = new Vue(
     ready: function()
     {
         this.app_url = window.app_url
+        this.eap_selected = document.getElementById('escuela_id').value;
     }
 });
