@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('fw-block-bl', ['except' => 'logout']);
+        $this->middleware(['fw-block-bl', 'fw-allow-wl'], ['except' => 'logout']);
     }
 
     /**
