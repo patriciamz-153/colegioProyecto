@@ -50,10 +50,12 @@ class ClientPasswordPassport extends Command
             1
         );
 
-        $clients->createPasswordGrantClient(
+        $client = $clients->createPasswordGrantClient(
             $user_id, $name, 'http://localhost'
         );
 
         $this->info('Password grant client created successfully. :D');
+        $this->line('<comment>Client ID:</comment> '.$client->id);
+        $this->line('<comment>Client secret:</comment> '.$client->secret);
     }
 }
