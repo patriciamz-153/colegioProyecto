@@ -5,8 +5,8 @@
     @include('admin.helpers.show_message')
 
     <script type="text/javascript">
-        window.facultades = <?php echo json_encode($facultades) ?>;
-        window.facultades_en_sede = <?php echo json_encode($sede_facultades) ?>;
+        window.facultades = @json($facultades)
+        window.facultades_en_sede = @json($sede_facultades)
     </script>
 
     <div class="row" id="app">
