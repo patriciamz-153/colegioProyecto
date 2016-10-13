@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use PragmaRX\Firewall\Filters\Whitelist;
 use Firewall;
+use App\Models\Incidente;
 
 class FirewallWhiteListCustom
 {
@@ -25,7 +26,9 @@ class FirewallWhiteListCustom
         $filterResponse = $this->whitelist->filter();
 
         if ($filterResponse != null) {
-dd('not allowed');
+            Incidente::create([
+                'direccion_ip' => $request->ip(),
+            ]);
             return $filterResponse;
         }
         return $next($request);

@@ -54,6 +54,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'api_client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         'fw-block-bl' => \PragmaRX\Firewall\Middleware\FirewallBlacklist::class,
-        'fw-allow-wl' => \PragmaRX\Firewall\Middleware\FirewallWhitelist::class,
+        'fw-allow-wl' => \App\Http\Middleware\FirewallWhiteListCustom::class,
     ];
 }

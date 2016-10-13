@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Incidente extends Model
 {
-    protected $table = 'indicente';
+    protected $table = 'incidente';
 
     protected $fillable = [
-        'ip',
+        'direccion_ip',
     ];
 }
