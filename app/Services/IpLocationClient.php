@@ -10,6 +10,9 @@ class IpLocationClient {
 
         $data = self::getData($url);
 
+        if ($data['status'] != 'success')
+            return null;
+
         $response = [
             'direccion_ip' => $data['query'],
             'pais_nombre' => $data['country'],
@@ -31,7 +34,7 @@ class IpLocationClient {
 
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => self::getUrl($ip),
+            CURLOPT_URL => self::getUrl($url),
         ));
 
         $response = curl_exec($curl);

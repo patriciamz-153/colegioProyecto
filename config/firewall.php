@@ -12,13 +12,6 @@ return [
      */
 
     'blacklist' => [
-        '10.0.2.2',
-        // '192.168.17.0/24'
-        // '127.0.0.1/255.255.255.255'
-        // '10.0.0.1-10.0.0.255'
-        // '172.17.*.*'
-        // 'country:br'
-        // storage_path().DIRECTORY_SEPARATOR.'blacklisted.txt',
     ],
 
     /**
@@ -27,13 +20,7 @@ return [
      */
 
     'whitelist' => [
-        //'127.0.0.99',
-        // '192.168.18.0/24'
-        // '127.0.0.2/255.255.255.255'
-        // '10.0.1.1-10.0.1.255'
-        // '172.16.*.*'
-        // 'country:ch'
-        // storage_path().DIRECTORY_SEPARATOR.'whitelisted.txt',
+        storage_path().DIRECTORY_SEPARATOR.'whitelisted.txt',
     ],
 
     /**
