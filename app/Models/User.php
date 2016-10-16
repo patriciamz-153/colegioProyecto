@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->hasMany(Firewall::class, 'usuario_id')->listaBlanca();
     }
 
+    public function scopeWhereAdmin($query)
+    {
+        return $query->where('tipo_usuario_id', 1);
+    }
+
     public function getNombreCompletoAttribute()
     {
         return ucfirst($this->nombres) . " " . ucfirst($this->apellidos);

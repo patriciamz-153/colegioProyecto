@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Firewall extends BaseFirewall
 {
+    protected $fillable = [
+        'usuario_id',
+        'ip_address',
+        'whitelisted',
+    ];
+
     public function usuario()
     {
         return $this->belongsTo(User::class, 'usuario_id');
@@ -21,4 +27,5 @@ class Firewall extends BaseFirewall
     {
         return $this->usuario->nombre_completo;
     }
+
 }

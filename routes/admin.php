@@ -86,4 +86,6 @@ Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
 
 Route::group(['prefix' => 'lista_blanca', 'as' => 'lista_blanca.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'ListaBlancaController@index']);
+    Route::get('/nuevo', ['as' => 'create', 'uses' => 'ListaBlancaController@create']);
+    Route::post('/nuevo', ['as' => 'store', 'uses' => 'ListaBlancaController@store']);
 });
