@@ -10,5 +10,11 @@ class Incidente extends Model
 
     protected $fillable = [
         'direccion_ip',
+        'pais_id',
     ];
+
+    public function pais()
+    {
+        return $this->belongsTo(Pais::class, 'pais_id');
+    }
 }
