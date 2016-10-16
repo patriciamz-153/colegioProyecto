@@ -65,8 +65,6 @@ Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
 
 });
 
-
-
 Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'GrupoController@index']);
 
@@ -86,3 +84,14 @@ Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
 
 });
 
+Route::group(['prefix' => 'lista_blanca', 'as' => 'lista_blanca.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'ListaBlancaController@index']);
+    Route::get('/nuevo', ['as' => 'create', 'uses' => 'ListaBlancaController@create']);
+    Route::post('/nuevo', ['as' => 'store', 'uses' => 'ListaBlancaController@store']);
+
+    Route::group(['prefix' => '{ip_lista_blanca}'], function() {
+        Route::get('/editar', ['as' => 'edit', 'uses' => 'ListaBlancaController@edit']);
+        Route::post('/editar', ['as' => 'update', 'uses' => 'ListaBlancaController@update']);
+        Route::post('/eliminar', ['as' => 'delete', 'uses' => 'ListaBlancaController@delete']);
+    });
+});

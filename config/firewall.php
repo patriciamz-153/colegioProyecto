@@ -20,7 +20,6 @@ return [
      */
 
     'whitelist' => [
-        storage_path().DIRECTORY_SEPARATOR.'whitelisted.txt',
     ],
 
     /**
@@ -97,7 +96,7 @@ return [
      * Should Firewall use the database?
      */
 
-    'use_database' => false,
+    'use_database' => true,
 
     /**
      * Models
@@ -107,6 +106,6 @@ return [
      *
      */
 
-    'firewall_model' => 'PragmaRX\Firewall\Vendor\Laravel\Models\Firewall',
+    'firewall_model' => 'App\Models\Firewall',
 
 ];

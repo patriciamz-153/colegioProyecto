@@ -13,6 +13,9 @@
         <li>
             <a class="sidebar-link" href="{{ route('eaps.index') }}">EAPs</a>
         </li>
+        <li>
+            <a class="sidebar-link" href="{{ route('lista_blanca.index') }}">Lista Blanca</a>
+        </li>
     </ul>
     </div>
 </div>
