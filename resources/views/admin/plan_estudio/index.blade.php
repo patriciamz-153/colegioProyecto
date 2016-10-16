@@ -38,18 +38,12 @@
                     <table class="table">
                         <thead>
                             <th>Nombre</th>
-                            @if(!$escuela)
-                                <th>EAP</th>
-                            @endif
                             <th>Vigencia</th>
                         </thead>
                         <tbody>
                             @foreach($planes_estudio as $plan_estudio)
                             <tr id="plan_{{ $plan_estudio->id }}" class="row-hover" v-on:click="select_row('{{ $plan_estudio->id }}')">
                                 <td>{{ $plan_estudio->nombre }}</td>
-                                @if(!$escuela)
-                                    <td>{{ $plan_estudio->escuela->nombre }}</td>
-                                @endif
                                 <td>{{ ($plan_estudio->esta_vigente) ? 'Vigente':'No Vigente'}}</td>
                             </tr>
                             @endforeach
