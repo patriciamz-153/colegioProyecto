@@ -6,18 +6,9 @@ class IpLocationClient {
 
     public static function createIncidente($ip)
     {
-        $curl = curl_init();
+        $url = self::getUrl($ip);
 
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => self::getCountryWS($ip),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-
-        $data = json_decode($response, true);
+        $data = self::getData($url);
 
         $response = [
             'direccion_ip' => $data['query'],
@@ -34,7 +25,23 @@ class IpLocationClient {
         return $response;
     }
 
-    private static function getCountryWS($ip)
+    private static function getData($url)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => self::getUrl($ip),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        return json_decode($response, true);
+    }
+
+    private static function getUrl($ip)
     {
         return 'http://ip-api.com/json/' . $ip;
     }
