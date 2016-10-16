@@ -16,11 +16,18 @@ class IpCountryClient {
 
     public function getCountry($ip)
     {
-        $http = new \GuzzleHttp\Client;
+        $curl = curl_init();
 
-        $response = $http->get($this->getCountryWS($ip));
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $this->getCountryWS($ip),
+        ));
 
-        return json_decode((string) $response->getBody(), true);
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        return json_decode($response, true);
     }
 
     private function getCountryWS($ip)
