@@ -20,7 +20,7 @@
                             <th>Pais</th>
                             <th>Region</th>
                             <th>Ciudad</th>
-                            <th>Hora de registro</th>
+                            <th>Fecha y Hora de registro</th>
                         </thead>
                         <tbody>
                             @foreach($incidentes as $incidente)
@@ -29,7 +29,7 @@
                                 <td>{{ $incidente->pais_nombre }}</td>
                                 <td>{{ $incidente->region_nombre }}</td>
                                 <td>{{ $incidente->ciudad }}</td>
-                                <td>{{ $incidente->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $incidente->created_at->format('d/m/Y H:i:s') }}</td>
                             </tr>
                             @endforeach
                         </tbody>
