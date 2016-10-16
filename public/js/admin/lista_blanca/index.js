@@ -31,7 +31,7 @@ var vm = new Vue(
 
             this.ip_selected = (this.ip_selected == id) ? 0 : id
         },
-        delete_institucion: function()
+        delete_ip: function()
         {
             event.preventDefault();
             document.getElementById('delete-ip-form').submit();

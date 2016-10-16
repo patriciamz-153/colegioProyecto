@@ -17,7 +17,7 @@
                 <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="ip_selected" title="Eliminar" @click="delete_ip" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
-                <form id="delete-institucion-form" v-bind:action="url_delete" method="POST" hidden>
+                <form id="delete-ip-form" v-bind:action="url_delete" method="POST" hidden>
                     {{ csrf_field() }}
                 </form>
             </div>
