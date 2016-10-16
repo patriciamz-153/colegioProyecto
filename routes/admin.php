@@ -95,3 +95,8 @@ Route::group(['prefix' => 'lista_blanca', 'as' => 'lista_blanca.'], function() {
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'ListaBlancaController@delete']);
     });
 });
+
+Route::group(['prefix' => 'incidente', 'as' => 'incidente.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'IncidenteController@index']);
+    Route::get('/{incidente}/mostrar', ['as' => 'show', 'uses' => 'IncidenteController@show']);
+});

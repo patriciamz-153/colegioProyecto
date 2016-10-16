@@ -16,6 +16,9 @@
         <li>
             <a class="sidebar-link" href="{{ route('lista_blanca.index') }}">Lista Blanca</a>
         </li>
+        <li>
+            <a class="sidebar-link" href="{{ route('incidente.index') }}">Incidentes</a>
+        </li>
     </ul>
     </div>
 </div>

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Incidente extends Model
 {
     protected $table = 'incidente';
@@ -19,5 +21,10 @@ class Incidente extends Model
         'org',
         'as',
     ];
+
+    public function scopeRecientes($query)
+    {
+        $query->where('created_at', '>=', Carbon::today()->subDays(3));
+    }
 
 }
