@@ -10,11 +10,14 @@ class Incidente extends Model
 
     protected $fillable = [
         'direccion_ip',
-        'pais_id',
+        'pais_nombre',
+        'pais_code',
+        'region_nombre',
+        'region_code',
+        'ciudad',
+        'isp',
+        'org',
+        'as',
     ];
 
-    public function pais()
-    {
-        return $this->belongsTo(Pais::class, 'pais_id');
-    }
 }

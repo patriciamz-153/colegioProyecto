@@ -7,7 +7,7 @@ use PragmaRX\Firewall\Filters\Whitelist;
 use Firewall;
 use App\Models\Incidente;
 use App\Models\Pais;
-use App\Services\IpCountryClient;
+use App\Services\IpLocationClient;
 
 class FirewallWhiteListCustom
 {
@@ -28,19 +28,9 @@ class FirewallWhiteListCustom
         $filterResponse = $this->whitelist->filter();
 
         if ($filterResponse != null) {
-            $client= new IpCountryClient;
+            $incidente = IpLocationClient::createIncidente($request->ip());
 
-            $response = $client->getCountry('74.125.45.100');
-
-            $pais = Pais::firstOrCreate([
-                'nombre' => $response['countryName'],
-                'code' => $response['countryCode'],
-            ]);
-
-            Incidente::create([
-                'direccion_ip' => $request->ip(),
-                'pais_id' => $pais->id,
-            ]);
+            Incidente::create($incidente);
 
             return $filterResponse;
         }

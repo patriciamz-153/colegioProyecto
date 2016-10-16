@@ -16,6 +16,14 @@ class CreateIncidentesTable extends Migration
         Schema::create('incidente', function(Blueprint $table) {
             $table->increments('id');
             $table->string('direccion_ip');
+            $table->string('pais_nombre');
+            $table->string('pais_code');
+            $table->string('region_nombre');
+            $table->string('region_code');
+            $table->string('ciudad');
+            $table->string('isp');
+            $table->string('org');
+            $table->string('as');
             $table->timestamps();
         });
     }
