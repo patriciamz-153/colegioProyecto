@@ -34,7 +34,7 @@ class IpLocationClient {
 
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => self::getUrl($url),
+            CURLOPT_URL => $url,
         ));
 
         $response = curl_exec($curl);
