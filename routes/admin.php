@@ -65,8 +65,6 @@ Route::group(['prefix' => 'eaps', 'as' => 'eaps.'], function() {
 
 });
 
-
-
 Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'GrupoController@index']);
 
@@ -86,3 +84,6 @@ Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
 
 });
 
+Route::group(['prefix' => 'lista_blanca', 'as' => 'lista_blanca.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'ListaBlancaController@index']);
+});

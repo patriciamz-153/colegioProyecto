@@ -106,6 +106,6 @@ return [
      *
      */
 
-    'firewall_model' => 'PragmaRX\Firewall\Vendor\Laravel\Models\Firewall',
+    'firewall_model' => 'App\Models\Firewall',
 
 ];
