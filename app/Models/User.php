@@ -48,7 +48,12 @@ class User extends Authenticatable
         return $this->belongsTo(UserType::class);
     }
 
-    public function getFullNameAttribute()
+    public function ips_lista_blanca()
+    {
+        return $this->hasMany(Firewall::class, 'usuario_id')->listaBlanca();
+    }
+
+    public function getNombreCompletoAttribute()
     {
         return ucfirst($this->nombres) . " " . ucfirst($this->apellidos);
     }
