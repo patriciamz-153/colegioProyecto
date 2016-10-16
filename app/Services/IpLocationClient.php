@@ -24,7 +24,7 @@ class IpLocationClient {
             'pais_nombre' => $data['country'],
             'pais_code' => $data['countryCode'],
             'region_nombre' => $data['regionName'],
-            'region_code' => $data['regionCode'],
+            'region_code' => $data['region'],
             'ciudad' => $data['city'],
             'isp' => $data['isp'],
             'org' => $data['org'],
