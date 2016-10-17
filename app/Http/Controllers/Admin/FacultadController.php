@@ -17,7 +17,7 @@ class FacultadController extends BaseAdminController
 
     public function index(Request $request)
     {
-        $institucion_id = $request->input('institucion_id');
+        $institucion_id = $request->input('institucion');
         $institucion = Institucion::find($institucion_id);
         $facultades = Facultad::todas()->paginate(10);
 

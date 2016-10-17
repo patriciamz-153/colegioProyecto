@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseAdminController;
 
 use App\Models\Departamento;
 use App\Models\Sede;
@@ -12,11 +12,13 @@ use App\Http\Requests\Admin\Sede\StoreRequest;
 
 use Illuminate\Http\Request;
 
-class SedeController extends Controller
+class SedeController extends BaseAdminController
 {
+    protected $index_route = 'sedes.index';
+
     public function index(Request $request)
     {
-        $institucion_id = $request->input('institucion_id');
+        $institucion_id = $request->input('institucion');
         $institucion = Institucion::find($institucion_id);
 
         $sedes = Sede::todas()->paginate(10);
@@ -31,7 +33,7 @@ class SedeController extends Controller
 
     public function create(Request $request)
     {
-        $institucion_id = $request->input('institucion_id');
+        $institucion_id = $request->input('institucion');
         $institucion = Institucion::find($institucion_id);
         $departamentos = Departamento::all();
         $instituciones = Institucion::all();
@@ -48,10 +50,9 @@ class SedeController extends Controller
     public function store(StoreRequest $request)
     {
         $sede = Sede::create($request->all());
-
-        return redirect()
-             ->route('sedes.index', ['institucion_id' => $sede->institucion_id])
-             ->with('message', 'Sede creada satisfactoriamente.');
+        return $this->redirectToIndex('Sede creada satisfactoriamente.', [
+            'institucion' => $sede->institucion_id
+        ]);
     }
 
     public function edit($sede, Request $request)
@@ -73,20 +74,14 @@ class SedeController extends Controller
     public function update($sede, StoreRequest $request)
     {
         $sede->update($request->all());
-
-        return redirect()
-             ->route('sedes.index', ['institucion_id' => $sede->institucion_id])
-             ->with('message', 'Sede actualizada satisfactoriamente.');
+        return $this->redirectToIndex('Sede actualizada satisfactoriamente.', [
+            'institucion' => $sede->institucion_id
+        ]);
     }
 
     public function delete($sede, Request $request)
     {
         $sede->delete();
-
-        $institucion_id = $request->input('institucion_id');
-
-        return redirect()
-             ->route('sedes.index', ['institucion_id' => $institucion_id])
-             ->with('message', 'Sede eliminada satisfactoriamente.');
+        return $this->redirectToIndex('Sede eliminada satisfactoriamente.');
     }
 }

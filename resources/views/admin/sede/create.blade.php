@@ -75,6 +75,8 @@
                         </select>
                     </div>
                 </div>
+            @else
+                <input type="hidden" name="institucion_id" value="{{ $institucion->id }}">
             @endif
             </div>
 
