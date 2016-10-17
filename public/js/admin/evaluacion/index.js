@@ -6,9 +6,7 @@ var vm = new Vue(
         evaluacion_selected: 0,
         url_edit: '',
         url_delete: '',
-        url_sedes: '',
-        url_facultades: '',
-        base_url: '',
+        url_scores: '',
         app_url: '',
     },
 
@@ -48,10 +46,11 @@ var vm = new Vue(
 
     watch: {
         evaluacion_selected: function(newValue){
-            this.base_url = this.app_url + '/admin/grupos/'+ this.grupo_selected +'/evaluaciones/' + newValue;
+            var base_url = this.app_url + '/admin/grupos/'+ this.grupo_selected +'/evaluaciones/' + newValue;
             if (newValue > 0) {
-                this.url_edit = this.base_url + '/editar'
-                this.url_delete = this.base_url + '/eliminar'
+                this.url_edit = base_url + '/editar'
+                this.url_delete = base_url + '/eliminar'
+                this.url_scores = base_url + '/resultados/mostrar'
             }
         }
     },

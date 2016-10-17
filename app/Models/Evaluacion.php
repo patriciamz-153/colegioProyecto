@@ -35,6 +35,13 @@ class Evaluacion extends Model
         return $this->belongsTo(Grupo::class, 'grupo_id');
     }
 
+    public function resultados()
+    {
+        return $this->belongsToMany(Matricula::class, 'evaluacion_x_matricula', 'evaluacion_id', 'matricula_id')
+                    ->with('alumno')
+                    ->withPivot(['nota']);
+    }
+
     public function getHoraInicioAttribute()
     {
         return date('H:i', strtotime($this->attributes['hora_inicio']));

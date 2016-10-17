@@ -41,6 +41,7 @@ class UserSeeder extends Seeder
             'remember_token' => '',
             'tipo_usuario_id' => 3,
         ]);
+
         DB::table('docente')->truncate();
         DB::table('docente')->insert([
             ['id' => 2],

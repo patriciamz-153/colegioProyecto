@@ -78,6 +78,12 @@ Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
                 Route::get('/editar', ['as' => 'edit', 'uses' => 'EvaluacionController@edit']);
                 Route::post('/editar', ['as' => 'update', 'uses' => 'EvaluacionController@update']);
                 Route::post('/eliminar', ['as' => 'delete', 'uses' => 'EvaluacionController@delete']);
+
+                Route::group(['prefix' => 'resultados', 'as' => 'scores.'], function() {
+                    Route::get('/mostrar', ['as' => 'show', 'uses' => 'ResultadoEvaluacionController@show']);
+                    Route::get('/notas', ['as' => 'edit', 'uses' => 'ResultadoEvaluacionController@edit']);
+                    Route::post('/notas', ['as' => 'edit', 'uses' => 'ResultadoEvaluacionController@update']);
+                });
             });
         });
     });
@@ -100,3 +106,4 @@ Route::group(['prefix' => 'incidente', 'as' => 'incidente.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'IncidenteController@index']);
     Route::get('/{incidente}/mostrar', ['as' => 'show', 'uses' => 'IncidenteController@show']);
 });
+
