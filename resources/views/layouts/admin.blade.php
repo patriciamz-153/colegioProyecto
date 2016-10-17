@@ -59,6 +59,9 @@
         .navbar-bottom-0 {
             margin-bottom: 0px;
         }
+        .nav > li > a.sidebar-link {
+            padding: 15px 10px;
+        }
         .sidebar-link {
             border-bottom-width: 2px;
             border-bottom-color: #008b71;
