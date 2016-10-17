@@ -15,8 +15,6 @@ class BaseAdminController extends Controller
       */
     protected $index_route;
 
-    public function __construct(){}
-
     /**
      * Redireccion hacia el indice del recurso
      * @param string $mensaje
@@ -28,6 +26,6 @@ class BaseAdminController extends Controller
         if ($this->index_route)
             return redirect()
                  ->route($this->index_route, $params)
-                 ->with('message', $mensaje);
+                 ->with(['message' => $mensaje]);
     }
 }

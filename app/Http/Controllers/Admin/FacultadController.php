@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseAdminController;
 
 use App\Models\Facultad;
 use App\Models\Institucion;
@@ -11,8 +11,10 @@ use App\Http\Requests\Admin\Facultad\StoreRequest;
 
 use Illuminate\Http\Request;
 
-class FacultadController extends Controller
+class FacultadController extends BaseAdminController
 {
+    protected $index_route = 'facultades.index';
+
     public function index(Request $request)
     {
         $institucion_id = $request->input('institucion_id');
@@ -29,7 +31,7 @@ class FacultadController extends Controller
 
     public function create(Request $request)
     {
-        $institucion_id = $request->input('institucion_id');
+        $institucion_id = $request->input('institucion');
         $institucion = Institucion::find($institucion_id);
         $instituciones = Institucion::all();
 
@@ -44,10 +46,9 @@ class FacultadController extends Controller
     public function store(StoreRequest $request)
     {
         $facultad = Facultad::create($request->all());
-
-        return redirect()
-             ->route('facultades.index', ['institucion_id' => $facultad->institucion_id])
-             ->with('message', 'Facultad creada satisfactoriamente.');
+        return $this->redirectToIndex('Facultad creada satisfactoriamente.', [
+            'institucion_id' => $facultad->institucion_id,
+        ]);
     }
 
     public function edit($facultad)
@@ -65,18 +66,14 @@ class FacultadController extends Controller
     public function update($facultad, StoreRequest $request)
     {
         $facultad->update($request->all());
-
-        return redirect()
-             ->route('facultades.index', ['institucion_id' => $facultad->institucion_id])
-             ->with('message', 'Facultad actualizada satisfactoriamente.');
+        return $this->redirectToIndex('Facultad actualizada satisfactoriamente.', [
+            'institucion_id' => $facultad->institucion_id,
+        ]);
     }
 
     public function delete($facultad)
     {
         $facultad->delete();
-
-        return redirect()
-             ->route('facultades.index')
-             ->with('message', 'Facultad eliminada satisfactoriamente.');
+        return $this->redirectToIndex('Facultad eliminada satisfactoriamente.');
     }
 }

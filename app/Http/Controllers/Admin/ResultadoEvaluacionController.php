@@ -8,11 +8,7 @@ use App\Http\Controllers\Admin\BaseAdminController;
 
 class ResultadoEvaluacionController extends BaseAdminController
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->index_route = 'grupos.evaluaciones.notas.show';
-    }
+    protected $index_route = 'grupos.evaluaciones.notas.show';
 
     public function show($grupo, $evaluacion)
     {
@@ -50,11 +46,9 @@ class ResultadoEvaluacionController extends BaseAdminController
 
         $evaluacion->resultados()->sync($resultados->toArray());
 
-        return $this->redirectToIndex(
-            'Resultados actualizados.', [
-                'grupo' => $grupo->id,
-                'evaluacion' => $evaluacion->id
-            ]
-        );
+        return $this->redirectToIndex('Resultados actualizados.', [
+            'grupo' => $grupo->id,
+            'evaluacion' => $evaluacion->id
+        ]);
     }
 }
