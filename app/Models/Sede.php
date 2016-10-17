@@ -62,6 +62,11 @@ class Sede extends Model
         return $this->belongsToMany(Facultad::class, 'facultad_x_sede', 'sede_id', 'facultad_id');
     }
 
+    public function ambientes()
+    {
+        return $this->hasManyThrough(Ambiente::class, SedeFacultad::class, 'sede_id', 'facultad_x_sede_id');
+    }
+
     public function scopeTodas($query)
     {
         $institucion_id = request()->input('institucion_id');
