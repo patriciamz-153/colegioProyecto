@@ -14,6 +14,8 @@
                 </a>
             </div>
 
+            <form class="form form-horizontal" method="POST">
+            {{ csrf_field() }}
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
                     <table class="table">
@@ -25,7 +27,9 @@
                             @foreach($resultados as $resultado)
                             <tr id="resultado_{{ $resultado->id }}">
                                 <td>{{ $resultado->codigo_alumno }}</td>
-                                <td>{{ $resultado->pivot->nota }}</td>
+                                <td>
+                                    <input class="form-control" type="number" value="{{ $resultado->pivot->nota }}" name="resultados[{{ $resultado->pivot->matricula_id }}]">
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -35,11 +39,10 @@
 
             <div class="panel-footer">
                 <div class="text-center">
-                    <a type="button" class="btn btn-default"
-                       href="{{ route('grupos.evaluaciones.index', ['grupo' => $grupo->id]) }}">Regresar
-                    </a>
+                    <button class="btn btn-primary">Actualizar</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 @endsection

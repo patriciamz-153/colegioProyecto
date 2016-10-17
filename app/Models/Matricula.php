@@ -25,13 +25,13 @@ class Matricula extends Model
         return $this->belongsTo(Alumno::class, 'alumno_id');
     }
 
+    public function grupo()
+    {
+        return $this->belongsTo(Grupo::class, 'grupo_id');
+    }
+
     public function getCodigoAlumnoAttribute()
     {
         return $this->alumno->codigo;
-    }
-
-    public function getNotaAttribute()
-    {
-        return $this->pivot->nota;
     }
 }

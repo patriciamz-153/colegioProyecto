@@ -26,6 +26,11 @@ class Grupo extends Model
         return $this->belongsTo(AsignaturaAperturada::class, 'asignatura_aperturada_id');
     }
 
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class, 'grupo_id')->with('alumno');
+    }
+
     public function docente()
     {
         return $this->belongsTo(Docente::class, 'docente_id');

@@ -79,7 +79,7 @@ Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
                 Route::post('/editar', ['as' => 'update', 'uses' => 'EvaluacionController@update']);
                 Route::post('/eliminar', ['as' => 'delete', 'uses' => 'EvaluacionController@delete']);
 
-                Route::group(['prefix' => 'resultados', 'as' => 'scores.'], function() {
+                Route::group(['prefix' => 'resultados', 'as' => 'notas.'], function() {
                     Route::get('/mostrar', ['as' => 'show', 'uses' => 'ResultadoEvaluacionController@show']);
                     Route::get('/notas', ['as' => 'edit', 'uses' => 'ResultadoEvaluacionController@edit']);
                     Route::post('/notas', ['as' => 'edit', 'uses' => 'ResultadoEvaluacionController@update']);
