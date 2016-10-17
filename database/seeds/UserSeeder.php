@@ -41,6 +41,24 @@ class UserSeeder extends Seeder
             'remember_token' => '',
             'tipo_usuario_id' => 3,
         ]);
+        User::create([
+            'id' => 4,
+            'nombres' => 'alumno A',
+            'apellidos' => 'prueba A',
+            'email' => 'prueba@alumno.com',
+            'password' => bcrypt('secret'),
+            'remember_token' => '',
+            'tipo_usuario_id' => 2,
+        ]);
+        User::create([
+            'id' => 5,
+            'nombres' => 'alumno B',
+            'apellidos' => 'prueba B',
+            'email' => 'prueba2@alumno.com',
+            'password' => bcrypt('secret'),
+            'remember_token' => '',
+            'tipo_usuario_id' => 2,
+        ]);
 
         DB::table('docente')->truncate();
         DB::table('docente')->insert([

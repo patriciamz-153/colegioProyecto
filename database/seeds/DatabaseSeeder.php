@@ -36,6 +36,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(EvaluacionSeeder::class);
 
+        $this->call(AlumnoSeeder::class);
+        $this->call(MatriculaSeeder::class);
+        $this->call(ResultadoEvaluacionSeeder::class);
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         Eloquent::reguard();
