@@ -25,4 +25,13 @@ class Ambiente extends Model
     {
         return $this->belongsTo(SedeFacultad::class, 'facultad_x_sede_id');
     }
+
+    public function scopeWhereSedeFacultad($query, $sede_id, $facultad_id)
+    {
+        return  $query->whereHas('sede_facultad',
+                function($sede_facultad) use ($sede_id, $facultad_id) {
+                    $sede_facultad->where('sede_id', $sede_id)
+                                  ->where('facultad_id', $facultad_id);
+                });
+    }
 }

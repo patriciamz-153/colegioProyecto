@@ -63,6 +63,7 @@
             <button class="btn btn-primary">Guardar cambios</button>
         </div>
         </form>
+        <input type="hidden" id="sede" value="{{ $sede->id }}">
     </div>
 @endsection
 

@@ -29,6 +29,9 @@ Vue.component('facultad-en-sede', {
                 '<a type="button" class="btn btn-danger float-right" @click="remove_facultad(facultadId)">' +
                     '<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>' +
                 '</a>' +
+                '<a type="button" class="btn btn-default float-right" href="{{ get_link_ambientes(facultadId) }}" style="margin-right: 10px;" title="Ambientes">'+
+                    '<i class="fa fa-cube" aria-hidden="true"></i>' +
+                '</a>' +
                 '<input type="hidden" value="{{ facultadId }}" name="facultades[]">',
     methods: {
         remove_facultad: function(id)
@@ -42,7 +45,11 @@ Vue.component('facultad-en-sede', {
                     break
                 }
             }
-        }
+        },
+        get_link_ambientes: function(facultad_id)
+        {
+            return vm.base_url + '/facultades/' + facultad_id + '/ambientes'
+        },
     }
 })
 
@@ -53,6 +60,8 @@ var vm = new Vue(
     data: {
         facultades_en_sede: [],
         facultades_disponibles: [],
+        sede_selected: '',
+        base_url: '',
     },
 
     ready: function()
@@ -68,5 +77,7 @@ var vm = new Vue(
             if (!en_sede)
                 this.facultades_disponibles.push(window.facultades[j])
         }
+        this.sede_selected = document.getElementById('sede').value
+        this.base_url = window.app_url + '/admin/sedes/' + this.sede_selected
     }
 });
