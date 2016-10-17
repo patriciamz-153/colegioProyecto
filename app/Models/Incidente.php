@@ -24,7 +24,8 @@ class Incidente extends Model
 
     public function scopeRecientes($query)
     {
-        $query->where('created_at', '>=', Carbon::today()->subDays(3));
+        $query->where('created_at', '>=', Carbon::today()->subDays(3))
+              ->orderBy('created_at', 'DESC');
     }
 
 }
