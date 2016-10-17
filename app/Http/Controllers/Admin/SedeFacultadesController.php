@@ -30,7 +30,7 @@ class SedeFacultadesController extends Controller
         $sede->facultades()->sync($request->input('facultades', []));
 
         return redirect()
-             ->route('sedes.facultades', ['sede' => $sede->id])
+             ->route('sedes.facultades.index', ['sede' => $sede->id])
              ->with('message', 'Facultad de la sede actualizada.');
     }
 }

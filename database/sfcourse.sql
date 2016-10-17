@@ -268,7 +268,7 @@ ALTER TABLE evaluacion ADD CONSTRAINT evaluacion_grupo_fk FOREIGN KEY (grupo_id)
 	REFERENCES grupo (id);
 
 ALTER TABLE ambiente ADD CONSTRAINT ambiente_facultad_x_sede_fk FOREIGN KEY (facultad_x_sede_id)
-	REFERENCES facultad_x_sede (id);
+	REFERENCES facultad_x_sede (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE docente_x_departamento ADD CONSTRAINT docente_x_departamento_departamento_academico_fk FOREIGN KEY (departamento_id)
 	REFERENCES departamento_academico (id);

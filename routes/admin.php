@@ -22,8 +22,14 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
         Route::post('/editar', ['as' => 'update', 'uses' => 'SedeController@update']);
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'SedeController@delete']);
 
-        Route::get('/facultades', ['as' => 'facultades', 'uses' => 'SedeFacultadesController@index']);
-        Route::post('/facultades', ['as' => 'store_facultades', 'uses' => 'SedeFacultadesController@store']);
+        Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
+            Route::get('/', ['as' => 'index', 'uses' => 'SedeFacultadesController@index']);
+            Route::post('/', ['as' => 'store', 'uses' => 'SedeFacultadesController@store']);
+
+            Route::group(['prefix' => '{facultad}/ambientes', 'as' => 'ambientes.'], function() {
+                Route::get('/', ['as' => 'index', 'uses' => 'AmbienteController@index']);
+            });
+        });
     });
 });
 
