@@ -32,7 +32,7 @@
             margin-left: 15px;
             padding: 20px;
         }
-        @media(min-width:768px) {
+        @media(screen and min-width:768px) {
             .sidebar {
                 z-index: 1;
                 position: absolute;
@@ -50,7 +50,7 @@
                 padding: 30px;
             }
         }
-        @media(min-width:992px) {
+        @media(screen and min-width:992px) {
             .content {
                 padding: 50px;
             }
@@ -76,7 +76,7 @@
             border-right-style: solid;
             border-right-color: rgba(46, 98, 247, 0.63);;
         }
-        .row-hover:hover {
+        .row-hover:focus {
             cursor: pointer;
             background: #555;
             color: white;

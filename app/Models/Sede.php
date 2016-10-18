@@ -69,7 +69,7 @@ class Sede extends Model
 
     public function scopeTodas($query)
     {
-        $institucion_id = request()->input('institucion_id');
+        $institucion_id = request()->input('institucion');
         if ($institucion_id)
             return $query->where('institucion_id', $institucion_id);
         return $query;
