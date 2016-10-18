@@ -12,6 +12,12 @@
                 <a type="button" class="btn btn-success btn-header" title="Agregar Ambiente" href="{{ route('sedes.facultades.ambientes.create', ['sede' => $sede->id, 'facultad' => $facultad->id]) }}">
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
+                <a type="button" class="btn btn-info btn-header" v-bind:href="url_edit" v-show="ambiente_selected" title="Editar" transition="btn-header" >
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="ambiente_selected" title="Eliminar" @click="delete_ambiente" transition="btn-header">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -32,6 +38,8 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="sede" value="{{ $sede->id }}">
+        <input type="hidden" id="facultad" value="{{ $facultad->id }}">
     </div>
 @endsection
 
