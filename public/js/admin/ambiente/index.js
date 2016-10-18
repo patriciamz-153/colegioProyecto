@@ -30,6 +30,11 @@ var vm = new Vue(
 
             this.ambiente_selected = (this.ambiente_selected == id) ? 0 : id
         },
+        delete_ambiente: function()
+        {
+            event.preventDefault();
+            document.getElementById('delete-ambiente-form').submit();
+        }
     },
 
     watch: {

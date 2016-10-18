@@ -18,6 +18,9 @@
                 <a type="button" class="btn btn-danger btn-header"  v-bind:href="url_delete" v-show="ambiente_selected" title="Eliminar" @click="delete_ambiente" transition="btn-header">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </a>
+                <form id="delete-ambiente-form" v-bind:action="url_delete" method="POST" hidden>
+                    {{ csrf_field() }}
+                </form>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">

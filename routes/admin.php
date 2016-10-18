@@ -30,6 +30,12 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
                 Route::get('/', ['as' => 'index', 'uses' => 'AmbienteController@index']);
                 Route::get('/nuevo', ['as' => 'create', 'uses' => 'AmbienteController@create']);
                 Route::post('/nuevo', ['as' => 'store', 'uses' => 'AmbienteController@store']);
+
+                Route::group(['prefix' => '{ambiente}'], function() {
+                    Route::get('/editar', ['as' => 'edit', 'uses' => 'AmbienteController@edit']);
+                    Route::post('/editar', ['as' => 'update', 'uses' => 'AmbienteController@update']);
+                    Route::post('/eliminar', ['as' => 'delete', 'uses' => 'AmbienteController@delete']);
+                });
             });
         });
     });

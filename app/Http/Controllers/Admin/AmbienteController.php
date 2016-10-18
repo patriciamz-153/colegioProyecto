@@ -51,4 +51,36 @@ class AmbienteController extends BaseAdminController
             'facultad' => $facultad->id,
         ]);
     }
+
+    public function edit($sede, $facultad, $ambiente)
+    {
+        $tipos_ambiente = TipoAmbiente::all();
+
+        $data = [
+            'sede' => $sede,
+            'facultad' => $facultad,
+            'tipos_ambiente' => $tipos_ambiente,
+            'ambiente' => $ambiente,
+        ];
+
+        return view('admin.ambiente.edit', $data);
+    }
+
+    public function update($sede, $facultad, $ambiente, Request $request)
+    {
+        $ambiente->update($request->all());
+        return $this->redirectToIndex('Ambiente actualizado satisfactoriamente.', [
+            'sede' => $sede->id,
+            'facultad' => $facultad->id,
+        ]);
+    }
+
+    public function delete($sede, $facultad, $ambiente)
+    {
+        $ambiente->delete();
+        return $this->redirectToIndex('Ambiente eliminado satisfactoriamente.', [
+            'sede' => $sede->id,
+            'facultad' => $facultad->id,
+        ]);
+    }
 }
