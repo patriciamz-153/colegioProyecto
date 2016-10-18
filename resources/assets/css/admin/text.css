@@ -1,0 +1,20 @@
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+.ln-2-5 {
+    line-height: 2.5;
+}
+.text-right-mobile {
+    text-align: right;
+}
+.icon {
+    width: 32px;
+}
+@media(min-width: 768px) {
+    .text-right-mobile {
+        text-align: left;
+    }
+}

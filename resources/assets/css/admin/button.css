@@ -1,0 +1,23 @@
+.btn-header {
+  position: relative;
+  top: -5px;
+  margin: 0px 0px 0px 15px;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.btn-move {
+    display: block;
+    margin-top: 10px;
+}
+
+/** Animations **/
+.btn-header-transition {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+
+.btn-header-enter, .btn-header-leave {
+  height: 0;
+  padding: 10px 0px ;
+  opacity: 0;
+}
