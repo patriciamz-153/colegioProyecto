@@ -38,6 +38,9 @@
                 position: absolute;
                 width: 235px;
                 height: calc(100% - 51px);
+                border-right-width: 1px;
+                border-right-style: solid;
+
             }
             .content {
                 margin: 0px 15px 0px 250px;

@@ -10,6 +10,9 @@
 .text-right-mobile {
     text-align: right;
 }
+.icon {
+    width: 32px;
+}
 @media(min-width: 768px) {
     .text-right-mobile {
         text-align: left;
