@@ -28,6 +28,8 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
 
             Route::group(['prefix' => '{facultad}/ambientes', 'as' => 'ambientes.'], function() {
                 Route::get('/', ['as' => 'index', 'uses' => 'AmbienteController@index']);
+                Route::get('/nuevo', ['as' => 'create', 'uses' => 'AmbienteController@create']);
+                Route::post('/nuevo', ['as' => 'store', 'uses' => 'AmbienteController@store']);
             });
         });
     });

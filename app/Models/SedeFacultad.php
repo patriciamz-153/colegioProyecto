@@ -24,4 +24,9 @@ class SedeFacultad extends Model
     {
         return $this->hasMany(Ambiente::class, 'facultad_x_sede_id');
     }
+
+    public function scopeFindBySedeFacultad($query, $sede_id, $facultad_id)
+    {
+        return $query->where('sede_id', $sede_id)->where('facultad_id', $facultad_id)->first();
+    }
 }
