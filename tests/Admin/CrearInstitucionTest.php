@@ -29,9 +29,7 @@ class CrearInstitucionTest extends TestCase
         $this->be($this->user);
         $this->call(
             'POST',
-            route('instituciones.store'), [
-                '_token' => csrf_token()
-            ]
+            route('instituciones.store'), []
         );
 
         $this->assertSessionHasErrors();
@@ -50,7 +48,6 @@ class CrearInstitucionTest extends TestCase
         $this->call(
             'POST',
             route('instituciones.store'), [
-                '_token' => csrf_token(),
                 'nombre' => $institucion->nombre,
             ]
         );
@@ -71,7 +68,6 @@ class CrearInstitucionTest extends TestCase
         $this->call(
             'POST',
             route('instituciones.store'), [
-                '_token' => csrf_token(),
                 'siglas' => $institucion->siglas,
             ]
         );
@@ -92,7 +88,6 @@ class CrearInstitucionTest extends TestCase
         $response = $this->call(
             'POST',
             route('instituciones.store'), [
-                '_token' => csrf_token(),
                 'nombre' => $institucion->nombre,
                 'siglas' => $institucion->siglas,
             ]
