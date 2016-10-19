@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('admin.helpers.show_message')
+    @include('admin.helpers.show_errors')
 
     <div class="row" id="app">
         <div class="panel panel-info">
@@ -28,7 +28,7 @@
                             <tr id="resultado_{{ $resultado->id }}">
                                 <td>{{ $resultado->codigo_alumno }}</td>
                                 <td>
-                                    <input class="form-control" type="number" value="{{ $resultado->pivot->nota }}" name="resultados[{{ $resultado->pivot->matricula_id }}]">
+                                    <input class="form-control" type="number" value="{{ $resultado->pivot->nota }}" name="resultados[{{ $resultado->pivot->matricula_id }}][nota]">
                                 </td>
                             </tr>
                             @endforeach

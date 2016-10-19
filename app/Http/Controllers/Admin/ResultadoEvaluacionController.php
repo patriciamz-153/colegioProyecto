@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\ResultadoEvaluacion\StoreRequest;
 
 use App\Http\Controllers\Admin\BaseAdminController;
 
@@ -36,16 +36,9 @@ class ResultadoEvaluacionController extends BaseAdminController
         return view('admin.resultado_evaluacion.edit', $data);
     }
 
-    public function update($grupo, $evaluacion, Request $request)
+    public function update($grupo, $evaluacion, StoreRequest $request)
     {
-        $resultados = collect($request->input('resultados'));
-
-        $resultados->transform(function($item, $key) {
-            return ['nota' => $item];
-        });
-
-        $evaluacion->resultados()->sync($resultados->toArray());
-
+        $evaluacion->resultados()->sync($request->input('resultados'));
         return $this->redirectToIndex('Resultados actualizados.', [
             'grupo' => $grupo->id,
             'evaluacion' => $evaluacion->id
