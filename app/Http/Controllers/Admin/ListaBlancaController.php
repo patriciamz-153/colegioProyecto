@@ -27,7 +27,7 @@ class ListaBlancaController extends BaseAdminController
 
     public function create()
     {
-        $admins = User::whereAdmin()->get();
+        $admins = Usuario::whereAdmin()->get();
 
         $data = [
             'admins' => $admins,
@@ -44,7 +44,7 @@ class ListaBlancaController extends BaseAdminController
 
     public function edit($ip_lista_blanca)
     {
-        $admins = User::whereAdmin()->get();
+        $admins = Usuario::whereAdmin()->get();
 
         $data = [
             'admins' => $admins,
