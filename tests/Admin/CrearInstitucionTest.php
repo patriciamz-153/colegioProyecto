@@ -17,6 +17,7 @@ class CrearInstitucionTest extends TestCase
     {
         parent::setUp();
         $this->user = Usuario::find(1);
+        $this->be($this->user);
     }
 
     /**
@@ -26,7 +27,6 @@ class CrearInstitucionTest extends TestCase
      */
     public function testCrearInstitucionConCamposVacios()
     {
-        $this->be($this->user);
         $this->call(
             'POST',
             route('instituciones.store'), []
@@ -41,8 +41,6 @@ class CrearInstitucionTest extends TestCase
      */
     public function testCrearInstitucionConSoloNombre()
     {
-        $this->be($this->user);
-
         $institucion = factory(App\Models\Institucion::class)->make();
 
         $this->call(
@@ -61,8 +59,6 @@ class CrearInstitucionTest extends TestCase
      */
     public function testCrearInstitucionConSoloSiglas()
     {
-        $this->be($this->user);
-
         $institucion = factory(App\Models\Institucion::class)->make();
 
         $this->call(
@@ -81,8 +77,6 @@ class CrearInstitucionTest extends TestCase
      */
     public function testCrearInstitucionConCampos()
     {
-        $this->be($this->user);
-
         $institucion = factory(App\Models\Institucion::class)->make();
 
         $response = $this->call(
