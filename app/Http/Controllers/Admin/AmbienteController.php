@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\Ambiente\StoreRequest;
 
-use App\Http\Requests;
 use App\Http\Controllers\Admin\BaseAdminController;
 
 use App\Models\Ambiente;
@@ -43,7 +42,7 @@ class AmbienteController extends BaseAdminController
         return view('admin.ambiente.create', $data);
     }
 
-    public function store($sede, $facultad, Request $request)
+    public function store($sede, $facultad, StoreRequest $request)
     {
         Ambiente::create($request->all());
         return $this->redirectToIndex('Ambiente creado satisfactoriamente.', [
@@ -52,13 +51,14 @@ class AmbienteController extends BaseAdminController
         ]);
     }
 
-    public function edit($sede, $facultad, $ambiente)
+    public function edit($ambiente)
     {
         $tipos_ambiente = TipoAmbiente::all();
+        $sede_facultad = $ambiente->sede_facultad;
 
         $data = [
-            'sede' => $sede,
-            'facultad' => $facultad,
+            'sede' => $sede_facultad->sede,
+            'facultad' => $sede_facultad->facultad,
             'tipos_ambiente' => $tipos_ambiente,
             'ambiente' => $ambiente,
         ];
@@ -66,21 +66,23 @@ class AmbienteController extends BaseAdminController
         return view('admin.ambiente.edit', $data);
     }
 
-    public function update($sede, $facultad, $ambiente, Request $request)
+    public function update($ambiente, StoreRequest $request)
     {
         $ambiente->update($request->all());
+        $sede_facultad = $ambiente->sede_facultad;
         return $this->redirectToIndex('Ambiente actualizado satisfactoriamente.', [
-            'sede' => $sede->id,
-            'facultad' => $facultad->id,
+            'sede' => $sede_facultad->sede_id,
+            'facultad' => $sede_facultad->facultad_id,
         ]);
     }
 
-    public function delete($sede, $facultad, $ambiente)
+    public function delete($ambiente)
     {
+        $sede_facultad = $ambiente->sede_facultad;
         $ambiente->delete();
         return $this->redirectToIndex('Ambiente eliminado satisfactoriamente.', [
-            'sede' => $sede->id,
-            'facultad' => $facultad->id,
+            'sede' => $sede_facultad->sede_id,
+            'facultad' => $sede_facultad->facultad_id,
         ]);
     }
 }

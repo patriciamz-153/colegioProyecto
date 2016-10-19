@@ -49,8 +49,6 @@ var vm = new Vue(
 
     ready: function()
     {
-        this.facultad_selected = document.getElementById('facultad').value
-        this.sede_selected = document.getElementById('sede').value
-        this.app_url = window.app_url + '/admin/sedes/' + this.sede_selected + '/facultades/' + this.facultad_selected + '/ambientes/'
+        this.app_url = window.app_url + '/admin/ambientes/'
     }
 });

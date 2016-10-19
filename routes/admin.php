@@ -30,12 +30,6 @@ Route::group(['prefix' => 'sedes', 'as' => 'sedes.'], function() {
                 Route::get('/', ['as' => 'index', 'uses' => 'AmbienteController@index']);
                 Route::get('/nuevo', ['as' => 'create', 'uses' => 'AmbienteController@create']);
                 Route::post('/nuevo', ['as' => 'store', 'uses' => 'AmbienteController@store']);
-
-                Route::group(['prefix' => '{ambiente}'], function() {
-                    Route::get('/editar', ['as' => 'edit', 'uses' => 'AmbienteController@edit']);
-                    Route::post('/editar', ['as' => 'update', 'uses' => 'AmbienteController@update']);
-                    Route::post('/eliminar', ['as' => 'delete', 'uses' => 'AmbienteController@delete']);
-                });
             });
         });
     });
@@ -121,3 +115,10 @@ Route::group(['prefix' => 'incidente', 'as' => 'incidente.'], function() {
     Route::get('/{incidente}/mostrar', ['as' => 'show', 'uses' => 'IncidenteController@show']);
 });
 
+Route::group(['prefix' => 'ambientes', 'as' => 'ambientes.'], function() {
+    Route::group(['prefix' => '{ambiente}'], function() {
+        Route::get('/editar', ['as' => 'edit', 'uses' => 'AmbienteController@edit']);
+        Route::post('/editar', ['as' => 'update', 'uses' => 'AmbienteController@update']);
+        Route::post('/eliminar', ['as' => 'delete', 'uses' => 'AmbienteController@delete']);
+    });
+});
