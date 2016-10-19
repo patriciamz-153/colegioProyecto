@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\User;
+use App\Models\Usuario;
 
-class UserSeeder extends Seeder
+class UsuarioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('usuario')->truncate();
-        User::create([
+        Usuario::create([
             'id' => 1,
             'nombres' => 'admin',
             'apellidos' => 'admin',
@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'remember_token' => '',
             'tipo_usuario_id' => 1,
         ]);
-        User::create([
+        Usuario::create([
             'id' => 2,
             'nombres' => 'docente',
             'apellidos' => 'prueba',
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'remember_token' => '',
             'tipo_usuario_id' => 3,
         ]);
-        User::create([
+        Usuario::create([
             'id' => 3,
             'nombres' => 'docente 2',
             'apellidos' => 'prueba 2',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             'remember_token' => '',
             'tipo_usuario_id' => 3,
         ]);
-        User::create([
+        Usuario::create([
             'id' => 4,
             'nombres' => 'alumno A',
             'apellidos' => 'prueba A',
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             'remember_token' => '',
             'tipo_usuario_id' => 2,
         ]);
-        User::create([
+        Usuario::create([
             'id' => 5,
             'nombres' => 'alumno B',
             'apellidos' => 'prueba B',

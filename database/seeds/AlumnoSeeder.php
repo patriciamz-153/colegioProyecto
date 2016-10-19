@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\User;
-
 class AlumnoSeeder extends Seeder
 {
     /**

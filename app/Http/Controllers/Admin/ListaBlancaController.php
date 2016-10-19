@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\BaseAdminController;
 
 use App\Models\Firewall;
-use App\Models\User;
+use App\Models\Usuario;
 
 use App\Http\Requests\Admin\ListaBlanca\StoreRequest;
 use App\Http\Requests\Admin\ListaBlanca\UpdateRequest;
@@ -39,7 +39,6 @@ class ListaBlancaController extends BaseAdminController
     public function store(StoreRequest $request)
     {
         Firewall::create($request->all());
-
         return $this->redirectToIndex('IP agregada a la Lista Blanca.');
     }
 
@@ -58,7 +57,6 @@ class ListaBlancaController extends BaseAdminController
     public function update($ip_lista_blanca, UpdateRequest $request)
     {
         $ip_lista_blanca->update($request->all());
-
         return $this->redirectToIndex('Registro actualizado en la Lista Blanca.');
     }
 
@@ -70,7 +68,6 @@ class ListaBlancaController extends BaseAdminController
             $ip_lista_blanca->delete();
         else
             return $this->redirectToIndex('La IP no fue eliminada porque se debe tener al menos una en la lista blanca.');
-
         return $this->redirectToIndex('IP eliminada de la Lista Blanca.');
     }
 }
