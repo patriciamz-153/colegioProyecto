@@ -23,5 +23,6 @@ elixir(mix => {
         'admin/panel.css',
         'admin/text.css',
         'admin/base.css',
+        'font-awesome.css',
     ], 'public/css/admin.css');
 });
