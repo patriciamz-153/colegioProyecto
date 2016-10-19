@@ -30,4 +30,11 @@ class Escuela extends Model
     {
         return $this->hasMany(Student::class,'escuela_id');
     }
+
+    public function scopeWhereInstitucion($query, $institucion_id)
+    {
+        return $query->whereHas('facultad', function($facultad) use ($institucion_id) {
+            $facultad->where('institucion_id', $institucion_id);
+        });
+    }
 }
