@@ -13,11 +13,7 @@
 
     <!-- Styles -->
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
-    <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet" >
-    <link href="{{ url('css/admin/button.css') }}" rel="stylesheet">
-    <link href="{{ url('css/admin/heading.css') }}" rel="stylesheet">
-    <link href="{{ url('css/admin/panel.css') }}" rel="stylesheet">
-    <link href="{{ url('css/admin/text.css') }}" rel="stylesheet">
+    <link href="{{ url('css/admin.css') }}" rel="stylesheet" >
 
     <!-- Scripts -->
     <script>
@@ -25,68 +21,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
-    <style type="text/css">
-        .content {
-            margin-right: 15px;
-            margin-left: 15px;
-            padding: 20px;
-        }
-        @media(screen and min-width:768px) {
-            .sidebar {
-                z-index: 1;
-                position: absolute;
-                width: 235px;
-                height: calc(100% - 51px);
-                border-right-width: 1px;
-                border-right-style: solid;
-
-            }
-            .content {
-                margin: 0px 15px 0px 250px;
-                position: absolute;
-                height: calc(100% - 51px);
-                width: calc(100% - 265px);
-                padding: 30px;
-            }
-        }
-        @media(screen and min-width:992px) {
-            .content {
-                padding: 50px;
-            }
-        }
-        .sidebar .navbar-collapse {
-            padding-left: 0px;
-            padding-right: 0px;
-        }
-        .navbar-bottom-0 {
-            margin-bottom: 0px;
-        }
-        .nav > li > a.sidebar-link {
-            padding: 15px 10px;
-        }
-        .sidebar-link {
-            border-bottom-width: 2px;
-            border-bottom-color: #008b71;
-            border-bottom-style: solid;
-        }
-        .sidebar-link:hover {
-            border-bottom-width: 0px;
-            border-right-width: 5px;
-            border-right-style: solid;
-            border-right-color: rgba(46, 98, 247, 0.63);;
-        }
-        .row-hover:focus {
-            cursor: pointer;
-            background: #555;
-            color: white;
-        }
-        .row-selected {
-            cursor: pointer;
-            background: #555;
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top navbar-bottom-0">
