@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        if ($user->esAdmin) {
+            return redirect()->route('instituciones.index');
+        } elseif ($user->esDocente) {
+            return redirect()->route('grupos.index');
+        }
     }
 }
