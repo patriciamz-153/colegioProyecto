@@ -20,6 +20,12 @@
         width: calc(100% - 265px);
         padding: 30px;
     }
+    .row-hover:hover {
+        cursor: pointer;
+        background: #d9edf7;
+        color: #000;
+        font-weight: 600;
+    }
 }
 @media(min-width:992px) {
     .content {
@@ -52,7 +58,7 @@
     background: #555;
     color: white;
 }
-.row-selected {
+.row-hover.row-selected {
     cursor: pointer;
     background: #555;
     color: white;
