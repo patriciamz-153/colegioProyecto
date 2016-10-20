@@ -36,3 +36,7 @@ Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
     Route::post('/', ['as' => 'store', 'uses' => 'FacultadController@store']);
     Route::post('/{id}/editar', ['as' => 'update', 'uses' => 'FacultadController@update']);
 });
+
+Route::group(['prefix' => 'escuelas', 'as' => 'escuelas.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'EscuelaController@index']);
+});
