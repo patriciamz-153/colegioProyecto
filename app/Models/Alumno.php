@@ -17,7 +17,7 @@ class Alumno extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(Usuario::class, 'id');
     }
 
     public function matriculas()
