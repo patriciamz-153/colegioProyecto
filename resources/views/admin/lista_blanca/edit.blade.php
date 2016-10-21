@@ -31,8 +31,8 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-footer">
-                <button class="btn btn-primary">Agregar</button>
+            <div class="panel-footer text-center">
+                <button class="btn btn-primary">Actualizar</button>
             </div>
 
             <input type="hidden" name="whitelisted" value="1">

@@ -1,0 +1,389 @@
+FORMAT: 1A
+HOST: http://sfcourse.site/
+
+# SFCourse
+
+Api para el proyecto SFCourse del curso de Arquitectura de Software
+Colocar header "Accept" con "application/json" para recibir correctamente la respuesta del webservice.
+
+## Token [/oauth/token]
+
+### Conseguir Token [POST]
+
+Mediante el usuario y password del usuario y el id y secret del cliente de la aplicacion.
+
++ Attributes
+    + client_id (required, number) 
+    + client_secret (required, string)
+    + username (required, string)
+    + password (required, string)
+    + grant_type (required, string)
+
++ Request
+    + Body
+
+            {
+                "client_id": 1,
+                "client_secret": "client_secret",
+                "username": "admin@admin.com",
+                "password": "the_password",
+                "grant_type": "password"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "token_type": "Bearer",
+            "expires_in": 3155673600,
+            "access_token": "TokenGenerado",
+            "refresh_token": "TokenParaRefrescar"
+        }
+
+## Instituciones Collection [/api/instituciones]
+
+### Listar todas las instituciones [GET]
+
+Listar todas instituciones.
+
++ Request
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id" : 1,
+                "nombre": "Universidad Nacional Mayor de San Marcos",
+                "siglas": "UNMSM",
+            },
+            {
+                "id" : 2,
+                "nombre": "Pontificia Universidad Catolica del Peru",
+                "siglas": "PUCP",
+            },
+        ]
+
+### Buscar Institucion [GET /api/instituciones/buscar{?q}]
+
+Busca entre el nombre y las siglas de las instituciones.
+
++ Parameters
+    + q (optional, string) ... parametro para realizar la busqueda
+
++ Request
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "id": 2,
+                    "nombre": "Pontifica Universidad Catolica del Peru",
+                    "siglas": "PUCP",
+                },
+            ]
+
+### Crear Institucion [POST /api/instituciones]
+
+Crear una institucion con su nombre y siglas.
+
++ Attributes
+    + nombre (required, string) - Nombre de la nueva institucion
+    + siglas (required, string) - Siglas de la nueva institucion
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
+    + Body
+    
+            {
+               "nombre": "Nombre de Institucion",
+               "siglas": "Siglas"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "mensaje": "Institucion creada."
+            }
+            
++ Response 422 (application/json)
+
+    + Body
+        
+            {
+                "errores": {
+                    "nombre": [
+                        "The nombre must be at least 10 characters."
+                    ],
+                    "siglas": [
+                        "The siglas must be at least 2 characters."
+                    ]
+                },
+                "mensaje": "Error en la entrada de datos"
+            }
+
+### Editar Institucion [POST /api/instituciones/{id}/editar]
+
+Editar una institucion con su nombre y siglas.
+
++ Parameters
+    + id (required) ... Id del la institucion a editar
+
++ Attributes
+    + nombre (required, string) - Nombre nuevo para la institucion
+    + siglas (required, string) - Siglas nuevos para la institucion
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
+    + Body
+    
+            {
+               "nombre": "Nombre de Institucion",
+               "siglas": "Siglas"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "mensaje": "Institucion actualizada."
+            }
+
++ Response 404 (application/json)
+
+    + Body
+    
+            {
+                "error":
+                {
+                    "descripcion":"La entidad Institucion que deseabas no se encuentra en la base de datos."
+                },
+                "mensaje":"Entidad no encontrada"
+            }
+
++ Response 422 (application/json)
+
+    + Body
+        
+            {
+                "errores": {
+                    "nombre": [
+                        "The nombre must be at least 10 characters."
+                    ],
+                    "siglas": [
+                        "The siglas must be at least 2 characters."
+                    ]
+                },
+                "mensaje": "Error en la entrada de datos"
+            }
+            
+## Sedes Collection [/api/sedes]
+
+### Listar sedes [GET /api/sedes{?institucion_id}]
+
+Listar todas sedes o traer todas las sedes de una institucion especifica.
+
++ Parameters
+    + institucion_id (optional, number) ... parametro para realizar la busqueda
+
++ Request
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "nombre": "Ciudad Universitaria",
+                "direccion": "Av ...",
+                "institucion_id": 1,
+                "distrito_id": 1,
+                "distrito_nombre": "Lima",
+                "institucion_siglas": "UNMSM"
+            },
+            {
+                "id": 2,
+                "nombre": "San Fernando",
+                "direccion": "Av ...",
+                "institucion_id": 1,
+                "distrito_id": 1,
+                "distrito_nombre": "Lima",
+                "institucion_siglas": "UNMSM"
+            }
+        ]
+        
+### Crear Sede [POST /api/sedes]
+
+Crear una sede con los datos pedidos en el webservice.
+
++ Attributes
+    + nombre (required, string) - Nombre de la nueva sede
+    + direccion (required, string) - Direccion de la sede
+    + distrito_id (required, number) - Id del distrito donde esta alojada la sede
+    + institucion_id (required, number) - Id de la institucion a la que pertenece
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
+    + Body
+    
+            {
+               "nombre": "Nombre de la Sede",
+               "direccion": "Direccion fisica",
+               "distrito_id": 1,
+               "institucion_id": 1
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "mensaje": "Sede creada."
+            }
+            
++ Response 422 (application/json)
+
+    + Body
+        
+            {
+                "errores": {
+                    "nombre": [
+                        "The nombre field is required."
+                    ],
+                    "direccion": [
+                        "The direccion field is required."
+                    ],
+                    "distrito_id": [
+                        "The selected distrito id is invalid."
+                    ],
+                    "institucion_id": [
+                        "The selected institucion id is invalid."
+                    ]
+                },
+                "mensaje": "Error en la entrada de datos"
+            }
+            
+
+### Mostrar detalles de sede [GET /api/sedes/{id} ]
+
+Ver detalles de la sede.
+
++ Parameters
+    + id (required) ... Id de la sede a mostrar
+    
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
++ Response 200 (application/json)
+
+    + Body
+            
+            {
+                "sede": {
+                    "id": 1,
+                    "nombre": "Nueva Sede 23 2",
+                    "direccion": "Nueva direccion",
+                    "institucion_id": 3,
+                    "distrito_id": 1,
+                    "distrito_nombre": "Lima",
+                    "institucion_siglas": "UPC"
+                }
+            }
+
++ Response 404 (application/json)
+
+    + Body
+    
+            {
+                "error":
+                {
+                    "descripcion":"La entidad Sede que deseabas no se encuentra en la base de datos."
+                },
+                "mensaje":"Entidad no encontrada"
+            }
+
+### Editar Sede [POST /api/sedes/{id}/editar]
+
+Editar una sede.
+
++ Parameters
+    + id (required) ... Id del la sede a editar
+
++ Attributes
+    + nombre (required, string) - Nombre nuevo para la sede
+    + direccion (required, string) - Direccion nueva para la sede
+    + distrito_id (required, number) - Distrito actualizado para la sede
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer NiceToken666
+
+    + Body
+    
+            {
+               "nombre": "Nombre de Sede Actualizado",
+               "siglas": "Siglas2",
+               "distrito_id": 1
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "mensaje": "Sede actualizada."
+            }
+
++ Response 404 (application/json)
+
+    + Body
+    
+            {
+                "error":
+                {
+                    "descripcion":"La entidad Sede que deseabas no se encuentra en la base de datos."
+                },
+                "mensaje":"Entidad no encontrada"
+            }
+
++ Response 422 (application/json)
+
+    + Body
+        
+            {
+                "errores": {
+                    "nombre": [
+                        "The nombre must be at least 10 characters."
+                    ],
+                    "siglas": [
+                        "The siglas must be at least 2 characters."
+                    ]
+                },
+                "mensaje": "Error en la entrada de datos"
+            }

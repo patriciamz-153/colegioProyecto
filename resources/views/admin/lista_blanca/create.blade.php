@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-footer">
+            <div class="panel-footer text-center">
                 <button class="btn btn-primary">Agregar</button>
             </div>
 
