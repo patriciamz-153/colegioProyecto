@@ -42,12 +42,14 @@
                         <thead>
                             <th>Nombre</th>
                             <th>Codigo</th>
+                            <th>Institucion</th>
                         </thead>
                         <tbody>
                             @foreach($eaps as $eap)
                             <tr id="eap_{{ $eap->id }}" class="row-hover" v-on:click="select_row('{{ $eap->id }}')">
                                 <td>{{ $eap->nombre }}</td>
                                 <td>{{ $eap->codigo }}</td>
+                                <td>{{ $eap->facultad->institucion->siglas }}</td>
                             </tr>
                             @endforeach
                         </tbody>
