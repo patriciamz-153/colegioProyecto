@@ -21,7 +21,7 @@ class SedeController extends BaseAdminController
         $institucion_id = $request->input('institucion');
         $institucion = Institucion::find($institucion_id);
 
-        $sedes = Sede::todas()->paginate(10);
+        $sedes = Sede::todas()->with(['institucion', 'distrito'])->paginate(10);
 
         $data = [
             'sedes' => $sedes,

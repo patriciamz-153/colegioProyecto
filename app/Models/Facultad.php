@@ -14,10 +14,6 @@ class Facultad extends Model
         'institucion_id',
     ];
 
-    protected $appends = [
-        'institucion_siglas'
-    ];
-
     protected $hidden = [
         'institucion'
     ];

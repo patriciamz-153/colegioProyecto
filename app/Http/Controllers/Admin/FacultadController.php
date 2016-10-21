@@ -19,7 +19,7 @@ class FacultadController extends BaseAdminController
     {
         $institucion_id = $request->input('institucion');
         $institucion = Institucion::find($institucion_id);
-        $facultades = Facultad::todas()->paginate(10);
+        $facultades = Facultad::todas()->with('institucion')->paginate(10);
 
         $data = [
             'facultades' => $facultades,

@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\Sede;
+use App\Models\Facultad;
+
 class SedeFacultadesController extends Controller
 {
     public function index($sede)
     {
         $institucion = $sede->institucion;
-        $facultades = $institucion->facultades;
+        $facultades = Facultad::whereInstitucionId($institucion->id)->get();
         $sede_facultades = $sede->facultades;
 
         $data = [
