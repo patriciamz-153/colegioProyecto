@@ -4,6 +4,15 @@
 
     @include('admin.helpers.show_message')
 
+    <style type="text/css">
+        .table {
+            margin-bottom: 0px;
+        }
+        .pagination {
+            margin: 0;
+            border-radius: 0px;
+        }
+    </style>
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
@@ -44,6 +53,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="paginator-container text-center">
+                {{ $instituciones->links() }}
             </div>
         </div>
     </div>

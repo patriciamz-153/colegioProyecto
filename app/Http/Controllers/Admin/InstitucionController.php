@@ -14,7 +14,7 @@ class InstitucionController extends BaseAdminController
 
     public function index()
     {
-        $instituciones = Institucion::all();
+        $instituciones = Institucion::paginate(10);
 
         $data = [
             'instituciones' => $instituciones,
