@@ -47,7 +47,7 @@ class FacultadController extends BaseAdminController
     {
         $facultad = Facultad::create($request->all());
         return $this->redirectToIndex('Facultad creada satisfactoriamente.', [
-            'institucion_id' => $facultad->institucion_id,
+            'institucion' => $facultad->institucion_id,
         ]);
     }
 
@@ -67,7 +67,7 @@ class FacultadController extends BaseAdminController
     {
         $facultad->update($request->all());
         return $this->redirectToIndex('Facultad actualizada satisfactoriamente.', [
-            'institucion_id' => $facultad->institucion_id,
+            'institucion' => $facultad->institucion_id,
         ]);
     }
 
