@@ -56,6 +56,9 @@
                     </table>
                 </div>
             </div>
+            <div class="paginator-container text-center">
+                {{ $eaps->links() }}
+            </div>
         </div>
     </div>
 
