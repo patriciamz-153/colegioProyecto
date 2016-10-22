@@ -122,3 +122,7 @@ Route::group(['prefix' => 'ambientes', 'as' => 'ambientes.'], function() {
         Route::post('/eliminar', ['as' => 'delete', 'uses' => 'AmbienteController@delete']);
     });
 });
+
+Route::get('/syllabus', function(){
+    return view('syllabus');
+});
