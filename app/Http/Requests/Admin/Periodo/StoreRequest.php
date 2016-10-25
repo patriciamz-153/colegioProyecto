@@ -25,8 +25,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'nombre'       => 'required|max:90',
-            'fecha_inicio' => 'required',
-            'fecha_fin'    => 'required',
+            'fecha_inicio' => 'required|date',
+            'fecha_fin'    => 'required|date',
             'tipo_id'      => 'required|exists:tipo_periodo,id',
             'facultad_id'  => 'required|exists:facultad,id',
         ];
