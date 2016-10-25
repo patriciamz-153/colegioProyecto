@@ -47,7 +47,7 @@ var vm = new Vue(
                 this.url_edit = this.base_url + '/editar'
                 this.url_delete = this.base_url + '/eliminar'
                 this.url_eaps = this.app_url + '/admin/eaps?facultad_id=' + newValue
-                this.url_periodos = this.app_url + '/admin/facultades/' + newValue + '/periodos'
+                this.url_periodos = this.base_url + '/periodos'
             }
         }
     },

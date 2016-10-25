@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'nombre'       => 'required|max:90',
             'fecha_inicio' => 'required',
             'fecha_fin'    => 'required',
-            'tipo_id'      => 'required',
+            'tipo_id'      => 'required|exists:tipo_periodo,id',
             'facultad_id'  => 'required|exists:facultad,id',
         ];
     }
