@@ -47,4 +47,25 @@ class PeriodoController extends Controller
              ->route('facultades.periodos.index', ['facultad' => $facultad->id])
              ->with('message', 'Periodo academico creado satisfactoriamente.');
     }
+
+    public function edit($facultad, $periodo)
+    {
+        $tipos_periodo = TipoPeriodo::all();
+        $data = [
+            'periodo'       => $periodo,
+            'facultad'      => $facultad,
+            'tipos_periodo' => $tipos_periodo,
+        ];
+
+        return view('admin.periodo.edit', $data);
+    }
+
+    public function update($facultad, $periodo, StoreRequest $request)
+    {
+        $periodo->update($request->all());
+
+        return redirect()
+             ->route('facultades.periodos.index', ['facultad' => $facultad->id])
+             ->with('message', 'Periodo academico actualizado satisfactoriamente.');
+    }
 }

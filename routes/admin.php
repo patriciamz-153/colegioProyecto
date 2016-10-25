@@ -50,7 +50,7 @@ Route::group(['prefix' => 'facultades', 'as' => 'facultades.'], function() {
             Route::get('/nuevo', ['as' => 'create', 'uses' => 'PeriodoController@create']);
             Route::post('/nuevo', ['as' => 'store', 'uses' => 'PeriodoController@store']);
 
-            Route::group(['prefix' => '{plan}'], function() {
+            Route::group(['prefix' => '{periodo}'], function() {
                 Route::get('/editar', ['as' => 'edit', 'uses' => 'PeriodoController@edit']);
                 Route::post('/editar', ['as' => 'update', 'uses' => 'PeriodoController@update']);
                 Route::post('/eliminar', ['as' => 'delete', 'uses' => 'PeriodoController@delete']);
