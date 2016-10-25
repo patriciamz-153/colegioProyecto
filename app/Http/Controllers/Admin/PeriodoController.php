@@ -68,4 +68,13 @@ class PeriodoController extends Controller
              ->route('facultades.periodos.index', ['facultad' => $facultad->id])
              ->with('message', 'Periodo academico actualizado satisfactoriamente.');
     }
+
+    public function delete($facultad, $periodo)
+    {
+        $periodo->delete();
+
+        return redirect()
+             ->route('facultades.periodos.index', ['facultad' => $facultad->id])
+             ->with('message', 'Periodo academico eliminado satisfactoriamente.');
+    }
 }
