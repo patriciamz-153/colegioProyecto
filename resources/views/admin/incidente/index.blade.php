@@ -4,6 +4,20 @@
 
     @include('admin.helpers.show_message')
 
+    <style type="text/css">
+        .field-filter { width: 100%; display: inline-block; }
+        .field-filter:last-child { vertical-align: text-bottom; }
+        @media (min-width: 544px) {
+            .field-filter { width: 45%; }
+        }
+        @media (min-width: 768px) {
+            .field-filter { width: 40%; }
+        }
+        @media (min-width: 992px) {
+            .field-filter { width: 23%; }
+        }
+    </style>
+
     <div class="row" id="app">
         <div class="panel panel-info">
             <div class="panel-heading text-center">
@@ -11,6 +25,34 @@
                 <a type="button" class="btn btn-info btn-header" v-bind:href="url_show" v-show="incidente_selected" title="Mostrar detalles" transition="btn-header" >
                     <i class="fa fa-eye" aria-hidden="true"></i>
                 </a>
+                <a type="button" class="btn btn-default btn-header" title="Filtrar por pais" transition="btn-header" >
+                    <i class="fa fa-filter" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="panel-heading text-center">
+                <form action="{{ route('incidente.filter') }}" method="GET">
+                <div>
+                    <div class="field-filter">
+                        <label class="control-label">Pais</label>
+                        <select name="pais" class="form-control">
+                        @foreach($paises as $pais)
+                            <option value="{{ $pais }}">{{ $pais }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="field-filter">
+                        <label class="control-label">Fecha Inicio</label>
+                        <input type="date" name="fecha_inicio" class="form-control">
+                    </div>
+                    <div class="field-filter">
+                        <label class="control-label">Fecha Fin</label>
+                        <input type="date" name="fecha_fin" class="form-control">
+                    </div>
+                    <div class="field-filter">
+                        <button class="btn btn-default">Filtrar</button>
+                    </div>
+                </div>
+                </form>
             </div>
             <div class="panel-body">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">

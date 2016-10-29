@@ -124,6 +124,8 @@ Route::group(['prefix' => 'lista_blanca', 'as' => 'lista_blanca.'], function() {
 Route::group(['prefix' => 'incidente', 'as' => 'incidente.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'IncidenteController@index']);
     Route::get('/{incidente}/mostrar', ['as' => 'show', 'uses' => 'IncidenteController@show']);
+    Route::get('/filtrar', ['as' => 'filter', 'uses' => 'IncidenteController@filter']);
+
 });
 
 Route::group(['prefix' => 'ambientes', 'as' => 'ambientes.'], function() {
