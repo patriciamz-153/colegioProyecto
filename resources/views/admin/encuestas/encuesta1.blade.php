@@ -23,7 +23,7 @@
                     <div class="{{strtolower($pregunta->Type)}} col-sm-8">
                       @foreach($pregunta->Options as $option)
                         @foreach($option as $key => $value)
-                          <label class="col-sm-2" for="id{{$key}}"><input type="{{strtolower($pregunta->Type)}}" name="optionsRadios" id="id{{$key}}" value="{{$key}}">{{$key}}</label>
+                          <label class="col-sm-2" for="id{{$key}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}" id="id{{$key}}" value="{{$key}}">{{$key}}</label>
                         @endforeach
                       @endforeach
                     </div>
