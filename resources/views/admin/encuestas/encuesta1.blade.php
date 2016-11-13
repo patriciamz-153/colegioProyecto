@@ -11,6 +11,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             <form method="POST" class="form-horizontal">
+              <?php $i = 0;?>
               @foreach($data->Section as $section)
               <div class="panel panel-default">
                 <div class="panel-heading">
@@ -23,7 +24,7 @@
                     <div class="{{strtolower($pregunta->Type)}} col-sm-8">
                       @foreach($pregunta->Options as $option)
                         @foreach($option as $key => $value)
-                          <label class="col-sm-2" for="id{{$key}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}" id="id{{$key}}" value="{{$key}}">{{$key}}</label>
+                          <label class="col-sm-2" for="id{{$key.$i}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}" id="id{{$key.$i++}}" value="{{$key}}">{{$key}}</label>
                         @endforeach
                       @endforeach
                     </div>
