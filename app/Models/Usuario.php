@@ -53,10 +53,7 @@ class Usuario extends Authenticatable
         return $this->belongsTo(TipoUsuario::class);
     }
 
-    public function ips_lista_blanca()
-    {
-        return $this->hasMany(Firewall::class, 'usuario_id')->listaBlanca();
-    }
+    
 
     public function scopeWhereAdmin($query)
     {

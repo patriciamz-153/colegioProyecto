@@ -36,7 +36,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['fw-block-bl', 'fw-allow-wl', 'guest'], ['except' => 'logout']);
+        //$this->middleware(['fw-block-bl', 'fw-allow-wl', 'guest'], ['except' => 'logout']);
+        $this->middleware([ 'guest'], ['except' => 'logout']);
     }
 
     /**
@@ -49,7 +50,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->esAdmin) {
-            return redirect()->route('instituciones.index');
+            return redirect()->route('home.index');
         } elseif ($user->esDocente) {
             return redirect()->route('grupos.index');
         }

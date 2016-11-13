@@ -11,7 +11,7 @@ class TipoUsuarioSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tipo_usuario')->truncate();
+        //DB::table('tipo_usuario')->truncate();
         DB::table('tipo_usuario')->insert([
             ['id' => 1, 'nombre' => 'Admin'],
             ['id' => 2, 'nombre' => 'Estudiante'],

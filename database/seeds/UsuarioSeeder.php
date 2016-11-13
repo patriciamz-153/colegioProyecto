@@ -13,7 +13,7 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('usuario')->truncate();
+        //DB::table('usuario')->truncate();
         Usuario::create([
             'id' => 1,
             'nombres' => 'admin',
@@ -60,10 +60,11 @@ class UsuarioSeeder extends Seeder
             'tipo_usuario_id' => 2,
         ]);
 
-        DB::table('docente')->truncate();
+        //DB::table('docente')->truncate();
         DB::table('docente')->insert([
             ['id' => 2],
             ['id' => 3],
         ]);
     }
 }
+    

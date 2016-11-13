@@ -12,7 +12,6 @@
 */
 use Illuminate\Http\Request;
 
-use App\Models\Incidente;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,10 +22,3 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/departamento/{departamento}/provincias', ['as' => 'getProvincias', 'uses' => 'ProvinciaController@getByDepartamento']);
-Route::get('/provincia/{provincia}/distritos', ['as' => 'getDistritos', 'uses' => 'DistritoController@getByProvincia']);
-
-Route::get('/listar_incidentes',function(){
-    return Incidente::all();
-});
