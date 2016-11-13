@@ -50,7 +50,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->esAdmin) {
-            return redirect()->route('home.index');
+            return redirect()->route('inicio.index');
         } elseif ($user->esDocente) {
             return redirect()->route('grupos.index');
         }
