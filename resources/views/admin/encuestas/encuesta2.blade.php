@@ -18,6 +18,7 @@
 				<div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">EVALUACIÓN INSTITUCIONAL</h4>
+
                 </div>
                 <div class="panel-body">
 			  	<p>Lea con atención cada una de las preguntas, y escoja una sola opción. Los valores a escoger serán del 1 al 5, siendo 5 la calificación más alta y 1 la más baja.</p>
@@ -103,7 +104,7 @@
 			    	</div>
 			  	</div>
 			  	<div class="form-group">
-			    	<label  class="col-sm-4 control-label" for="nombre">¿Cómo califica, en general, la calidad educativa de la institución?</label>
+			    	<label  class="col-sm-4 control-label" for="nombre"><strong><span id="id1" aria-hidden="true" style="color:red;display: none;"> &times;</span></strong>¿Cómo califica, en general, la calidad educativa de la institución?</label>
 			    	<div class="radio col-sm-8">
 			    		<label class="col-sm-2" for="id0"><input type="radio" name="optionsRadios8" id="id0" value="5" checked>5</label>
                       <label class="col-sm-2" for="id12"><input type="radio" name="optionsRadios8" id="id12" value="4">4</label>
@@ -115,7 +116,7 @@
 
 			  	<div class="form-group">
                     <div class="col-sm-10 col-sm-offset-6">
-                      <input type="button" class="btn btn-default" onclick="confirm('Su encuesta sera enviada, Muchas gracias')" value="Enviar" />
+                      <input id="idEnviar" type="button" class="btn btn-default" value="Enviar" />
                     </div>
                   </div>
 
@@ -135,4 +136,5 @@
     </div>
     
   </div>
+  <script type="resources/assets/js/frmUno"></script>
 @endsection

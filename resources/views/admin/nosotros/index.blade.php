@@ -10,11 +10,8 @@
                      <h3>Nosotros</h3>
                  </div>
                 <div class="col-lg-4 col-sm-4">
-                    
-                        
 
-                            <img src="imagenes/maranguitaCole.jpg">   
-                                              
+                    <img src="../imagenes/colegio.jpg">                
                    
                 </div>
                 <div class="col-lg-8 col-sm-8">

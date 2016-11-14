@@ -6,10 +6,9 @@
 
     <div class="row" id="app">
         <div class="panel panel-info">
-
                 <div class="panel-heading text-center">
-                     <h3>Encuestas</h3>
-                 </div>
+                    <h3>Encuestas</h3>
+                </div>
       <div class="space"></div>
       <div class="col-lg-7 col-sm-7">
         <ul class="list">

@@ -17,6 +17,13 @@
                 <div class="panel-heading">
                 <h4 class="panel-title">{{$section->Title}}</h4>
                 </div>
+
+                <div class="panel-body" id="idAlert" style="display:none;">
+                  <div class="alert alert-danger alert-dismissible" role="alert">
+                      <strong>Imcompleto</strong>, faltan completar algunos datos.
+                  </div>
+                </div>
+
                 <div class="panel-body">
                   @if(property_exists ($section,"Description"))<p>{{$section->Description}}</p>@endif
                   @foreach($section->Preguntas as $pregunta)
@@ -36,7 +43,7 @@
               @endforeach
               <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-6">
-                      <input type="button" class="btn btn-default" onclick="confirm('Su encuesta sera enviada, Muchas gracias')" value="Enviar" />
+                      <input id="idEnviar" type="button" class="btn btn-default" value="Enviar" />
                     </div>
                   </div>
                 </div>
@@ -52,4 +59,5 @@
     </div>
 
   </div>
+  <script type="text/javascript" src="{{asset('js/frmUno.js')}}"></script>
 @endsection
