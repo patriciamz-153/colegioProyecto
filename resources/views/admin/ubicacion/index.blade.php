@@ -30,7 +30,7 @@
 					<h6 >(01) 283 1518</h6>
 					<h6 >(+51) 994 363 323</h6>
 					
-					<h6 ><a href="www.hotmail.com">ezau.05@hotmail.com</a></h6>
+					<h6 >institucionManaguita@gmail.com</h6>
 					
 				</ul>
 			</div>

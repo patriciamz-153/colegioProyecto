@@ -38,4 +38,14 @@ class EncuestasController extends BaseAdminController
         return view('admin.encuestas.encuesta2');
     }
 
+    public function encuesta3()
+    {
+      // buscamos la encuesta de id 1
+      $e = Encuesta::find('3');
+      $encuesta = json_decode($e->value);
+      //dd($encuesta);
+      return view('admin.encuestas.encuesta3')->with('data',$encuesta);
+        return view('admin.encuestas.encuesta3');
+    }
+
 }

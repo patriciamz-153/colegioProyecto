@@ -15,7 +15,8 @@ Route::group(['prefix' => 'encuestas', 'as' => 'encuestas.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'EncuestasController@index']);
     Route::get('/encuesta1', ['as' => 'encuesta1', 'uses' => 'EncuestasController@encuesta1']);
     Route::get('/encuesta2', ['as' => 'encuesta2', 'uses' => 'EncuestasController@encuesta2']);
-    
+    Route::get('/encuesta3', ['as' => 'encuesta3', 'uses' => 'EncuestasController@encuesta3']);
+
 });
 
 
