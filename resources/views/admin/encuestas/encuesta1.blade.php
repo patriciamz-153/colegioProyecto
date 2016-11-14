@@ -18,6 +18,7 @@
                 <h4 class="panel-title">{{$section->Title}}</h4>
                 </div>
                 <div class="panel-body">
+                  @if(property_exists ($section,"Description"))<p>{{$section->Description}}</p>@endif
                   @foreach($section->Preguntas as $pregunta)
                   <div class="form-group">
                     <label class="col-sm-4 control-label">{{$pregunta->Enunciado}}:</label>
