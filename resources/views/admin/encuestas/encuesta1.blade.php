@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     <div class = 'container'>
       <div class= "arrow">
         <h1>Encuestas</h1>
@@ -11,6 +9,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             <form method="POST" class="form-horizontal">
+              {{ csrf_field() }}
               <?php $i = 0;?>
               @foreach($data->Section as $section)
               <div class="panel panel-default">
@@ -32,7 +31,7 @@
                     <div class="{{strtolower($pregunta->Type)}} col-sm-8">
                       @foreach($pregunta->Options as $option)
                         @foreach($option as $key => $value)
-                          <label class="col-sm-2" for="id{{$key.$i}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}" id="id{{$key.$i++}}" value="{{$key}}">{{$key}}</label>
+                          <label class="col-sm-2" for="id{{$key.$i}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}@if($pregunta->Type=="Checkbox")[]@endif" id="id{{$key.$i++}}" value="{{$key}}">{{$key}}</label>
                         @endforeach
                       @endforeach
                     </div>
@@ -42,22 +41,15 @@
               </div>
               @endforeach
               <div class="form-group">
-                    <div class="col-sm-10 col-sm-offset-6">
-                      <input id="idEnviar" type="button" class="btn btn-default" value="Enviar" />
-                    </div>
-                  </div>
+                <div class="col-sm-10 col-sm-offset-6">
+                  <input id="idEnviar" type="submit" class="btn btn-default" value="Enviar" />
                 </div>
               </div>
             </form>
           </div>
         </div>
-
-      	</div>
-      <div class="space"></div>
-    <div class="col-lg-7 col-sm-7">
-
+        
+      </div>
     </div>
-
-  </div>
-  <script type="text/javascript" src="{{asset('js/frmUno.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/frmUno.js')}}"></script>
 @endsection
