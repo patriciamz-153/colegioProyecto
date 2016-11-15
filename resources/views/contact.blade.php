@@ -23,7 +23,7 @@
         <a href="{{ url('/login') }}">Entrar</a>
       </div>
       <div class="content" style="background-color: #222;opacity: .65;padding: 20px">
-        <div class="title text-left" style="font-family:Montserrat-Regular;">Contactenos</div>
+        <div class="title text-left" style="font-family:Montserrat-Regular;">Contáctenos</div>
         <div class="links" style="font-family:Montserrat-Regular;color:#fff">
           <form method="POST">
             <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">

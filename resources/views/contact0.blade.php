@@ -16,14 +16,14 @@
       <div class="top-left links">
         <a href="{{ url('/') }}">Colegio Maranguita</a>
         <a href="{{ url('/nosotros') }}">Nosotros</a>
-        <a href="{{ url('/ubicanos') }}">Ubicacion</a>
-        <a href="{{ url('/contactenos') }}">Contactenos</a>
+        <a href="{{ url('/ubicanos') }}">Ubicación</a>
+        <a href="{{ url('/contactenos') }}">Contáctenos</a>
       </div>
       <div class="top-right links">
         <a href="{{ url('/login') }}">Entrar</a>
       </div>
       <div class="content" style="background-color: #222;opacity: .65;padding: 20px">
-        <div class="title text-left" style="font-family:Montserrat-Regular;">Contactenos</div>
+        <div class="title text-left" style="font-family:Montserrat-Regular;">Contáctenos</div>
         <div class="links" style="font-family:Montserrat-Regular;color:#fff">
           <div class="alert alert-success" role="alert">Su mensaje se envió correctamente.</div>
           <form method="POST">
