@@ -7,6 +7,7 @@ use Auth;
 
 use App\Http\Requests;
 use App\Encuesta as Encuesta;
+use Illuminate\Support\Facades\DB;
 
 class EncuestasController extends Controller
 {
@@ -56,7 +57,14 @@ class EncuestasController extends Controller
      */
     public function show($id)
     {
-        return $id;
+      $encuesta = Encuesta::find($id);
+      $user = Auth::user();
+      if($encuesta->tipo_usuario_id == $user->tipo_usuario_id){
+        $enc = json_decode($encuesta->value);
+        return view('encuesta')->with("data",$enc);
+      }else{
+        return redirect()->route('home');
+      }
     }
 
     /**
@@ -79,7 +87,39 @@ class EncuestasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $e = Encuesta::find($id);
+      $encuesta = json_decode($e->value,true);
+      $i = 0;
+      foreach($encuesta['Section'] as $section){
+        $j = 0;
+        foreach($section['Preguntas'] as $preguntas){
+          $enunciado = str_replace(" ","_",$preguntas['Enunciado']);
+          $respuesta = $request->$enunciado;
+          if(!is_null($respuesta)){
+            $k = 0;
+            foreach($preguntas['Options'] as $option){
+              if($preguntas['Type']=='Checkbox'){
+                foreach($respuesta as $r){
+                  if(array_key_exists($r,$option)){
+                    $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$r] += 1;
+                  }
+                }
+              }else{
+                if(array_key_exists($respuesta,$option)){
+                  $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$respuesta] += 1;
+                  break;
+                }
+              }
+              $k++;
+            }
+          }
+          $j++;
+        }
+        $i++;
+      }
+      $json = json_encode($encuesta,JSON_UNESCAPED_UNICODE);
+      DB::table('encuestas')->where('Id', $id)->update(['value' => $json]);
+      return redirect()->route('home');
     }
 
     /**
