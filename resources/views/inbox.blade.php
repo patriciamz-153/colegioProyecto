@@ -141,29 +141,32 @@
 
                       <div class="col-sm-3 mail_list_column">
                         <button id="compose" class="btn btn-sm btn-success btn-block" type="button">RECIBIDOS</button>
-                        @foreach($contactos as $contacto)
-                        <a href="{{url('admin/contacto',[$contacto->Id])}}">
-                          <div class="mail_list">
-                            <div class="left">
-                              @if($contacto->read == 0)
-                              <i class="fa fa-circle"></i>
-                              @else
-                              <i class="fa fa-circle-o"></i>
-                              @endif
+                        @if($count>0)
+                          @foreach($contactos as $contacto)
+                          <a href="{{url('admin/contacto',[$contacto->Id])}}">
+                            <div class="mail_list">
+                              <div class="left">
+                                @if($contacto->read == 0)
+                                <i class="fa fa-circle"></i>
+                                @else
+                                <i class="fa fa-circle-o"></i>
+                                @endif
+                              </div>
+                              <div class="right">
+                                <h3>{{$contacto->nombre}}</h3>
+                                <p>{{$contacto->description}}</p>
+                              </div>
                             </div>
-                            <div class="right">
-                              <h3>{{$contacto->nombre}}</h3>
-                              <p>{{$contacto->description}}</p>
-                            </div>
-                          </div>
-                        </a>
-                        @endforeach
+                          </a>
+                          @endforeach
+                        @endif
                       </div>
                       <!-- /MAIL LIST -->
 
                       <!-- CONTENT MAIL -->
                       <div class="col-sm-9 mail_view">
                         <div class="inbox-body">
+                          @if(!is_null($last))
                           <div class="mail_heading row">
                             <div class="col-md-4 col-md-offset-8 text-right">
                             </div>
@@ -182,6 +185,7 @@
                           <div class="view-mail">
                             <p>{{$last->description}}</p>
                           </div>
+                          @endif
                         </div>
 
                       </div>
