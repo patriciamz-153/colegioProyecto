@@ -15,14 +15,20 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height" style="background-image: url({{asset('imagenes/nosotros.jpg')}}); background-repeat: no-repeat; background-size: cover;">
-          <div class="top-left links">
+          <div class="top-left links" style="margin-bottom: 20px;height: 60px;">
             <a href="{{ url('/') }}">Colegio Maranguita</a>
             <a href="{{ url('/nosotros') }}">Nosotros</a>
             <a href="{{ url('/ubicanos') }}">Ubicacion</a>
             <a href="{{ url('/contactenos') }}">Contactenos</a>
           </div>
           <div class="top-right links">
-            <a href="{{ url('/login') }}">Entrar</a>
+            <a href="{{ url('/home') }}">
+            @if(Auth::check())
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ Auth::user()->nombres }}
+            @else
+              Entrar
+            @endif
+            </a>
           </div>
 
           <div class="row" id="app">
