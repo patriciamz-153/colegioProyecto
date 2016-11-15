@@ -61,7 +61,7 @@ class EncuestasController extends Controller
       $user = Auth::user();
       if($encuesta->tipo_usuario_id == $user->tipo_usuario_id){
         $enc = json_decode($encuesta->value);
-        return view('encuesta')->with("data",$enc);
+        return view('encuesta1')->with("data",$enc);
       }else{
         return redirect()->route('home');
       }
