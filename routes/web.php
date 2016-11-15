@@ -12,7 +12,6 @@
 */
 use Illuminate\Http\Request;
 
-
 Route::get('/', function () {return view('welcome');});
 Route::get('/nosotros', function () {return view('about');});
 Route::get('/ubicanos', function () {return view('location');});

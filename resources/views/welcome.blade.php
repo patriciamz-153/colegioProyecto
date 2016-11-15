@@ -22,7 +22,13 @@
             <a href="{{ url('/contactenos') }}">Contactenos</a>
           </div>
           <div class="top-right links">
-            <a href="{{ url('/login') }}">Entrar</a>
+            <a href="{{ url('/home') }}">
+            @if(Auth::check())
+              {{ Auth::user()->nombres }}
+            @else
+              Entrar
+            @endif
+            </a>
           </div>
 
             <div class="content">
