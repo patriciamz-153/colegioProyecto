@@ -12,8 +12,8 @@ class InicioController extends BaseAdminController
 
     public function index()
     {
-        
 
+        return redirect()->route('contacto.index');
         return view('admin.inicio.index');
     }
 }

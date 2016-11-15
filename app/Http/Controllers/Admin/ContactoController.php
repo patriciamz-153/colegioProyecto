@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ContactoRequest as ContactoRequest;
 use App\Contacto as Contacto;
 use App\Http\Controllers\Admin\BaseAdminController;
+use Illuminate\Support\Facades\DB;
 
 
 class ContactoController extends BaseAdminController
@@ -19,9 +20,12 @@ class ContactoController extends BaseAdminController
 
     public function index()
     {
-        //
-        //return view('admin.contacto.index');
-        return view('contact');
+      $contacts = Contacto::orderBy('id', 'desc')->get();
+      DB::table('contactos')->where('id',$contacts[0]->Id)->update(['read'=> 1]);
+      $contacts = Contacto::orderBy('id', 'desc')->get();
+      $last = $contacts[0];
+      $count = count(Contacto::where('read','=',0)->get());
+      return view('inbox')->with(['contactos'=>$contacts,'last'=>$last,'count'=>$count]);
     }
 
     /**
@@ -59,7 +63,12 @@ class ContactoController extends BaseAdminController
      */
     public function show($id)
     {
-        //
+      $contacts = Contacto::orderBy('id', 'desc')->get();
+      DB::table('contactos')->where('id',Contacto::find($id)->Id)->update(['read'=> 1]);
+      $contacts = Contacto::orderBy('id', 'desc')->get();
+      $last = Contacto::find($id);
+      $count = count(Contacto::where('read','=',0)->get());
+      return view('inbox')->with(['contactos'=>$contacts,'last'=>$last,'count'=>$count]);
     }
 
     /**
