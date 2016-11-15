@@ -15,7 +15,7 @@
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height" style="background-image: url({{asset('imagenes/encuestas2.jpg')}});background-repeat: no-repeat; background-size: cover;background-position: top center;">
+        <div class="position-ref full-height" style="background-image: url({{asset('imagenes/encuestas2.jpg')}});background-repeat: no-repeat; background-size: cover;background-position: top center;">
           <div class="top-left links" style="margin-bottom: 20px;height: 60px;">
             <a href="{{ url('/') }}">Colegio Maranguita</a>
           </div>
@@ -31,14 +31,14 @@
             </form>
           </div>
 
-          <div class = 'container' style="background-color: #222;opacity: .9; margin-top: 100px;">
+          <div class = 'container' style=" float:left; background-color: #222; opacity: .9; margin-top: 100px;">
             <div class="title text-left" style="font-family:Montserrat-Regular;">
                 {{$data->Name}}
             </div>
             <div class="links" style="font-family:Montserrat-Regular;color:#fff">
                 @if(property_exists ($data,"Description"))<p style="color:red;">{{$data->Description}}</p>@endif
             </div><br>
-            <div class="row links" style="font-family:Montserrat-Regular;background-color: #222;opacity: .9;">
+            <div class="row links" style="background-position: top center; font-family:Montserrat-Regular;background-color: #222;opacity: .9;">
               <form method="POST" class="form-horizontal">
                 {{ csrf_field() }}
                 <?php $i = 0;?>
