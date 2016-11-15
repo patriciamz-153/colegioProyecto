@@ -1,26 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactoRequest as ContactoRequest;
+
+use App\Http\Requests;
 use App\Contacto as Contacto;
-use App\Http\Controllers\Admin\BaseAdminController;
 
-
-class ContactoController extends BaseAdminController
+class ContactoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $index_route = 'contacto.index';
-
     public function index()
     {
-        //
-        //return view('admin.contacto.index');
         return view('contact');
     }
 
@@ -32,7 +28,6 @@ class ContactoController extends BaseAdminController
     public function create()
     {
         //
-
     }
 
     /**
@@ -43,12 +38,12 @@ class ContactoController extends BaseAdminController
      */
     public function store(ContactoRequest $request)
     {
-        $contacto = new Contacto;
-        $contacto -> nombre=$request ->nombre;
-        $contacto -> email=$request ->email;
-        $contacto -> description=$request ->text;
-        $contacto -> save();
-        return view('contact2');
+      $contacto = new Contacto;
+      $contacto -> nombre=$request ->nombre;
+      $contacto -> email=$request ->email;
+      $contacto -> description=$request ->text;
+      $contacto -> save();
+      return view('contact0');
     }
 
     /**

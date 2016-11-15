@@ -8,6 +8,5 @@ class Contacto extends Model
 {
     //
     protected $table="contactos";
-    
+    public $timestamps = false;
 }
-
