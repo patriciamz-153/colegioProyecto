@@ -27,8 +27,6 @@ Route::group(['prefix' => 'encuestas', 'as' => 'encuestas.'], function() {
 Route::group(['prefix' => 'contacto', 'as' => 'contacto.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'ContactoController@index']);
     Route::post('/nuevo', ['as' => 'store', 'uses' => 'ContactoController@store']);
-    //Route::post('encuesta1', "ContactoController@store");
-
 });
 
 Route::group(['prefix' => 'ubicacion', 'as' => 'ubicacion.'], function() {
