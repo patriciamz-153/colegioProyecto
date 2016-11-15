@@ -42,6 +42,7 @@ class ContactoController extends Controller
       $contacto -> nombre=$request ->nombre;
       $contacto -> email=$request ->email;
       $contacto -> description=$request ->text;
+      $contacto -> read = 0;
       $contacto -> save();
       return view('contact0');
     }
