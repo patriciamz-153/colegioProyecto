@@ -13,7 +13,7 @@
 
                     <img src="../imagenes/colegio.jpg">                
                    
-                </div>
+       |         </div>
                 <div class="col-lg-8 col-sm-8">
                     <h2>¿QUIÉNES SOMOS?</h2>
                     <p class="lead">
