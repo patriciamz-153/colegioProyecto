@@ -5,10 +5,13 @@ Route::group(['prefix' => 'inicio', 'as' => 'inicio.'], function() {
 
 });
 
+Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'InicioController@index']);
+
+});
+
 Route::group(['prefix' => 'nosotros', 'as' => 'nosotros.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'NosotrosController@index']);
-
-
 });
 
 Route::group(['prefix' => 'encuestas', 'as' => 'encuestas.'], function() {
@@ -20,9 +23,7 @@ Route::group(['prefix' => 'encuestas', 'as' => 'encuestas.'], function() {
     Route::post('/encuesta1', ['as' => 'encuesta1', 'uses' => 'EncuestasController@postEncuesta1']);
     Route::post('/encuesta2', ['as' => 'encuesta2', 'uses' => 'EncuestasController@postEncuesta2']);
     Route::post('/encuesta3', ['as' => 'encuesta3', 'uses' => 'EncuestasController@postEncuesta3']);
-
 });
-
 
 Route::group(['prefix' => 'contacto', 'as' => 'contacto.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'ContactoController@index']);
@@ -31,5 +32,4 @@ Route::group(['prefix' => 'contacto', 'as' => 'contacto.'], function() {
 
 Route::group(['prefix' => 'ubicacion', 'as' => 'ubicacion.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'UbicacionController@index']);
-
 });
