@@ -4,7 +4,7 @@
 
     <div class = 'container'>
       <div class= "arrow">
-        <h1>Encuestas</h1>
+        <h1>{{$data->Name}}</h1>
         @if(property_exists ($data,"Description"))<p>{{$data->Description}}</p>@endif
         <div class="row">
           <div class="col-xs-12 col-sm-12">
