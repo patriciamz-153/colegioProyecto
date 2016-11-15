@@ -19,10 +19,10 @@
     <body>
         <div class="flex-center position-ref full-height" style="background-image: url({{asset('imagenes/background1.jpg')}}); background-repeat: no-repeat; background-size: cover;">
           <div class="top-left links">
-            <a href="#">Colegio Maranguita</a>
+            <a href="{{ url('/') }}">Colegio Maranguita</a>
             <a href="{{ url('/nosotros') }}">Nosotros</a>
-            <a href="#">Ubicacion</a>
-            <a href="#">Contactenos</a>
+            <a href="{{ url('/ubicanos') }}">Ubicacion</a>
+            <a href="{{ url('/contactenos') }}">Contactenos</a>
           </div>
           <div class="top-right links">
             <a href="{{ url('/login') }}">Entrar</a>

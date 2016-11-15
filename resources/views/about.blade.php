@@ -16,10 +16,10 @@
     <body>
         <div class="flex-center position-ref full-height" style="background-image: url({{asset('imagenes/nosotros.jpg')}}); background-repeat: no-repeat; background-size: cover;">
           <div class="top-left links">
-            <a href="#">Colegio Maranguita</a>
+            <a href="{{ url('/') }}">Colegio Maranguita</a>
             <a href="{{ url('/nosotros') }}">Nosotros</a>
-            <a href="#">Ubicacion</a>
-            <a href="#">Contactenos</a>
+            <a href="{{ url('/ubicanos') }}">Ubicacion</a>
+            <a href="{{ url('/contactenos') }}">Contactenos</a>
           </div>
           <div class="top-right links">
             <a href="{{ url('/login') }}">Entrar</a>
@@ -27,7 +27,7 @@
 
           <div class="row" id="app">
             <div class="col-md-6 col-md-offset-6" style="background-color: #222;opacity: .65;">
-              <h3 style="color: #FEA700;">Nosotros</h3>
+              <h1 style="color: #FEA700;">Nosotros</h1>
               <div>
                 <h2 style="color: #FEA700;">¿QUIÉNES SOMOS?</h2>
                 <p class="lead" style="color: #fff;">
