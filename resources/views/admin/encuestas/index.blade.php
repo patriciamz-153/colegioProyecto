@@ -22,6 +22,7 @@
       <div class="col-lg-5 col-sm-5">
         <h3>Mis Resultados</h3>
         <div class="space"></div>
+        <div id="linea" style="width: 50%; height: 350px; margin: 0 auto;float:left;"></div>
         <div class="col-lg-2 col-sm-2">
           
       </div>

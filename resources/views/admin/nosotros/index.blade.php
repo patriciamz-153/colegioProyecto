@@ -1,9 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-
-    
 <div class="row" id="app">
+<<<<<<< HEAD
         <div class="panel panel-info">
 
                 <div class="panel-heading text-center">
@@ -65,6 +64,5 @@
                 </div>
      </div>
  </div>
-         
-@endsection
 
+@endsection
