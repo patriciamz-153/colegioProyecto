@@ -41,16 +41,16 @@
           <form method="POST">
             <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <label for="nombre">Nombres Completos <span style="color:red;"><strong> *</strong></span>: </label>
-              <input type="text" class="form-control" id="nombre" name="nombre">
+              <label for="nombre">Nickname <span style="color:red;"><strong> *</strong></span>: </label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
             <div class="form-group">
               <label for="email">Email <span style="color:red;"><strong> *</strong></span>: </label>
-              <input type="email" class="form-control" id="email" name="email">
+              <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
               <label for="text">Escribe tu mensaje <span style="color:red;"><strong> *</strong></span>: </label>
-              <textarea id="text" name="text" class="form-control" rows="3"></textarea>
+              <textarea id="text" name="text" class="form-control" rows="3" required></textarea>
             </div>
             <input type="submit" class="btn btn-default" value="Enviar" />
           </form>

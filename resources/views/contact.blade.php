@@ -40,7 +40,7 @@
           <form method="POST">
             <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <label for="nombre">Nombres Completos <span style="color:red;"><strong> *</strong></span>: </label>
+              <label for="nombre">Nickname <span style="color:red;"><strong> *</strong></span>: </label>
               <input type="text" class="form-control" id="nombre" name="nombre" patter="[A-Za-z-\s]+[a-z]" required>
             </div>
             <div class="form-group">
