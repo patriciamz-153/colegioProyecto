@@ -5,7 +5,7 @@
     <div class = 'container'>
       <div class= "arrow">
         <h1>Encuestas</h1>
-
+        @if(property_exists ($data,"Description"))<p>{{$data->Description}}</p>@endif
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             <form method="POST" class="form-horizontal">
@@ -48,7 +48,7 @@
             </form>
           </div>
         </div>
-        
+
       </div>
     </div>
     <script type="text/javascript" src="{{asset('js/frmUno.js')}}"></script>
