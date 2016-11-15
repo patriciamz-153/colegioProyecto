@@ -11,9 +11,6 @@
 
         <!-- Styles -->
         <link href="{{asset('css/welcomeStyle.css')}}" rel="stylesheet" type="text/css">
-        
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="http://code.highcharts.com/highcharts.js"></script>
 
     </head>
     <body>
