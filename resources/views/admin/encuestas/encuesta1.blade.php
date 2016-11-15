@@ -5,7 +5,7 @@
     <div class = 'container'>
       <div class= "arrow">
         <h1>{{$data->Name}}</h1>
-        @if(property_exists ($data,"Description"))<p>{{$data->Description}}</p>@endif
+        @if(property_exists ($data,"Description"))<p style="color:red;">{{$data->Description}}</p>@endif
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             <form method="POST" class="form-horizontal">
@@ -27,7 +27,7 @@
                   @if(property_exists ($section,"Description"))<p>{{$section->Description}}</p>@endif
                   @foreach($section->Preguntas as $pregunta)
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">{{$pregunta->Enunciado}}:</label>
+                    <label class="col-sm-4 control-label">{{$pregunta->Enunciado}}<span style="color:red;"><strong> *</strong></span>:</label>
                     <div class="{{strtolower($pregunta->Type)}} col-sm-8">
                       @foreach($pregunta->Options as $option)
                         @foreach($option as $key => $value)
