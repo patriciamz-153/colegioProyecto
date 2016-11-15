@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
 html, body {
     background-color: #fff;
     /*background-image: imagenes/maranguitaCole.jpg;*/
@@ -15,7 +25,8 @@ html, body {
 .flex-center {
     align-items: center;
     display: flex;
-    justify-content: center;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .position-ref {
@@ -24,28 +35,37 @@ html, body {
 
 .top-right {
     position: absolute;
-    right: 10px;
+    right: 60px;
     top: 18px;
 }
 
+.top-left {
+  background-color: #222;
+  opacity: .65;
+  padding-top: 20px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 40px;
+  color: #fff;
+  width: 100%;
+}
+
 .content {
-    text-align: center;
+    text-align: left;
 }
 
 .title {
-    font-size: 84px;
+    font-size: 60px;
+    color: #FEA700;
 }
 
 .links > a {
-    color: #636b6f;
+    color: #fff;
     padding: 0 25px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: .1rem;
     text-decoration: none;
     text-transform: uppercase;
-}
-
-.m-b-md {
-    margin-bottom: 30px;
 }
