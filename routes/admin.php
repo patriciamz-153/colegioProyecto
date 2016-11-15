@@ -2,12 +2,6 @@
 
 Route::group(['prefix' => 'inicio', 'as' => 'inicio.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'InicioController@index']);
-
-});
-
-Route::group(['prefix' => 'grupos', 'as' => 'grupos.'], function() {
-    Route::get('/', ['as' => 'index', 'uses' => 'InicioController@index']);
-
 });
 
 Route::group(['prefix' => 'nosotros', 'as' => 'nosotros.'], function() {

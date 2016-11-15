@@ -18,9 +18,13 @@ Route::get('/ubicanos', function () {return view('location');});
 Route::get('/contactenos','ContactoController@index');
 Route::post('/contactenos','ContactoController@store');
 
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'encuesta', 'as' => 'encuesta.'], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'EncuestasController@index']);
+    Route::get('/{id}', ['as'=>'encuesta','uses' => 'EncuestasController@show']);
+});

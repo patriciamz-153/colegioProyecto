@@ -28,8 +28,8 @@ class HomeController extends Controller
         $user = Auth::user();
         if ($user->esAdmin) {
             return redirect()->route('inicio.index');
-        } elseif ($user->esDocente) {
-            return redirect()->route('grupos.index');
+        } else{
+           return redirect()->route('encuesta.index');
         }
     }
 }

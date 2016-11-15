@@ -53,7 +53,7 @@ class Usuario extends Authenticatable
         return $this->belongsTo(TipoUsuario::class);
     }
 
-    
+
 
     public function scopeWhereAdmin($query)
     {
@@ -68,6 +68,11 @@ class Usuario extends Authenticatable
     public function getEsAdminAttribute()
     {
         return $this->tipo_usuario_id == 1;
+    }
+
+    public function getEsPadreAttribute()
+    {
+      return $this->tipo_usuario_id == 2;
     }
 
     public function getEsDocenteAttribute()

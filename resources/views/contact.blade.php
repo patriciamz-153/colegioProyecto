@@ -20,13 +20,19 @@
         <a href="{{ url('/contactenos') }}">Contactenos</a>
       </div>
       <div class="top-right links">
-        <a href="{{ url('/home') }}">
         @if(Auth::check())
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ Auth::user()->nombres }}
+          <a href="{{ url('/home') }}">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ Auth::user()->nombres }}
+          </a>
+          <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir
+          </a>
+          <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+          </form>
         @else
-          Entrar
+          <a href="{{ url('/home') }}">Entrar</a>
         @endif
-        </a>
       </div>
       <div class="content" style="background-color: #222;opacity: .65;padding: 20px">
         <div class="title text-left" style="font-family:Montserrat-Regular;">Contáctenos</div>
