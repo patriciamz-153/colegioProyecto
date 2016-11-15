@@ -60,8 +60,11 @@ class EncuestasController extends Controller
       $encuesta = Encuesta::find($id);
       $user = Auth::user();
       if($encuesta->tipo_usuario_id == $user->tipo_usuario_id){
-        $enc = json_decode($encuesta->value);
-        return view('encuesta1')->with("data",$enc);
+        $rs = DB::table('usuarios_encuestas')->where('usuario_id',$user->id)->where('encuesta_id',$encuesta->Id)->get();
+        if(count($rs)==0){
+          $enc = json_decode($encuesta->value);
+          return view('encuesta1')->with("data",$enc);
+        }
       }else{
         return redirect()->route('home');
       }
@@ -117,7 +120,10 @@ class EncuestasController extends Controller
         }
         $i++;
       }
+      $encuesta['realizado'] += 1;
       $json = json_encode($encuesta,JSON_UNESCAPED_UNICODE);
+      $user = Auth::user();
+      DB::table('usuarios_encuestas')->insert(['usuario_id'=>$user->id,'encuesta_id'=>$e->Id]);
       DB::table('encuestas')->where('Id', $id)->update(['value' => $json]);
       return redirect()->route('home');
     }
