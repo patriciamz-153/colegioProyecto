@@ -1,8 +1,5 @@
 @extends('layouts.admin')
 
-
-
-
 @section ("content")
 
 <div class="row" id="app">

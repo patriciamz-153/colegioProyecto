@@ -6,18 +6,14 @@
         <div class="panel panel-info">
 
                 <div class="panel-heading text-center">
-                     <h3>Nosotros</h3>
+                     <h3>NOSOTROS</h3>
                  </div>
-                <div class="col-lg-4 col-sm-4">
-
-                    <img src="../imagenes/colegio.jpg">                
-                   
-       |         </div>
+                
                 <div class="col-lg-8 col-sm-8">
-                    <h2>¿QUIÉNES SOMOS?</h2>
+                    <h2>¿Quuiénes somos?</h2>
                     <p class="lead">
                         Maranguita es un colegio que trabaja con mucho labor y 
-                        una amplia experiencia en el ámbito de pedagogia. Somos una colegio que enseña valores.
+                        una amplia experiencia en el ámbito de pedagogía. Somos una colegio que enseña valores.
                     <strong>
                         Cumplir con las aprendizaje del alumno y este se sienta conforme con nuestra trabajo.
                     </strong>

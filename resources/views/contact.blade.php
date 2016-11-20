@@ -34,24 +34,24 @@
           <a href="{{ url('/home') }}">Entrar</a>
         @endif
       </div>
-      <div class="content" style="background-color: #222;opacity: .65;padding: 20px">
+      <div class="content" style="background-color: #222;opacity: .75;padding: 20px">
         <div class="title text-left" style="font-family:Montserrat-Regular;">Contáctenos</div>
         <div class="links" style="font-family:Montserrat-Regular;color:#fff">
           <form method="POST">
             <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <label for="nombre">Nickname <span style="color:red;"><strong> *</strong></span>: </label>
+              <label for="nombre"><span style="color:red;"><strong> *</strong></span>Nickname: </label>
               <input type="text" class="form-control" id="nombre" name="nombre" patter="[A-Za-z-\s]+[a-z]" required>
             </div>
             <div class="form-group">
-              <label for="email">Email <span style="color:red;"><strong> *</strong></span>: </label>
+              <label for="email"><span style="color:red;"><strong> *</strong></span>Email: </label>
               <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
-              <label for="text">Escribe tu mensajes <span style="color:red;"><strong> *</strong></span>: </label>
+              <label for="text"><span style="color:red;"><strong> *</strong></span>Escribe tu mensaje: </label>
               <textarea id="text" name="text" class="form-control" rows="3" required=""></textarea>
             </div>
-            <input type="submit" class="btn btn-default" value="Enviar" />
+            <input type="submit" class="btn btn-primary" value="Enviar" />
           </form>
         </div>
       </div>

@@ -29,7 +29,7 @@
       <div class="top-right links">
         <a href="{{ url('/login') }}">Entrar</a>
       </div>
-      <div class="content col-md-6 col-md-offset-3" style="background-color: #333;opacity: .65;padding: 20px;">
+      <div class="content col-md-6 col-md-offset-3" style="background-color: #333;opacity: .90;padding: 20px;">
         <div class="title text-left" style="font-family:Montserrat-Regular; text-align: center;">Entrar</div>
         <div class="links" style="font-family:Montserrat-Regular;color:#fff">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

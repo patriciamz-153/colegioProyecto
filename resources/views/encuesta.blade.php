@@ -31,7 +31,7 @@
             </form>
           </div>
 
-          <div class = 'container' style=" float:left; background-color: #222; opacity: .9; margin-top: 100px;">
+          <div class = 'container' style=" float:left; background-color: #222; opacity: .95; margin-top: 100px;">
             <div class="title text-left" style="font-family:Montserrat-Regular;">
                 {{$data->Name}}
             </div>

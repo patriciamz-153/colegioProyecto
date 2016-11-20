@@ -34,7 +34,7 @@
           <a href="{{ url('/home') }}">Entrar</a>
         @endif
       </div>
-      <div class="content" style="background-color: #222;opacity: .65;padding: 20px">
+      <div class="content" style="background-color: #222;opacity: .85;padding: 20px">
         <div class="title text-left" style="font-family:Montserrat-Regular;">Contáctenos</div>
         <div class="links" style="font-family:Montserrat-Regular;color:#fff">
           <div class="alert alert-success" role="alert">Su mensaje se envió correctamente.</div>

@@ -38,10 +38,10 @@
           </div>
 
           <div class="row" id="app">
-            <div class="col-md-6 col-md-offset-6" style="background-color: #222;opacity: .65;">
-              <h1 style="color: #FEA700;">Nosotros</h1>
+            <div class="col-md-6 col-md-offset-6" style="background-color: #222;opacity: .75;">
+              <h1 style="color: #FEA700;">NOSOTROS</h1>
               <div>
-                <h2 style="color: #FEA700;">¿QUIÉNES SOMOS?</h2>
+                <h2 style="color: #FEA700;">¿Quiénes somos?</h2>
                 <p class="lead" style="color: #fff;">
                   Maranguita es un colegio que trabaja con mucho labor y
                   una amplia experiencia en el ámbito de pedagogia. Somos una colegio que enseña valores.

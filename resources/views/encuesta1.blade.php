@@ -15,7 +15,7 @@
 
     </head>
     <body>
-        <div class="position-ref full-height" style="background-image: url({{asset('imagenes/encuestas2.jpg')}}); background-repeat: no-repeat; background-size: cover;">
+        <div class="position-ref full-height" style="background-image: url({{asset('imagenes/encuestas2.jpg')}}); background-size: cover;background-repeat: no-repeat; background-attachment: fixed; ">
           <div class="top-left links" style="margin-bottom: 20px;height: 60px;">
             <a href="{{ url('/') }}">Colegio Maranguita</a>
           </div>
@@ -31,7 +31,7 @@
             </form>
           </div>
 
-            <div class="content" style="padding-top:80px;padding-left:40px;padding-right;40px">
+            <div class="content" style="padding-top:80px;padding-left:40px;padding-right:40px;">
                 <div class="title text-left" style="font-family:Montserrat-Regular;">
                     {{$data->Name}}
                 </div>
@@ -39,7 +39,7 @@
                     @if(property_exists ($data,"Description"))<p style="color:red;">{{$data->Description}}</p>@endif
                 </div>
                 <br>
-                <div class="row links col-md-10 col-md-offset-1" style="font-family:Montserrat-Regular;background-color: #222;opacity: .8;">
+                <div class="row links col-md-10 col-md-offset-1" style="font-family:Montserrat-Regular;background-color: #222;opacity: .97;">
                   <form method="POST" class="form-horizontal" style="margin:15px;margin-top:25px">
                     {{ csrf_field() }}
                     <?php $i = 0;?>
@@ -72,7 +72,7 @@
                     @endforeach
                     <div class="form-group">
                       <div class="col-sm-10 col-sm-offset-6">
-                        <input id="idEnviar" type="submit" class="btn btn-default" value="Enviar" />
+                        <input id="idEnviar" type="submit" class="btn btn-primary" value="Enviar" />
                       </div>
                     </div>
                   </form>

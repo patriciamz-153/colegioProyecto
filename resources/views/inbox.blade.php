@@ -54,7 +54,7 @@
                       <li><a href="index.html">Resultados</a></li>
                     </ul>
                   </li>
-                  <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contactenos
+                  <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contáctenos
                     @if($count > 0)
                       <span class="label label-success pull-right">{{$count}}</span>
                     @endif
@@ -123,7 +123,7 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3>Contactenos <small>Bandeja de entrada</small></h3>
+                <h3>Contáctenos</h3>
               </div>
             </div>
 
@@ -133,7 +133,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Contactenos<small>Bandeja de entrada</small></h2>
+                    <h2>Bandeja de entrada</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -141,20 +141,20 @@
 
                       <div class="col-sm-3 mail_list_column">
                         <button id="compose" class="btn btn-sm btn-success btn-block" type="button">RECIBIDOS</button>
-                        @if($count>0)
+                        @if($count>=0)
                           @foreach($contactos as $contacto)
                           <a href="{{url('admin/contacto',[$contacto->Id])}}">
                             <div class="mail_list">
                               <div class="left">
                                 @if($contacto->read == 0)
-                                <i class="fa fa-circle"></i>
+                                  <i class="fa fa-circle"></i>
                                 @else
-                                <i class="fa fa-circle-o"></i>
+                                  <i class="fa fa-circle-o"></i>
                                 @endif
                               </div>
                               <div class="right">
                                 <h3>{{$contacto->nombre}}</h3>
-                                <p>{{$contacto->description}}</p>
+                                <p>{{$contacto->email }}</p>
                               </div>
                             </div>
                           </a>
@@ -202,7 +202,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            © Copyright
           </div>
           <div class="clearfix"></div>
         </footer>
