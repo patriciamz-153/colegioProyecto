@@ -2,155 +2,91 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\BaseAdminController;
-use App\Encuesta as Encuesta;
 use Illuminate\Http\Request;
-use App\Models\Usuario;
-use Illuminate\Support\Facades\DB;
 
-class EncuestasController extends BaseAdminController
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Encuesta as Encuesta;
+use App\Contacto as Contacto;
+
+class EncuestasController extends Controller
 {
-    public $index_route = 'encuestas.index';
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-
-        return view('admin.encuestas.index');
+        //
     }
 
-    public function encuesta1()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        // buscamos la encuesta de id 1
-        $e = Encuesta::find('1');
-        $encuesta = json_decode($e->value);
-        //dd($encuesta);
-        return view('admin.encuestas.encuesta1')->with('data',$encuesta);
+        //
     }
 
-    public function encuesta2()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-      // buscamos la encuesta de id 1
-      $e = Encuesta::find('2');
-      $encuesta = json_decode($e->value);
-      //dd($encuesta);
-      return view('admin.encuestas.encuesta1')->with('data',$encuesta);
+        //
     }
 
-    public function encuesta3()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-      // buscamos la encuesta de id 1
-      $e = Encuesta::find('3');
-      $encuesta = json_decode($e->value);
-      //dd($encuesta);
-      return view('admin.encuestas.encuesta1')->with('data',$encuesta);
+      $encuesta = Encuesta::find($id);
+      $value = json_decode($encuesta->value);
+      $count = count(Contacto::where('read','=',0)->get());
+      return view('resultados')->with(['count'=>$count,'resultados'=>$value]);
     }
 
-    public function postEncuesta1(Request $request){
-      $e = Encuesta::find('1');
-      $encuesta = json_decode($e->value,true);
-      $i = 0;
-      foreach($encuesta['Section'] as $section){
-        $j = 0;
-        foreach($section['Preguntas'] as $preguntas){
-          $enunciado = str_replace(" ","_",$preguntas['Enunciado']);
-          $respuesta = $request->$enunciado;
-          if(!is_null($respuesta)){
-            $k = 0;
-            foreach($preguntas['Options'] as $option){
-              if($preguntas['Type']=='Checkbox'){
-                foreach($respuesta as $r){
-                  if(array_key_exists($r,$option)){
-                    $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$r] += 1;
-                  }
-                }
-              }else{
-                if(array_key_exists($respuesta,$option)){
-                  $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$respuesta] += 1;
-                  break;
-                }
-              }
-              $k++;
-            }
-          }
-          $j++;
-        }
-        $i++;
-      }
-      $json = json_encode($encuesta,JSON_UNESCAPED_UNICODE);
-      DB::table('encuestas')->where('id', 1)->update(['value' => $json]);
-      return redirect()->route('inicio.index');
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
-    public function postEncuesta2(Request $request){
-      $e = Encuesta::find('2');
-      $encuesta = json_decode($e->value,true);
-      $i = 0;
-      foreach($encuesta['Section'] as $section){
-        $j = 0;
-        foreach($section['Preguntas'] as $preguntas){
-          $enunciado = str_replace(" ","_",$preguntas['Enunciado']);
-          $respuesta = $request->$enunciado;
-          if(!is_null($respuesta)){
-            $k = 0;
-            foreach($preguntas['Options'] as $option){
-              if($preguntas['Type']=='Checkbox'){
-                foreach($respuesta as $r){
-                  if(array_key_exists($r,$option)){
-                    $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$r] += 1;
-                  }
-                }
-              }else{
-                if(array_key_exists($respuesta,$option)){
-                  $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$respuesta] += 1;
-                  break;
-                }
-              }
-              $k++;
-            }
-          }
-          $j++;
-        }
-        $i++;
-      }
-      $json = json_encode($encuesta,JSON_UNESCAPED_UNICODE);
-      DB::table('encuestas')->where('id', 2)->update(['value' => $json]);
-      return redirect()->route('inicio.index');
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
     }
 
-    public function postEncuesta3(Request $request){
-      $e = Encuesta::find('3');
-      $encuesta = json_decode($e->value,true);
-      $i = 0;
-      foreach($encuesta['Section'] as $section){
-        $j = 0;
-        foreach($section['Preguntas'] as $preguntas){
-          $enunciado = str_replace(" ","_",$preguntas['Enunciado']);
-          $respuesta = $request->$enunciado;
-          if(!is_null($respuesta)){
-            $k = 0;
-            foreach($preguntas['Options'] as $option){
-              if($preguntas['Type']=='Checkbox'){
-                foreach($respuesta as $r){
-                  if(array_key_exists($r,$option)){
-                    $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$r] += 1;
-                  }
-                }
-              }else{
-                if(array_key_exists($respuesta,$option)){
-                  $encuesta['Section'][$i]["Preguntas"][$j]['Options'][$k][$respuesta] += 1;
-                  break;
-                }
-              }
-              $k++;
-            }
-          }
-          $j++;
-        }
-        $i++;
-      }
-      $json = json_encode($encuesta,JSON_UNESCAPED_UNICODE);
-      DB::table('encuestas')->where('id', 3)->update(['value' => $json]);
-      return redirect()->route('inicio.index');
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
-
 }
