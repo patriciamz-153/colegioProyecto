@@ -58,10 +58,10 @@
                         @foreach($section->Preguntas as $pregunta)
                         <div class="form-group">
                           <label class="col-sm-4 control-label">{{$pregunta->Enunciado}}<span style="color:red;"><strong> *</strong></span>:</label>
-                          <div class="{{strtolower($pregunta->Type)}} col-sm-8">
+                          <div class="{{strtolower($pregunta->Type)}} col-sm-8 ">
                             @foreach($pregunta->Options as $option)
                               @foreach($option as $key => $value)
-                                <label class="col-sm-2" for="id{{$key.$i}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}@if($pregunta->Type=="Checkbox")[]@endif" id="id{{$key.$i++}}" value="{{$key}}">{{$key}}</label>
+                                <label class="col-sm-2" for="id{{$key.$i}}"><input type="{{strtolower($pregunta->Type)}}" name="{{$pregunta->Enunciado}}@if($pregunta->Type=="Checkbox")[]@endif" @if($pregunta->Type=="Radio") required="required" @endif id="id{{$key.$i++}}" value="{{$key}}">{{$key}}</label>
                               @endforeach
                             @endforeach
                           </div>
