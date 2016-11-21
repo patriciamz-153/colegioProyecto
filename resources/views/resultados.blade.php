@@ -123,7 +123,7 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3>Contáctenos</h3>
+                <h3>Encuestas</h3>
               </div>
             </div>
 

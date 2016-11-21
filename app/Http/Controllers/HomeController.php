@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         if ($user->esAdmin) {
-            return redirect()->route('inicio.index');
+            return redirect()->route('index.index');
         } else{
            return redirect()->route('encuesta.index');
         }
