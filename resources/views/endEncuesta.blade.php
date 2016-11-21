@@ -31,7 +31,7 @@
             </form>
           </div>
 
-            <div class="content" style="font-family:Montserrat-Regular;background-color: #222;opacity: .7;color:#fff;padding-top:10px;padding-left:10px;padding-right:10px;padding-bottom: 50px;">
+            <div class="content" style="font-family:Montserrat-Regular;background-color: #222;opacity: .83;color:#fff;padding-top:10px;padding-left:10px;padding-right:10px;padding-bottom: 50px;">
                 <div class="title text-left" style="font-family:Montserrat-Regular;">
                   ¡Gracias!
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                   <div class="col-sm-10 col-sm-offset-6">
-                    <input id="idRegresar" type="submit" class="btn btn-primary" value="Regresar" />
+                    <a href="{{ url('/home') }}" class="btn btn-primary" role="button">Regresar</a>
                   </div>
                 </div>
             </div>

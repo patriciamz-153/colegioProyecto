@@ -64,6 +64,8 @@ class EncuestasController extends Controller
         if(count($rs)==0){
           $enc = json_decode($encuesta->value);
           return view('encuesta1')->with("data",$enc);
+        } else {
+          return view('NoDispEncuesta');
         }
       }else{
         return redirect()->route('home');
@@ -125,7 +127,8 @@ class EncuestasController extends Controller
       $user = Auth::user();
       DB::table('usuarios_encuestas')->insert(['usuario_id'=>$user->id,'encuesta_id'=>$e->Id]);
       DB::table('encuestas')->where('Id', $id)->update(['value' => $json]);
-      return redirect()->route('home');
+      //return redirect()->route('home');
+      return view('endEncuesta');
     }
 
     /**

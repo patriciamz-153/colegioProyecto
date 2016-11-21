@@ -31,7 +31,7 @@
             </form>
           </div>
 
-            <div class="content" style="font-family:Montserrat-Regular;background-color: #222;opacity: .7;color:#fff;padding-top:10px;padding-left:10px;padding-right:10px;padding-bottom: 50px;">
+            <div class="content" style="font-family:Montserrat-Regular;background-color: #222;opacity: .8;color:#fff;padding-top:10px;padding-left:10px;padding-right:10px;padding-bottom: 50px;">
                 <div class="title text-left" style="font-family:Montserrat-Regular;">
                   Bienvenido al sistema de encuestas.
                 </div>
