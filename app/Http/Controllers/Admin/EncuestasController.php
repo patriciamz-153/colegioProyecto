@@ -50,8 +50,13 @@ class EncuestasController extends Controller
       $encuesta -> tipo_usuario_id=$request ->tipoUsuario;
 
       $encuesta -> save();
+      $e = Encuesta::all();
+      $es = [];
+      foreach($e as $a){
+        array_push($es,[$a->Id,json_decode($a->value)->Name]);
+      }
       $count = count(Contacto::where('read','=',0)->get());
-      return view('crearEncuesta')->with(['count'=>$count]);
+      return view('crearEncuesta')->with(['count'=>$count,'encuestas'=>$es]);
     }
 
     /**
