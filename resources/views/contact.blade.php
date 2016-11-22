@@ -16,8 +16,8 @@
       <div class="top-left links" style="margin-bottom: 20px;height: 60px;">
         <a href="{{ url('/') }}">Colegio Maranguita</a>
         <a href="{{ url('/nosotros') }}">Nosotros</a>
-        <a href="{{ url('/ubicanos') }}">Ubicacion</a>
-        <a href="{{ url('/contactenos') }}">Contactenos</a>
+        <a href="{{ url('/ubicanos') }}">Ubicación</a>
+        <a href="{{ url('/contactenos') }}">Contáctenos</a>
       </div>
       <div class="top-right links">
         @if(Auth::check())
@@ -34,14 +34,14 @@
           <a href="{{ url('/home') }}">Entrar</a>
         @endif
       </div>
-      <div class="content" style="background-color: #222;opacity: .75;padding: 20px">
+      <div class="content" style="background-color: #222;opacity: .85;padding: 20px">
         <div class="title text-left" style="font-family:Montserrat-Regular;">Contáctenos</div>
         <div class="links" style="font-family:Montserrat-Regular;color:#fff">
           <form method="POST">
             <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <label for="nombre"><span style="color:red;"><strong> *</strong></span>Nickname: </label>
-              <input type="text" class="form-control" id="nombre" name="nombre" patter="[A-Za-z-\s]+[a-z]" required>
+              <label for="nombre"><span style="color:red;"><strong> *</strong></span>Nombres: </label>
+              <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z-\s]+[a-z]" required>
             </div>
             <div class="form-group">
               <label for="email"><span style="color:red;"><strong> *</strong></span>Email: </label>
