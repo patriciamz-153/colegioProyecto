@@ -67,7 +67,7 @@ class EncuestasController extends Controller
      */
     public function show($id)
     {
-      $encuesta = Encuesta::find($id);
+      $encuesta = Encuesta::findOrFail($id);
       $value = json_decode($encuesta->value);
       $count = count(Contacto::where('read','=',0)->get());
       return view('resultados')->with(['count'=>$count,'resultados'=>$value]);

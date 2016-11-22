@@ -14,3 +14,5 @@ Route::group(['prefix' => 'contacto', 'as' => 'contacto.'], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'ContactoController@index']);
     Route::get('/{id}', ['as' => 'next', 'uses' => 'ContactoController@show']);
 });
+
+Route::get('{nnn}',function(){abort(404);});

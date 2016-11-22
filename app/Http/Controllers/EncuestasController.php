@@ -57,7 +57,7 @@ class EncuestasController extends Controller
      */
     public function show($id)
     {
-      $encuesta = Encuesta::find($id);
+      $encuesta = Encuesta::findOrFail($id);
       $user = Auth::user();
       if($encuesta->tipo_usuario_id == $user->tipo_usuario_id){
         $rs = DB::table('usuarios_encuestas')->where('usuario_id',$user->id)->where('encuesta_id',$encuesta->Id)->get();
@@ -92,7 +92,7 @@ class EncuestasController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $e = Encuesta::find($id);
+      $e = Encuesta::findOrFail($id);
       $encuesta = json_decode($e->value,true);
       $i = 0;
       foreach($encuesta['Section'] as $section){

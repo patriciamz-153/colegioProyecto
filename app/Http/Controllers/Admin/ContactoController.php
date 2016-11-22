@@ -67,9 +67,9 @@ class ContactoController extends BaseAdminController
       if(count($contacts)==0){
         return redirect()->route('contacto.index');
       }
-      DB::table('contactos')->where('id',Contacto::find($id)->Id)->update(['read'=> 1]);
+      DB::table('contactos')->where('id',Contacto::findOrFail($id)->Id)->update(['read'=> 1]);
       $contacts = Contacto::orderBy('id', 'desc')->get();
-      $last = Contacto::find($id);
+      $last = Contacto::findOrFail($id);
       $count = count(Contacto::where('read','=',0)->get());
       return view('inbox')->with(['contactos'=>$contacts,'last'=>$last,'count'=>$count]);
     }
