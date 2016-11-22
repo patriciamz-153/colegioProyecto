@@ -15,7 +15,7 @@ class PadresController extends Controller
      */
     public function index()
     {
-        return "Hola";
+        
     }
 
     /**

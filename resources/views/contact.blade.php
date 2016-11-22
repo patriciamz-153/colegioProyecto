@@ -41,6 +41,7 @@
             <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
               <label for="nombre"><span style="color:red;"><strong> *</strong></span>Nombres: </label>
+              <h6><em>Ejemplo: Paul Ruiz</em></h6>
               <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z-\s]+[a-z]" required>
             </div>
             <div class="form-group">

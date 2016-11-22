@@ -25,19 +25,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        Route::model('institucion', \App\Models\Institucion::class);
-        Route::model('facultad', \App\Models\Facultad::class);
-        Route::model('sede', \App\Models\Sede::class);
-        Route::model('departamento', \App\Models\Departamento::class);
-        Route::model('provincia', \App\Models\Provincia::class);
-        Route::model('eap', \App\Models\Escuela::class);
-        Route::model('grupo', \App\Models\Grupo::class);
-        Route::model('evaluacion', \App\Models\Evaluacion::class);
-        Route::model('ip_lista_blanca', \App\Models\Firewall::class);
-        Route::model('incidente', \App\Models\Incidente::class);
-        Route::model('ambiente', \App\Models\Ambiente::class);
-        Route::model('plan', \App\Models\PlanEstudio::class);
-        Route::model('periodo', \App\Models\Periodo::class);
+        
     }
 
     /**
@@ -53,7 +41,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
-        $this->mapAdminReportRoutes();
     }
 
     /**
