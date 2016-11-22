@@ -108,22 +108,4 @@ class RouteServiceProvider extends ServiceProvider
             require base_path('routes/admin.php');
         });
     }
-
-    /**
-     * Define the "admin" routes focus on reports
-     *
-     *
-     * These routes only for admin users
-     * @return void
-     */
-    protected function mapAdminReportRoutes()
-    {
-        Route::group([
-            'middleware' => ['web', 'auth'],
-            'namespace' => $this->namespace . "\Admin\Reporte",
-            'prefix' => 'admin/reportes',
-        ], function ($router) {
-            require base_path('routes/admin_reporte.php');
-        });
-    }
 }
