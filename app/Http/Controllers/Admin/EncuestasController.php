@@ -28,7 +28,13 @@ class EncuestasController extends Controller
      */
     public function create()
     {
-        //
+      $e = Encuesta::all();
+      $es = [];
+      foreach($e as $a){
+        array_push($es,[$a->Id,json_decode($a->value)->Name]);
+      }
+      $count = count(Contacto::where('read','=',0)->get());
+      return view("crearEncuesta")->with(['count'=>$count,'encuestas'=>$es]);
     }
 
     /**
@@ -39,7 +45,13 @@ class EncuestasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $encuesta = new Encuesta;
+      $encuesta -> value=$request -> value;
+      $encuesta -> tipo_usuario_id=$request ->tipoUsuario;
+
+      $encuesta -> save();
+      $count = count(Contacto::where('read','=',0)->get());
+      return view('crearEncuesta')->with(['count'=>$count]);
     }
 
     /**

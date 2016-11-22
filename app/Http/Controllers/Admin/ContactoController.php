@@ -52,12 +52,7 @@ class ContactoController extends BaseAdminController
      */
     public function store(ContactoRequest $request)
     {
-        $contacto = new Contacto;
-        $contacto -> nombre=$request ->nombre;
-        $contacto -> email=$request ->email;
-        $contacto -> description=$request ->text;
-        $contacto -> save();
-        return view('contact2');
+        //
     }
 
     /**
