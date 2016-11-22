@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+/*namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\BaseAdminController;
 
@@ -15,3 +15,4 @@ class UbicacionController extends BaseAdminController
         return view('admin.ubicacion.index');
     }
 }
+*/

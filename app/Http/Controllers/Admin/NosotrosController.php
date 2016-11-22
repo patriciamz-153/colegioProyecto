@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+/*namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\BaseAdminController;
 
@@ -19,4 +19,4 @@ class NosotrosController extends BaseAdminController
         return view('admin.nosotros.index');
     }
 
-}
+}*/

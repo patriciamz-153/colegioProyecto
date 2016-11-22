@@ -64,7 +64,7 @@
                       @if(property_exists ($section,"Description"))<p>{{$section->Description}}</p>@endif
                       @foreach($section->Preguntas as $pregunta)
                       <div class="form-group">
-                        <label class="col-sm-4 control-label">{{$pregunta->Enunciado}}<span style="color:red;"><strong> *</strong></span>:</label>
+                        <label class="col-sm-4 control-label">{{$pregunta->Enunciado}} @if($pregunta->Type!="Checkbox")<span style="color:red;"><strong> *</strong></span>@endif:</label>
                         <div class="{{strtolower($pregunta->Type)}} col-sm-8 ">
                           @foreach($pregunta->Options as $option)
                           @foreach($option as $key => $value)
@@ -79,9 +79,7 @@
                 </div>
                 @endforeach
                 <ul class="pager wizard">
-                  <li class="previous first" style="display:none;"><a href="#">Principio</a></li>
                   <li class="previous"><a href="#">Anterior</a></li>
-                  <li class="next last" style="display:none;"><a href="#">Ultimo</a></li>
                   <li class="next"><a href="#">Siguiente</a></li>
                 </ul>
               </div>
