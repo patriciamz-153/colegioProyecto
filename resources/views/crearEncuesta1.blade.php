@@ -51,13 +51,12 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-cubes"></i> Encuestas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{url('admin/')}}">Resultados</a></li>
+                      <li><a href="index.html">Resultados</a></li>
+                      <li><a href="{{url('admin/encuestanos')}}">Encuestas</a></li>
                     </ul>
                   </li>
-                  <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contáctenos
-                    @if($count > 0)
-                      <span class="label label-success pull-right">{{$count}}</span>
-                    @endif
+                  <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contactenos
+                    
                   </a></li>
                 </ul>
               </div>
@@ -108,7 +107,7 @@
                 <li role="presentation" class="dropdown">
                   <a href="{{ url('admin/contacto')}}" class="info-number" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
-                    @if($count > 0)<span class="badge bg-green">{{$count}}</span>@endif
+                    
                   </a>
                 </li>
               </ul>
@@ -123,7 +122,7 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3>Contáctenos</h3>
+                <h3>Encuestas <small></small></h3>
               </div>
             </div>
 
@@ -133,60 +132,84 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Bandeja de entrada</h2>
+                    <h2>Encuestas<small></small></h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
 
                       <div class="col-sm-3 mail_list_column">
-                        <button id="compose" class="btn btn-sm btn-success btn-block" type="button">RECIBIDOS</button>
-                        @if($count>=0)
-                          @foreach($contactos as $contacto)
-                          <a href="{{url('admin/contacto',[$contacto->Id])}}">
-                            <div class="mail_list">
-                              <div class="left">
-                                @if($contacto->read == 0)
-                                  <i class="fa fa-circle"></i>
-                                @else
-                                  <i class="fa fa-circle-o"></i>
-                                @endif
-                              </div>
-                              <div class="right">
-                                <h3>{{$contacto->nombre}}</h3>
-                                <p>{{$contacto->email }}</p>
-                              </div>
-                            </div>
-                          </a>
-                          @endforeach
-                        @endif
+                         <button id="compose" class="btn btn-sm btn-success btn-block" type="button">CREAR ENCUESTA</button>
+                         <div class="row">
+
+                         
+                        </div>
                       </div>
                       <!-- /MAIL LIST -->
 
                       <!-- CONTENT MAIL -->
-                      <div class="col-sm-9 mail_view">
-                        <div class="inbox-body">
-                          @if(!is_null($last))
-                          <div class="mail_heading row">
-                            <div class="col-md-4 col-md-offset-8 text-right">
+                      <div class="col-sm-9">
+                        
+                        <div class="content" style="background-color: #222;opacity: .65;padding: 20px">
+                        <div class="title text-left" style="font-family:Montserrat-Regular;">Crear Encuesta</div>
+                        <div class="links" style="font-family:Montserrat-Regular;color:#fff">
+                          <form method="POST">
+                            <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
+                            <div class="form-group">
+                              <label for="value">Nombre: <span style="color:red;"><strong> *</strong></span>: </label>
+                              
+                                    <input type="text" class="form-control" id="nombre" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              
                             </div>
-                            <div class="col-md-12">
-                              <h4>{{$last->nombre}}</h4>
+                            <div class="form-group">
+                              <label for="tipoUsuario">Tipo de Usuario <span style="color:red;"><strong> *</strong></span>: </label>
+                              <select id="tipoUsuario" style="color: black;" name="tipoUsuario">
+                                <option value="2" >Padre</option>
+                                <option value="3">Profesor</option>
+                                
+                              </select>
+                              
                             </div>
-                          </div>
-                          <div class="sender-info">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <strong>{{$last->nombre}}</strong>
-                                <span>({{$last->email}})</span>
-                              </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 1<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text" class="form-control" id="pre1" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
                             </div>
-                          </div>
-                          <div class="view-mail">
-                            <p>{{$last->description}}</p>
-                          </div>
-                          @endif
+                            <div class="form-group">
+                              <label for="text">Pregunta 2<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text" class="form-control" id="pre2" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 3<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text"  class="form-control" id="pre3" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 4<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text"  class="form-control" id="pre4" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 5<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text" class="form-control" id="pre5" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 6<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text"  class="form-control" id="pre6" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 7<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text" class="form-control" id="pre7" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Pregunta 8<span style="color:red;"><strong> *</strong></span>: </label>
+                              <input type="text" onchange="tomarPregunta()" class="form-control" id="pre8" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                            </div>
+                            
+
+                            <input type="text" id="final" name="value" style="display: block;">
+                            
+                           <input type="submit" class="btn btn-default" value="Enviar"  />
+                          </form>
                         </div>
+                      </div>
 
                       </div>
                       <!-- /CONTENT MAIL -->
@@ -202,7 +225,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            © Copyright
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -210,11 +233,13 @@
       </div>
     </div>
 
+    
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
+    <!-- FastClick -->
+    <script src="{{ asset('js/fastclick.js') }}"></script>
     <!-- NProgress -->
     <script src="{{ asset('js/nprogress.js') }}"></script>
     <!-- bootstrap-wysiwyg -->
@@ -224,8 +249,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
-    <!-- FastClick -->
-    <script src="{{ asset('js/fastclick.js') }}"></script>
+
     <!-- bootstrap-wysiwyg -->
     <script>
       $(document).ready(function() {
@@ -288,9 +312,29 @@
         });
 
         prettyPrint();
+
       });
+
+      var final="";
+      
+      function tomarPregunta(){
+
+        final+= '{"Name":"'+document.getElementById("nombre").value + '","realizado":3,"Description":"Todos los campos son obligatorios.","Section":[{"Title":"'+document.getElementById("nombre").value + '","Description":"Lea con atención cada una de las preguntas, y escoja una sola opción. Los valores a escoger serán del 1 al 5, siendo 5 la calificación más alta y 1 la más baja.","Preguntas":[{"Enunciado":"';
+        final+= document.getElementById("pre1").value+ '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre2").value + '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre3").value + '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre4").value + '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre5").value + '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre6").value + '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre7").value + '","Type":"Radio","Options":[{"5":1},{"4":1},{"3":0},{"2":0},{"1":0}]},{"Enunciado":"';
+        final+= document.getElementById("pre8").value + '","Type":"Radio","Options":[{"5":0},{"4":1},{"3":0},{"2":0},{"1":0}]}]}]}';
+
+
+        document.getElementById("final").value=final;
+      }  
+
+                            
     </script>
     <!-- /bootstrap-wysiwyg -->
-
   </body>
 </html>
