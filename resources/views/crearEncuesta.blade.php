@@ -57,36 +57,36 @@
 
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 1<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text" class="form-control" id="pre1" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 1: </label>
+                              <input type="text" class="form-control" id="pre1" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 2<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text" class="form-control" id="pre2" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 2: </label>
+                              <input type="text" class="form-control" id="pre2" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 3<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text"  class="form-control" id="pre3" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 3: </label>
+                              <input type="text"  class="form-control" id="pre3" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 4<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text"  class="form-control" id="pre4" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 4: </label>
+                              <input type="text"  class="form-control" id="pre4" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 5<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text" class="form-control" id="pre5" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 5: </label>
+                              <input type="text" class="form-control" id="pre5" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 6<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text"  class="form-control" id="pre6" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 6: </label>
+                              <input type="text"  class="form-control" id="pre6" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 7<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text" class="form-control" id="pre7" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong>* </strong></span>Pregunta 7: </label>
+                              <input type="text" class="form-control" id="pre7" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
                             <div class="form-group">
-                              <label for="text">Pregunta 8<span style="color:red;"><strong> *</strong></span>: </label>
-                              <input type="text" onchange="tomarPregunta()" class="form-control" id="pre8" name="preguntas[]" patter="[A-Za-z-\s]+[a-z]" required>
+                              <label for="text"><span style="color:red;"><strong> *</strong></span>Pregunta 8: </label>
+                              <input type="text" onchange="tomarPregunta()" class="form-control" id="pre8" name="preguntas[]" pattern="[A-Za-z-\s]+[a-z]" required>
                             </div>
 
 

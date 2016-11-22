@@ -64,7 +64,7 @@
                       @if(property_exists ($section,"Description"))<p>{{$section->Description}}</p>@endif
                       @foreach($section->Preguntas as $pregunta)
                       <div class="form-group">
-                        <label class="col-sm-4 control-label">{{$pregunta->Enunciado}} @if($pregunta->Type!="Checkbox")<span style="color:red;"><strong> *</strong></span>@endif:</label>
+                        <label class="col-sm-4 control-label">@if($pregunta->Type!="Checkbox")<span style="color:red;"><strong> *</strong></span>@endif {{$pregunta->Enunciado}}:</label>
                         <div class="{{strtolower($pregunta->Type)}} col-sm-8 ">
                           @foreach($pregunta->Options as $option)
                           @foreach($option as $key => $value)
