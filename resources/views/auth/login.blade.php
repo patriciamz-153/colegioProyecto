@@ -65,9 +65,15 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6Lc6mgwUAAAAAJVSxZ8fMTsM41uSOmsMsu6l0VU2"></div>
-                <span class="help-block" style="display: none;">Please check that you are not a robot.</span>
+              <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                <div class="col-md-6">
+                  {!! Recaptcha::render() !!}
+                  @if ($errors->has('g-recaptcha-response'))
+                    <span class="help-block">
+                      <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
               <div class="form-group">
                 <div class="col-md-8 col-md-offset-4">
@@ -81,6 +87,5 @@
       </div>
       <!-- Scripts -->
       <script src="{{ url('js/app.js') }}"></script>
-      <script src="https://www.google.com/recaptcha/api.js"></script>
   </body>
 </html>
