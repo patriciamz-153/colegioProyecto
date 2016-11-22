@@ -51,7 +51,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-cubes"></i> Encuestas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Resultados</a></li>
+                      <li><a href="{{url('admin/')}}">Resultados</a></li>
                     </ul>
                   </li>
                   <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contáctenos

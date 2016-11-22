@@ -51,7 +51,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-cubes"></i> Encuestas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Resultados</a></li>
+                      <li><a href="{{url('admin/')}}">Resultados</a></li>
                     </ul>
                   </li>
                   <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contáctenos
@@ -123,7 +123,7 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3>Encuestas</h3>
+                <h3>Resultados</h3>
               </div>
             </div>
 
@@ -140,12 +140,12 @@
                     Total de personas que realizaron la encuesta: {{$resultados->realizado}}
                     @foreach($resultados->Section as $seccion)
                     <div class="row">
-                      <h1>{{$seccion->Title}}</h1>
+                      <h2><strong>{{$seccion->Title}}</strong></h2>
                       @foreach($seccion->Preguntas as $pregunta)
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                           <div class="x_title">
-                            <h2>{{$pregunta->Enunciado}}</h2>
+                            <h4>{{$pregunta->Enunciado}}</h4>
                             <div class="clearfix"></div>
                           </div>
                           <div class="x_content">

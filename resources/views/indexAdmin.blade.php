@@ -51,7 +51,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-cubes"></i> Encuestas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Resultados</a></li>
+                      <li><a href="{{url('admin/')}}">Resultados</a></li>
                     </ul>
                   </li>
                   <li><a href="{{url('admin/contacto')}}"><i class="fa fa-newspaper-o"></i> Contáctenos
@@ -123,7 +123,7 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3>Contáctenos</h3>
+                <h3>Resultados</h3>
               </div>
             </div>
 
@@ -139,7 +139,7 @@
                   <div class="x_content">
                     <div class="row">
                       @foreach($encuestas as $encuesta)
-                      <a href="{{ url('admin/encuesta',[$encuesta[0]])}}"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span> {{$encuesta[1]}}</a><br>
+                      <h5><a href="{{ url('admin/encuesta',[$encuesta[0]])}}"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>{{$encuesta[1]}}</a></h5><br>
                       @endforeach
                     </div>
                   </div>
